@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="word press将以下代码复制到footer.php中尾部前 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455&lt;!doctype html&gt;&lt;head&gt;&lt;meta charset&#x3D;&quot;UTF-8&amp;quot">
+<meta property="og:type" content="article">
+<meta property="og:title" content="网页雪花特效">
+<meta property="og:url" content="http://example.com/blog/%E7%BD%91%E9%A1%B5%E9%9B%AA%E8%8A%B1%E7%89%B9%E6%95%88.html">
+<meta property="og:site_name" content="Monkey">
+<meta property="og:description" content="word press将以下代码复制到footer.php中尾部前 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455&lt;!doctype html&gt;&lt;head&gt;&lt;meta charset&#x3D;&quot;UTF-8&amp;quot">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-11-27T02:26:39.000Z">
+<meta property="article:modified_time" content="2021-03-07T05:00:19.020Z">
+<meta property="article:author" content="chang">
+<meta property="article:tag" content="linux, centos, wordpress">
+<meta name="twitter:card" content="summary">
+<link rel="publisher" href="x16620040224@gmail.com">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/blog/images/chang.png">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/blog/images/chang.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/chang.png">
+          
+        
+    
+    <!-- title -->
+    <title>网页雪花特效</title>
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/blog/css/style.css">
+
+    <!-- rss -->
+    
+    
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a target="_blank" rel="noopener" href="https://www.oocc.xyz/">Home</a></li>
+         
+          <li><a href="/blog/archives/">Writing</a></li>
+         
+          <li><a target="_blank" rel="noopener" href="https://music.oocc.xyz/">Music</a></li>
+         
+          <li><a target="_blank" rel="noopener" href="https://tu.oocc.xyz/">Images</a></li>
+         
+          <li><a href="/blog/about/">About</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/blog/OneManager.html"><i class="fa fa-chevron-left" aria-hidden="true" onmouseover='$("#i-prev").toggle();' onmouseout='$("#i-prev").toggle();'></i></a></li>
+        
+        
+        <li><a class="icon" href="/blog/%E8%87%AA%E5%BB%BA%E5%9B%BE%E5%BA%8A%E6%9C%8D%E5%8A%A1.html"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover='$("#i-next").toggle();' onmouseout='$("#i-next").toggle();'></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up" aria-hidden="true" onmouseover='$("#i-top").toggle();' onmouseout='$("#i-top").toggle();'></i></a></li>
+        <li><a class="icon" href="#"><i class="fa fa-share-alt" aria-hidden="true" onmouseover='$("#i-share").toggle();' onmouseout='$("#i-share").toggle();' onclick='$("#share").toggle();return false;'></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://example.com/blog/%E7%BD%91%E9%A1%B5%E9%9B%AA%E8%8A%B1%E7%89%B9%E6%95%88.html"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://example.com/blog/%E7%BD%91%E9%A1%B5%E9%9B%AA%E8%8A%B1%E7%89%B9%E6%95%88.html&text=网页雪花特效"><i class="fa fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://example.com/blog/%E7%BD%91%E9%A1%B5%E9%9B%AA%E8%8A%B1%E7%89%B9%E6%95%88.html&title=网页雪花特效"><i class="fa fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/blog/%E7%BD%91%E9%A1%B5%E9%9B%AA%E8%8A%B1%E7%89%B9%E6%95%88.html&is_video=false&description=网页雪花特效"><i class="fa fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=网页雪花特效&body=Check out this article: http://example.com/blog/%E7%BD%91%E9%A1%B5%E9%9B%AA%E8%8A%B1%E7%89%B9%E6%95%88.html"><i class="fa fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://example.com/blog/%E7%BD%91%E9%A1%B5%E9%9B%AA%E8%8A%B1%E7%89%B9%E6%95%88.html&title=网页雪花特效"><i class="fa fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://example.com/blog/%E7%BD%91%E9%A1%B5%E9%9B%AA%E8%8A%B1%E7%89%B9%E6%95%88.html&title=网页雪花特效"><i class="fa fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://example.com/blog/%E7%BD%91%E9%A1%B5%E9%9B%AA%E8%8A%B1%E7%89%B9%E6%95%88.html&title=网页雪花特效"><i class="fa fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://example.com/blog/%E7%BD%91%E9%A1%B5%E9%9B%AA%E8%8A%B1%E7%89%B9%E6%95%88.html&title=网页雪花特效"><i class="fa fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://example.com/blog/%E7%BD%91%E9%A1%B5%E9%9B%AA%E8%8A%B1%E7%89%B9%E6%95%88.html&name=网页雪花特效&description="><i class="fa fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#word-press"><span class="toc-number">1.</span> <span class="toc-text">word press</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#hexo"><span class="toc-number">2.</span> <span class="toc-text">hexo</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index width mx-auto px2 my4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        网页雪花特效
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Monkey</span>
+      </span>
+      
+    <div class="postdate">
+        <time datetime="2020-11-27T02:26:39.000Z" itemprop="datePublished">2020-11-27</time>
+    </div>
+
+
+      
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h4 id="word-press"><a href="#word-press" class="headerlink" title="word press"></a>word press</h4><p>将以下代码复制到footer.php中尾部</body>前</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line">&lt;!doctype html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;meta charset=<span class="string">&quot;UTF-8&quot;</span>&gt;</span><br><span class="line">&lt;title&gt;下雪代码&lt;/title&gt;</span><br><span class="line">&lt;!-- 引入两段JS --&gt;</span><br><span class="line">&lt;script type=&quot;text/javascript&quot; src=&quot;http://libs.baidu.com/jquery/1.8.3/jquery.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;script type=&quot;text/javascript&quot; src=&quot;http://libs.baidu.com/jquery/1.8.3/jquery.min.js&quot;&gt;&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;!-- 下面是JS代码，放在body中 --&gt;</span><br><span class="line">&lt;script type=<span class="string">&quot;text/javascript&quot;</span>&gt;</span><br><span class="line">(function($)&#123;</span><br><span class="line">$.fn.snow = function(options)&#123;</span><br><span class="line"><span class="keyword">var</span> $flake = $(<span class="string">&#x27;&lt;div id=&quot;snowbox&quot; /&gt;&#x27;</span>).css(&#123;<span class="string">&#x27;position&#x27;</span>: <span class="string">&#x27;absolute&#x27;</span>,<span class="string">&#x27;z-index&#x27;</span>:<span class="string">&#x27;9999&#x27;</span>, <span class="string">&#x27;top&#x27;</span>: <span class="string">&#x27;-50px&#x27;</span>&#125;).html(<span class="string">&#x27;❄&#x27;</span>),</span><br><span class="line">documentHeight = $(document).height(),</span><br><span class="line">documentWidth = $(document).width(),</span><br><span class="line">defaults = &#123;</span><br><span class="line">minSize : <span class="number">10</span>,</span><br><span class="line">maxSize : <span class="number">20</span>,</span><br><span class="line">newOn : <span class="number">1000</span>,</span><br><span class="line">flakeColor : <span class="string">&quot;#04B4AE&quot;</span> <span class="comment">/* 此处可以定义雪花颜色，若要白色可以改为#FFFFFF */</span></span><br><span class="line">&#125;,</span><br><span class="line">options = $.extend(&#123;&#125;, defaults, options);</span><br><span class="line"><span class="keyword">var</span> interval= setInterval( function()&#123;</span><br><span class="line"><span class="keyword">var</span> startPositionLeft = Math.random() * documentWidth - <span class="number">100</span>,</span><br><span class="line">startOpacity = <span class="number">0.5</span> + Math.random(),</span><br><span class="line">sizeFlake = options.minSize + Math.random() * options.maxSize,</span><br><span class="line">endPositionTop = documentHeight - <span class="number">200</span>,</span><br><span class="line">endPositionLeft = startPositionLeft - <span class="number">500</span> + Math.random() * <span class="number">500</span>,</span><br><span class="line">durationFall = documentHeight * <span class="number">10</span> + Math.random() * <span class="number">5000</span>;</span><br><span class="line">$flake.clone().appendTo(<span class="string">&#x27;body&#x27;</span>).css(&#123;</span><br><span class="line">left: startPositionLeft,</span><br><span class="line">opacity: startOpacity,</span><br><span class="line"><span class="string">&#x27;font-size&#x27;</span>: sizeFlake,</span><br><span class="line">color: options.flakeColor</span><br><span class="line">&#125;).animate(&#123;</span><br><span class="line">top: endPositionTop,</span><br><span class="line">left: endPositionLeft,</span><br><span class="line">opacity: <span class="number">0.2</span></span><br><span class="line">&#125;,durationFall,<span class="string">&#x27;linear&#x27;</span>,function()&#123;</span><br><span class="line">$(<span class="keyword">this</span>).remove()</span><br><span class="line">&#125;);</span><br><span class="line">&#125;, options.newOn);</span><br><span class="line">&#125;;</span><br><span class="line">&#125;)(jQuery);</span><br><span class="line">$(function()&#123;</span><br><span class="line">$.fn.snow(&#123;</span><br><span class="line">minSize: <span class="number">5</span>, <span class="comment">/* 定义雪花最小尺寸 */</span></span><br><span class="line">maxSize: <span class="number">30</span>,<span class="comment">/* 定义雪花最大尺寸 */</span></span><br><span class="line">newOn: <span class="number">500</span> <span class="comment">/* 定义密集程度，数字越小越密集 */</span></span><br><span class="line">&#125;);</span><br><span class="line">&#125;);</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;!-- 代码结束 --&gt;</span><br></pre></td></tr></table></figure>
+
+
+<h4 id="hexo"><a href="#hexo" class="headerlink" title="hexo"></a>hexo</h4><p>在主题下source\js 目录下新建一个 snow.js 文件，粘贴以下代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;* 控制下雪 *&#x2F;</span><br><span class="line">function snowFall(snow) &#123;</span><br><span class="line">    &#x2F;* 可配置属性 *&#x2F;</span><br><span class="line">    snow &#x3D; snow || &#123;&#125;;</span><br><span class="line">    this.maxFlake &#x3D; snow.maxFlake || 200;   &#x2F;* 最多片数 *&#x2F;</span><br><span class="line">    this.flakeSize &#x3D; snow.flakeSize || 10;  &#x2F;* 雪花形状 *&#x2F;</span><br><span class="line">    this.fallSpeed &#x3D; snow.fallSpeed || 1;   &#x2F;* 坠落速度 *&#x2F;</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;* 兼容写法 *&#x2F;</span><br><span class="line">requestAnimationFrame &#x3D; window.requestAnimationFrame ||</span><br><span class="line">    window.mozRequestAnimationFrame ||</span><br><span class="line">    window.webkitRequestAnimationFrame ||</span><br><span class="line">    window.msRequestAnimationFrame ||</span><br><span class="line">    window.oRequestAnimationFrame ||</span><br><span class="line">    function(callback) &#123; setTimeout(callback, 1000 &#x2F; 60); &#125;;</span><br><span class="line"></span><br><span class="line">cancelAnimationFrame &#x3D; window.cancelAnimationFrame ||</span><br><span class="line">    window.mozCancelAnimationFrame ||</span><br><span class="line">    window.webkitCancelAnimationFrame ||</span><br><span class="line">    window.msCancelAnimationFrame ||</span><br><span class="line">    window.oCancelAnimationFrame;</span><br><span class="line">&#x2F;* 开始下雪 *&#x2F;</span><br><span class="line">snowFall.prototype.start &#x3D; function()&#123;</span><br><span class="line">    &#x2F;* 创建画布 *&#x2F;</span><br><span class="line">    snowCanvas.apply(this);</span><br><span class="line">    &#x2F;* 创建雪花形状 *&#x2F;</span><br><span class="line">    createFlakes.apply(this);</span><br><span class="line">    &#x2F;* 画雪 *&#x2F;</span><br><span class="line">    drawSnow.apply(this)</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;* 创建画布 *&#x2F;</span><br><span class="line">function snowCanvas() &#123;</span><br><span class="line">    &#x2F;* 添加Dom结点 *&#x2F;</span><br><span class="line">    var snowcanvas &#x3D; document.createElement(&quot;canvas&quot;);</span><br><span class="line">    snowcanvas.id &#x3D; &quot;snowfall&quot;;</span><br><span class="line">    snowcanvas.width &#x3D; window.innerWidth;</span><br><span class="line">    snowcanvas.height &#x3D; document.body.clientHeight;</span><br><span class="line">    snowcanvas.setAttribute(&quot;style&quot;, &quot;position:absolute; top: 0; left: 0; z-index: 1; pointer-events: none;&quot;);</span><br><span class="line">    document.getElementsByTagName(&quot;body&quot;)[0].appendChild(snowcanvas);</span><br><span class="line">    this.canvas &#x3D; snowcanvas;</span><br><span class="line">    this.ctx &#x3D; snowcanvas.getContext(&quot;2d&quot;);</span><br><span class="line">    &#x2F;* 窗口大小改变的处理 *&#x2F;</span><br><span class="line">    window.onresize &#x3D; function() &#123;</span><br><span class="line">        snowcanvas.width &#x3D; window.innerWidth;</span><br><span class="line">        &#x2F;* snowcanvas.height &#x3D; window.innerHeight *&#x2F;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;* 雪运动对象 *&#x2F;</span><br><span class="line">function flakeMove(canvasWidth, canvasHeight, flakeSize, fallSpeed) &#123;</span><br><span class="line">    this.x &#x3D; Math.floor(Math.random() * canvasWidth);   &#x2F;* x坐标 *&#x2F;</span><br><span class="line">    this.y &#x3D; Math.floor(Math.random() * canvasHeight);  &#x2F;* y坐标 *&#x2F;</span><br><span class="line">    this.size &#x3D; Math.random() * flakeSize + 2;          &#x2F;* 形状 *&#x2F;</span><br><span class="line">    this.maxSize &#x3D; flakeSize;                           &#x2F;* 最大形状 *&#x2F;</span><br><span class="line">    this.speed &#x3D; Math.random() * 1 + fallSpeed;         &#x2F;* 坠落速度 *&#x2F;</span><br><span class="line">    this.fallSpeed &#x3D; fallSpeed;                         &#x2F;* 坠落速度 *&#x2F;</span><br><span class="line">    this.velY &#x3D; this.speed;                             &#x2F;* Y方向速度 *&#x2F;</span><br><span class="line">    this.velX &#x3D; 0;                                      &#x2F;* X方向速度 *&#x2F;</span><br><span class="line">    this.stepSize &#x3D; Math.random() &#x2F; 30;                 &#x2F;* 步长 *&#x2F;</span><br><span class="line">    this.step &#x3D; 0                                       &#x2F;* 步数 *&#x2F;</span><br><span class="line">&#125;</span><br><span class="line">flakeMove.prototype.update &#x3D; function() &#123;</span><br><span class="line">    var x &#x3D; this.x,</span><br><span class="line">        y &#x3D; this.y;</span><br><span class="line">    &#x2F;* 左右摆动(余弦) *&#x2F;</span><br><span class="line">    this.velX *&#x3D; 0.98;</span><br><span class="line">    if (this.velY &lt;&#x3D; this.speed) &#123;</span><br><span class="line">        this.velY &#x3D; this.speed</span><br><span class="line">    &#125;</span><br><span class="line">    this.velX +&#x3D; Math.cos(this.step +&#x3D; .05) * this.stepSize;</span><br><span class="line"></span><br><span class="line">    this.y +&#x3D; this.velY;</span><br><span class="line">    this.x +&#x3D; this.velX;</span><br><span class="line">    &#x2F;* 飞出边界的处理 *&#x2F;</span><br><span class="line">    if (this.x &gt;&#x3D; canvas.width || this.x &lt;&#x3D; 0 || this.y &gt;&#x3D; canvas.height || this.y &lt;&#x3D; 0) &#123;</span><br><span class="line">        this.reset(canvas.width, canvas.height)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line">&#x2F;* 飞出边界-放置最顶端继续坠落 *&#x2F;</span><br><span class="line">flakeMove.prototype.reset &#x3D; function(width, height) &#123;</span><br><span class="line">    this.x &#x3D; Math.floor(Math.random() * width);</span><br><span class="line">    this.y &#x3D; 0;</span><br><span class="line">    this.size &#x3D; Math.random() * this.maxSize + 2;</span><br><span class="line">    this.speed &#x3D; Math.random() * 1 + this.fallSpeed;</span><br><span class="line">    this.velY &#x3D; this.speed;</span><br><span class="line">    this.velX &#x3D; 0;</span><br><span class="line">&#125;;</span><br><span class="line">&#x2F;&#x2F; 渲染雪花-随机形状（此处可修改雪花颜色！！！）</span><br><span class="line">flakeMove.prototype.render &#x3D; function(ctx) &#123;</span><br><span class="line">    var snowFlake &#x3D; ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.size);</span><br><span class="line">    snowFlake.addColorStop(0, &quot;rgba(255, 255, 255, 0.9)&quot;);  &#x2F;* 此处是雪花颜色，默认是白色 *&#x2F;</span><br><span class="line">    snowFlake.addColorStop(.5, &quot;rgba(255, 255, 255, 0.5)&quot;); &#x2F;* 若要改为其他颜色，请自行查 *&#x2F;</span><br><span class="line">    snowFlake.addColorStop(1, &quot;rgba(255, 255, 255, 0)&quot;);    &#x2F;* 找16进制的RGB 颜色代码。 *&#x2F;</span><br><span class="line">    ctx.save();</span><br><span class="line">    ctx.fillStyle &#x3D; snowFlake;</span><br><span class="line">    ctx.beginPath();</span><br><span class="line">    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);</span><br><span class="line">    ctx.fill();</span><br><span class="line">    ctx.restore();</span><br><span class="line">&#125;;</span><br><span class="line">&#x2F;* 创建雪花-定义形状 *&#x2F;</span><br><span class="line">function createFlakes() &#123;</span><br><span class="line">    var maxFlake &#x3D; this.maxFlake,</span><br><span class="line">        flakes &#x3D; this.flakes &#x3D; [],</span><br><span class="line">        canvas &#x3D; this.canvas;</span><br><span class="line">    for (var i &#x3D; 0; i &lt; maxFlake; i++) &#123;</span><br><span class="line">        flakes.push(new flakeMove(canvas.width, canvas.height, this.flakeSize, this.fallSpeed))</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;* 画雪 *&#x2F;</span><br><span class="line">function drawSnow() &#123;</span><br><span class="line">    var maxFlake &#x3D; this.maxFlake,</span><br><span class="line">        flakes &#x3D; this.flakes;</span><br><span class="line">    ctx &#x3D; this.ctx, canvas &#x3D; this.canvas, that &#x3D; this;</span><br><span class="line">    &#x2F;* 清空雪花 *&#x2F;</span><br><span class="line">    ctx.clearRect(0, 0, canvas.width, canvas.height);</span><br><span class="line">    for (var e &#x3D; 0; e &lt; maxFlake; e++) &#123;</span><br><span class="line">        flakes[e].update();</span><br><span class="line">        flakes[e].render(ctx);</span><br><span class="line">    &#125;</span><br><span class="line">    &#x2F;*  一帧一帧的画 *&#x2F;</span><br><span class="line">    this.loop &#x3D; requestAnimationFrame(function() &#123;</span><br><span class="line">        drawSnow.apply(that);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;* 调用及控制方法 *&#x2F;</span><br><span class="line">var snow &#x3D; new snowFall(&#123;maxFlake:60&#125;);</span><br><span class="line">snow.start();</span><br></pre></td></tr></table></figure>
+<p>然后在 主题下layout\layout.ejs 文件里引用即可：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 雪花特效 --&gt;</span><br><span class="line">&lt;script type&#x3D;&quot;text&#x2F;javascript&quot; src&#x3D;&quot;\js\snow.js&quot;&gt;&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+  </div>
+</article>
+
+    <div class="blog-post-comments">
+        <div id="disqus_thread">
+            <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        </div>
+    </div>
+
+
+
+    </div>
+    
+      <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a target="_blank" rel="noopener" href="https://www.oocc.xyz/">Home</a></li>
+         
+          <li><a href="/blog/archives/">Writing</a></li>
+         
+          <li><a target="_blank" rel="noopener" href="https://music.oocc.xyz/">Music</a></li>
+         
+          <li><a target="_blank" rel="noopener" href="https://tu.oocc.xyz/">Images</a></li>
+         
+          <li><a href="/blog/about/">About</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#word-press"><span class="toc-number">1.</span> <span class="toc-text">word press</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#hexo"><span class="toc-number">2.</span> <span class="toc-text">hexo</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://example.com/blog/%E7%BD%91%E9%A1%B5%E9%9B%AA%E8%8A%B1%E7%89%B9%E6%95%88.html"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://example.com/blog/%E7%BD%91%E9%A1%B5%E9%9B%AA%E8%8A%B1%E7%89%B9%E6%95%88.html&text=网页雪花特效"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://example.com/blog/%E7%BD%91%E9%A1%B5%E9%9B%AA%E8%8A%B1%E7%89%B9%E6%95%88.html&title=网页雪花特效"><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/blog/%E7%BD%91%E9%A1%B5%E9%9B%AA%E8%8A%B1%E7%89%B9%E6%95%88.html&is_video=false&description=网页雪花特效"><i class="fa fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=网页雪花特效&body=Check out this article: http://example.com/blog/%E7%BD%91%E9%A1%B5%E9%9B%AA%E8%8A%B1%E7%89%B9%E6%95%88.html"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://example.com/blog/%E7%BD%91%E9%A1%B5%E9%9B%AA%E8%8A%B1%E7%89%B9%E6%95%88.html&title=网页雪花特效"><i class="fa fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://example.com/blog/%E7%BD%91%E9%A1%B5%E9%9B%AA%E8%8A%B1%E7%89%B9%E6%95%88.html&title=网页雪花特效"><i class="fa fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://example.com/blog/%E7%BD%91%E9%A1%B5%E9%9B%AA%E8%8A%B1%E7%89%B9%E6%95%88.html&title=网页雪花特效"><i class="fa fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://example.com/blog/%E7%BD%91%E9%A1%B5%E9%9B%AA%E8%8A%B1%E7%89%B9%E6%95%88.html&title=网页雪花特效"><i class="fa fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://example.com/blog/%E7%BD%91%E9%A1%B5%E9%9B%AA%E8%8A%B1%E7%89%B9%E6%95%88.html&name=网页雪花特效&description="><i class="fa fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+      <ul>
+        <li id="toc"><a class="icon" href="#" onclick='$("#toc-footer").toggle();return false;'><i class="fa fa-list fa-lg" aria-hidden="true"></i> TOC</a></li>
+        <li id="share"><a class="icon" href="#" onclick='$("#share-footer").toggle();return false;'><i class="fa fa-share-alt fa-lg" aria-hidden="true"></i> Share</a></li>
+        <li id="top" style="display:none"><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a></li>
+        <li id="menu"><a class="icon" href="#" onclick='$("#nav-footer").toggle();return false;'><i class="fa fa-bars fa-lg" aria-hidden="true"></i> Menu</a></li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+    
+    <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2021 chang
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a target="_blank" rel="noopener" href="https://www.oocc.xyz/">Home</a></li>
+         
+          <li><a href="/blog/archives/">Writing</a></li>
+         
+          <li><a target="_blank" rel="noopener" href="https://music.oocc.xyz/">Music</a></li>
+         
+          <li><a target="_blank" rel="noopener" href="https://tu.oocc.xyz/">Images</a></li>
+         
+          <li><a href="/blog/about/">About</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/lihua.js"></script>
+<!-- 雪花特效 -->
+<script type="text/javascript" src="\js\snow.js"></script>
+</body>
+</html>
+<!-- styles -->
+
+<link rel="stylesheet" href="/blog/lib/font-awesome/css/font-awesome.min.css">
+
+
+<link rel="stylesheet" href="/blog/lib/meslo-LG/styles.css">
+
+
+<link rel="stylesheet" href="/blog/lib/justified-gallery/justifiedGallery.min.css">
+
+
+
+<!-- jquery -->
+
+<script src="/blog/lib/jquery/jquery.min.js"></script>
+
+
+<script src="/blog/lib/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+
+<script src="/blog/js/main.js"></script>
+
+<!-- Google Analytics -->
+
+    <script type="text/javascript">
+        (function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-49627206-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+<!-- Disqus Comments -->
+
+    <script type="text/javascript">
+        var disqus_shortname = 'forsigner';
+
+        (function(){
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        }());
+    </script>
+
+

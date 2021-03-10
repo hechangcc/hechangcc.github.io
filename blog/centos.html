@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="linux系统下皆文件 Linux目录说明 &#x2F;root 管理员root的家目录&#x2F;home 普通用户默认目录&#x2F;bin–&gt;&#x2F;usr&#x2F;bin 普通用户命令&#x2F;sbin-&gt;&#x2F;usr&#x2F;sbin管理员使用的命令&#x2F;usr&#x2F;local 第三方源码包默认安装目录&#x2F;etc 系统服务配置文件&#x2F;var 可以变化的数据文件&#x2F;tmp 临时文件存放目录&#x2F;dev 设备文件&#x2F;lib–&gt;&#x2F;usr&#x2F;lib 库文件&#x2F;li">
+<meta property="og:type" content="article">
+<meta property="og:title" content="centos">
+<meta property="og:url" content="http://example.com/blog/centos.html">
+<meta property="og:site_name" content="Monkey">
+<meta property="og:description" content="linux系统下皆文件 Linux目录说明 &#x2F;root 管理员root的家目录&#x2F;home 普通用户默认目录&#x2F;bin–&gt;&#x2F;usr&#x2F;bin 普通用户命令&#x2F;sbin-&gt;&#x2F;usr&#x2F;sbin管理员使用的命令&#x2F;usr&#x2F;local 第三方源码包默认安装目录&#x2F;etc 系统服务配置文件&#x2F;var 可以变化的数据文件&#x2F;tmp 临时文件存放目录&#x2F;dev 设备文件&#x2F;lib–&gt;&#x2F;usr&#x2F;lib 库文件&#x2F;li">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-01-03T02:17:13.000Z">
+<meta property="article:modified_time" content="2021-03-09T14:41:15.261Z">
+<meta property="article:author" content="chang">
+<meta property="article:tag" content="linux, centos, wordpress">
+<meta name="twitter:card" content="summary">
+<link rel="publisher" href="x16620040224@gmail.com">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/blog/images/chang.png">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/blog/images/chang.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/chang.png">
+          
+        
+    
+    <!-- title -->
+    <title>centos</title>
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/blog/css/style.css">
+
+    <!-- rss -->
+    
+    
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a target="_blank" rel="noopener" href="https://www.oocc.xyz/">Home</a></li>
+         
+          <li><a href="/blog/archives/">Writing</a></li>
+         
+          <li><a target="_blank" rel="noopener" href="https://music.oocc.xyz/">Music</a></li>
+         
+          <li><a target="_blank" rel="noopener" href="https://tu.oocc.xyz/">Images</a></li>
+         
+          <li><a href="/blog/about/">About</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/blog/WordPress%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8.html"><i class="fa fa-chevron-left" aria-hidden="true" onmouseover='$("#i-prev").toggle();' onmouseout='$("#i-prev").toggle();'></i></a></li>
+        
+        
+        <li><a class="icon" href="/blog/%E7%BD%91%E7%AB%99%E9%BC%A0%E6%A0%87%E4%B8%89%E7%A7%8D%E7%82%B9%E5%87%BB%E6%95%88%E6%9E%9C.html"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover='$("#i-next").toggle();' onmouseout='$("#i-next").toggle();'></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up" aria-hidden="true" onmouseover='$("#i-top").toggle();' onmouseout='$("#i-top").toggle();'></i></a></li>
+        <li><a class="icon" href="#"><i class="fa fa-share-alt" aria-hidden="true" onmouseover='$("#i-share").toggle();' onmouseout='$("#i-share").toggle();' onclick='$("#share").toggle();return false;'></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://example.com/blog/centos.html"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://example.com/blog/centos.html&text=centos"><i class="fa fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://example.com/blog/centos.html&title=centos"><i class="fa fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/blog/centos.html&is_video=false&description=centos"><i class="fa fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=centos&body=Check out this article: http://example.com/blog/centos.html"><i class="fa fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://example.com/blog/centos.html&title=centos"><i class="fa fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://example.com/blog/centos.html&title=centos"><i class="fa fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://example.com/blog/centos.html&title=centos"><i class="fa fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://example.com/blog/centos.html&title=centos"><i class="fa fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://example.com/blog/centos.html&name=centos&description="><i class="fa fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#18-2-%E5%91%BD%E4%BB%A4%E5%8F%82%E6%95%B0%EF%BC%9A"><span class="toc-number">1.</span> <span class="toc-text">18.2. 命令参数：</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index width mx-auto px2 my4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        centos
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Monkey</span>
+      </span>
+      
+    <div class="postdate">
+        <time datetime="2021-01-03T02:17:13.000Z" itemprop="datePublished">2021-01-03</time>
+    </div>
+
+
+      
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <p>linux系统下皆文件</p>
+<p>Linux目录说明</p>
+<p>/root 管理员root的家目录<br>/home 普通用户默认目录<br>/bin–&gt;/usr/bin 普通用户命令<br>/sbin-&gt;/usr/sbin管理员使用的命令<br>/usr/local 第三方源码包默认安装目录<br>/etc 系统服务配置文件<br>/var 可以变化的数据文件<br>/tmp 临时文件存放目录<br>/dev 设备文件<br>/lib–&gt;/usr/lib 库文件<br>/lib64-&gt;/usr/lib64 库文件<br>/proc 虚拟的文件系统<br>/boot 系统内核，引导程序文件<br>/media 移动设备挂载点<br>/mnt 手动挂载点</p>
+<p>常见的文件类型<br>字符设备（c） 块设备（b） 软连接文件（l） 目录文件（d） 普通文件（f或-） 管道文件（p） 套接字文件（s）</p>
+<p>快速删除光标前/后的内容 前 ctrl+u 后 ctrl+k</p>
+<p>file 查看文件类型<br>语法 file 文件路径</p>
+<p>路径</p>
+<p>.或者./ 当前目录</p>
+<p>..或../ 上一级目录</p>
+<p>pwd 查看当前路径</p>
+<p>cd 默认切换到家目录 cd .. 返回上层目录 cd 据对路径 到达指定目录</p>
+<p>ls 查看目录下的文件 -a 查看所有文件 -l 长列表显示 -h 人性化显示 -d列出目录名 -t按时间排序 -r倒序 -S按大小排序 -i显示文件索引号 -R递归列出目录内容 -m用逗号分隔显示内容</p>
+<p>ls列出的结果颜色 蓝色表示目录 绿色表示权限为拥有所有权限 黑色表示文件</p>
+<p>mkdir 创建目录<br>语法 mkdir 目录名 mkdir -p 一次性创建多层不存在的目录 mkdir 路径1 路径2 路径3 一次性创建多个目录</p>
+<p>touch 创建文件<br>语法 touch 文件路径 touch 路径1 路径2 路径3 一次性创建多个文件 touch -a 文件名 -t “202010101111” 修改文件访问时间 touch -m 文件名 -t “202010101111” 修改文件修改时间 touch -d “20201010” 文件名 同时修改<br>rm 删除文件或目录<br>语法 rm - f 删除文件 rm -rf 删除目录 rm -rf * 删除目录下所有文件</p>
+<p>rm -f aa* 删除目录里aa开头的所有文件</p>
+<p>vim 文件路径 打开一个文件（可以存在也可以不存在）</p>
+<p>vim的打开方式<br>vim 文件路径 打开指定文件<br>vim +数字 文件路径 打开指定文件 并将光标移到指定行<br>vim +/关键词 文件路径 打开指定文件 并高亮显示关键词<br>vim 文件路径1 文件路径2 文件路径3 同时打开多个文件</p>
+<p>命令模式下（进入文件默认的模式）</p>
+<p>光标到行首 shift+6或^<br>光标到行尾 shift+4或$<br>光标到首行 gg<br>光标到末行 G<br>翻屏 向上 ctrl+b或PgUp 向下 ctrl+f或PgDn<br>复制光标所在行 yy<br>复制光标所在行以下指定行数（包含当前行） 数字 yy<br>可视化复制 ctrl+v 按上下左右选择要复制的按yy复制<br>粘贴 p</p>
+<p>剪切/删除 dd<br>剪切/删除光标所在行以下指定行数（包含当前行） 数字dd<br>剪切/删除光标所在行 但是下一行不上移 D</p>
+<p>撤销 u 可以连续撤销<br>恢复 ctrl+r 恢复之前的撤销的操作<br>快速移动到指定行 数字G 或 :数字<br>以当前光标为准向上/向下移动n行 数字↑，数字↓<br>向左向右移动n个字符 数字←，数字→</p>
+<p>末行模式</p>
+<p>进入 ： 退出连按两下Esc<br>:w 保存<br>:w 路径 另存为<br>:q 退出文件<br>:wq或:x 保存并退出<br>:q! 强制退出（刚做的修改不保存）<br>:!外部命令 在vim里面调用外部命令<br>/关键词 搜索 上一个/下一个搜索结果切换 按N/n<br>:nohl 取消高亮<br>:s/搜索的关键字/新的内容 替换光标所在行的第一处符合条件的内容<br>:s/搜索的关键字/新的内容/g 替换光标所在行的所有符合条件的内容<br>:%s/搜索的关键字/新的内容 替换整个文档内所有行的第一个符合条件的内容<br>:%s/搜索的关键字/新的内容/g 替换整个文档符合条件的内容<br>:X 给文件加密码 解密:X 密码留空保存<br>:set nu 显示行号 取消:set nonu</p>
+<p>:files 查看已经打开的文件名<br>:open 文件名 切换到指定文件<br>:bn 切换到下一个文件<br>:bp 切换到上一个文件</p>
+<p>:syntax off 关闭显示颜色<br>:syntax on 打开显示颜色</p>
+<p>vim中计算器实用<br>在编辑模式下 ctrl+R 然后输入“=” 光标会变到最后一行 输入需要计算的内容 按一下回车就可以得到结果</p>
+<p>vim配置文件<br>个人配置文件（~/.vimrc，如果没有可以自行创建）<br>全局配置文件（vim自带，/etc/vimrc）<br>都有配置的话以个人配置文件为准</p>
+<p>别名机制 可以自定义命令<br>依靠一个别名映射文件 ~/.bashrc<br>修改后重新登陆就生效</p>
+<p>运行模式（运行级别）<br>Linux中存在一个进程init（初始化） 该进程对应的配置文件/etc/inittab/<br>0-表示关机级别 1-单用户模式 2-多用户模式，不带NFS 3-多用户模式。完全的多用户模式 4-没有被使用的模式（被保留模式） 5-图形化界面模式 6-表示重启级别</p>
+<p>在centos中存在7个运行级别/模式 与该级别相关的几条命令<br>init 0 表示关机<br>init 3 表示切换到不带桌面的模式（临时切换，重启会恢复）<br>init 5 切换到图形界面<br>init 6 重启电脑</p>
+<p>输出重定向<br>语法 &gt; 覆盖输出 覆盖掉原先的文件内容<br>&gt;&gt; 追加输出 不会覆盖原先的文件内容 会在后面继续添加<br>&gt;/&gt;&gt; 文件路径（文件可以不存在，自动新建）</p>
+<p>stat 查看文件详细信息</p>
+<p>cat 一般查看小文件内容 cat -n 显示文件内容行号 cat -A查看文件换行符 tac查看小文件内容和cat相反查看的是倒序</p>
+<p>cat 还能对文件进行合并<br>语法 cat 被合并的文件路径1 被合并的文件路径2……文件路径n &gt; 合并之后文件路径</p>
+<p>df 指令 查看磁盘空间<br>语法 df -h</p>
+<p>free 查看内存<br>语法 free -m</p>
+<p>less 命令 查看文件 比较少的内容输出 通过辅助键查看更多（数字+回车，空格+上下方向键） 按/有搜索功能<br>语法 less 文件路径</p>
+<p>head 命令 查看一个文件的前n行，不指定默认前10行<br>语法 head -n 文件路径（n代表数字）</p>
+<p>tail 查看文件后n行 不指定默认后10行<br>语法 tail -n 文件路径（n代表数字）</p>
+<p>tail 查看一个文件的动态变化<br>语法 tail -f 文件路径</p>
+<p>wc指令 统计文件内容信息（行数，单词数，字节数）<br>语法 wc -lwc 文件路径<br>-l 表示行数<br>-w 表示单词数<br>-c 表示字节数</p>
+<p>管道符 | 一般可以用于“过滤”，“特殊”，“扩展处理”<br>过滤 查询根目录下包含“y”字母的文档名称<br>ls /| grep y 管道前面的输出就是后面指令的输入 grep作用主要用于过滤</p>
+<p>hostname指令 操作服务器的主机名<br>语法 hostname 输出完整主机名<br>hostname -f 输出当前主机中的FQDN全限定域名</p>
+<p>临时设置主机名<br>语法 hostname 新主机名</p>
+<p>永久设置主机名<br>找到主主机名的配置文件/etc/sysconfig/network 在里面修改<br>修改Linux服务器的hosts文件/etc/hosts/ 里面加上新主机名</p>
+<p>ldd 查看二进制的命令文件</p>
+<p>cp 文件拷贝 cp 被拷贝文件路径 拷贝到的路径 拷贝的同时也可以进行重命名<br>cp -r 拷贝目录 cp -p 保留属性拷贝文件 cp -pr 保留属性拷贝目录 cp -a 保留属性拷贝文件或目录</p>
+<p>mv 文件或目录移动和重命名 mv 被移动的文件路径 被移动到的路径</p>
+<p>type 命令 查询命令是内部还是外部的<br>help 命令 内部命令求帮助<br>命令 –help 外部命令求帮助</p>
+<p>man 指令 Linux中全部命令手册<br>语法 man 命令</p>
+<p>which 命令 找出命令的绝对路径<br>whereis 命令 找出命令的绝对路径以及文档手册信息</p>
+<p>find 指令<br>语法 find 查找路径 选项 关键字<br>选项<br>-name 按照文件名查找（支持模糊搜索） find 路径 -name “文件名”<br>-iname 按照文件名忽略大小写查找<br>-size 按照文件大小查找 +1M 大于1M -1M小于1M 1M等于1M<br>-type 按照文件类型查找 -type b 查找所有块类型文件 -type l 查找所有软连接 -type c 查找所有次终端 -type d 查找所有目录 -type f 查找所有文件<br>-mtime 按文件修改时间查找 -n 指n天以内 +n 指n天以前<br>-atime 按文件访问时间查找<br>-ctime 按文件创建时间查找<br>-perm 按文件权限来查找</p>
+<p>find 路径 选项 关键字 动作</p>
+<p>-exec 对查找到的文件直接执行该参数后的shell命令<br>-ok 对查找到的文件讯问式执行该参数后的shell命令<br>-delete 删除查找到的文件 find 路径 选项 -delete<br>-ls 列出查找到的文件 find 路径 -type f -ls<br>-print 打印出查找到的文件（默认选项）</p>
+<p>注意 -exec或-ok后面写完命令必须以空格反斜杠;结尾（ ;）<br>find 路径 -type f -exec cp {} 拷贝到的路径 ; 查找某某路径下的所有文件然后直接拷贝到某某路径上去</p>
+<p>解压<br>语法<br>tar -zxvf *.tar.gz<br>tar -jxvf *.tar.bz2<br>选项<br>-z 通过gzip指令处理文件<br>-x 从文件中还原文件<br>-v 显示操作过程<br>-f 指定一个文件夹<br>-j 支持bzip2解压文件</p>
+<p>service 指令 控制一些软件服务的 启动/停止/重启<br>语法service 服务名 stat/stop/restart</p>
+<p>date指令 表示操作时间日期（读取，设置）<br>语法 date 2020年 12月 06日 星期日 19:17:07 CST<br>date +%F (等价于date “+%Y-%m-%d”) 2020-12-06<br>date “+%F %T”(等价于date “+%Y-%m-%d %H:%M:%S”) 2020-12-06 19:24:46</p>
+<p>获取之前或之后的某个时间<br>语法 date -d “-1 day” “+%Y-%m-%d %H:%M:%S” （+表示之后-表示之前 day天 year年 month月）</p>
+<p>date -s 设置系统时间 date -s “20201010 10:10:10”</p>
+<p>hwclock 查看设置硬件时间<br>hwclock -l 硬件时间<br>hwclock -s 系统同步成硬件时间<br>hwclock -w 硬件同步成系统时间<br>chronyc makestep 同步系统时间</p>
+<p>$() 括号内的命令优先执行<br>mkdir $(date +%F) 以当前日期建一个目录</p>
+<p>cal 指令 操作日历<br>语法 cal 查看当月日历<br>cal -3 查看上月+本月+下月的日历<br>cal -y 2020 一年的日历</p>
+<p>文件权限</p>
+<p>读权限r 用数字表示4 可以查看目录文件内容</p>
+<p>写权限w 用数字表示2 针对目录 可以在目录里创建，删除，重命名等操作。 针对文件 可以修改文件的内容。</p>
+<p>执行权限x 用数字表示1 针对目录 可以进入或切换到目录。 针对文件 可以执行该文件。</p>
+<p>没有权限- 用数字表示0</p>
+<p>UGO的含义</p>
+<p>U 文件的拥有者或者创建者<br>G 在文件的所属组（默认是创建文件的用户的主组）里的用户<br>O 既不是文件创建者，也不是文件属组里的用户 称为其他人<br>a 表示所有用户，包含UGO</p>
+<p>修改文件权限<br>chmod [选项] 模式 文档<br>常见选项<br>-R 递归更改目录和目录里文件的权限</p>
+<p>通过字母形式更改文件权限</p>
+<p>chmod o+w 需要改权限的文件或目录 给o增加w权限<br>chmod u=rws 需要改权限的文件或目录 给u增加所有权限<br>chmod u=rws,g=rw,o=— 需要改权限的文件或目录 给u所有权限 给g r+w权限 取消o的所有权限<br>chmod +x 需要改权限的文件或目录 给所有人加x权限<br>chmos -R 不只改目录权限，还可以更改目录里面所有文件的权限<br>通过数字形式更改文件权限</p>
+<p>rw- r-x r– 用数字表示就是6 5 4<br>chmod 777 需要改权限的文件或目录 给所有人所有权限 444 所有人给r权限 等等<br>chmod 777 目录/* 目录下所有文件都改成777权限</p>
+<p>id指令 查看一个用户的一些基本信息（用户id，用户组id，附加组id）不指定用户，默认当前用户<br>语法 id 默认当前用户<br>id 用户名 查看用户是否存在 存在则显示用户信息<br>验证用户信息 /etc/passwd<br>验证用户组信息 /etc/group</p>
+<p>whoami指令 “我是谁” 显示当前登录的用户名 一般用于shell脚本</p>
+<p>ps -ef指令 ps 用于查看服务器的进程信息 e 表示列出全部经常 f表示显示全部的列<br>ps结果中过滤出想要查看的进程 ps -ef| grep 进程名称<br>UID 进程执行的用户ID<br>PID 进程ID<br>PPID 进程的父级进程ID 如果程序的父级进程找不到 该进程称为僵尸进程<br>C cup的占用率 形式是百分数<br>TTY 终端设备 发起该进程的设备识别符号 如果是？则不是由终端发起的<br>STIME 进程的执行时间<br>CMD 进程名称或对应的路径</p>
+<p>top 指令 查看服务器的进程占的资源 按q键退出<br>PID 进程ID<br>USER 进程对应的用户<br>PR 优先级<br>VIRT 虚拟内存<br>RES 常驻内存<br>SHR 共享内存<br>S 表示进程的状态（S表示睡眠 R表示运行）<br>%CPU CPU占用百分比<br>%MEM 内存的占用百分比<br>TIME+ 执行的时间<br>COMMAND 进程的名称或者路径<br>计算一个进程实际实用内存=常驻内存（RES）-共享内存（SHR）<br>快捷键 M 表示结果按照内存从高到低排列<br>P CPU 使用率从高到低排列<br>1 服务器多个CPU 可以切换显示各个CPU详细信息</p>
+<p>kill 指令 杀死进程<br>语法 kill 进程PID（需要配合ps一起用）<br>ps结果中过滤出想要查看的进程 ps -ef| grep 进程名称</p>
+<p>语法 killall 进程名称 与kill相似更好用的杀死进程的命令</p>
+<p>ifconfig 指令 用于操作网卡相关指令<br>语法 ifconfig 获取网卡信息</p>
+<p>uptime 指令 输出计算机的持续在线时间<br>语法 uptime</p>
+<p>uname 指令 获取计算机操作系统相关信息<br>语法 uname 获取操作系统类型<br>uname -a 获取全部信息（类型、全部主机名、内核版本、发布时间、开源计划）</p>
+<p>netstat -tnlp 指令 查看网络连接状态<br>语法 netstat -tnlp<br>-t 表示只列出tcp协议的连接<br>-n 表示将地址从字母组合转化成ip地址 将协议转化成端口号<br>-l 表示过滤出“state（状态）”列中其值为LISTEN（监听）的连接<br>-p 表示显示发起连接的进程Pid和进程名称</p>
+<p>查看全部状态<br>语法 netstat -an</p>
+<p>traceroute 查找当前主机与目标主机之间所有的网关（路由器） 【该命令不是内置命令，需要安装】<br>语法 traceroute 主机地址</p>
+<p>arp 查询ip地址的mac地址<br>语法 arp -a 查看本地缓存的mac表<br>arp -d 主机地址 删除缓存mac地址</p>
+<p>tcpdump 抓包，抓取数据表<br>语法 tcpdump 协议 port 端口<br>tcpdump 协议 port 端口 host 地址<br>tcpdump -i 网卡设备名</p>
+<p>du -sh指令 查看目录真实大小<br>语法 du -sh 目录路径<br>-s 只显示汇总的大小<br>-h 较高可读性形式显示</p>
+<p>用户与用户组<br>/etc/passwd 储存用户关键信息<br>/etc/group 储存用户组关键信息<br>/etc/shadow 储存用户的密码信息<br>查看用户主组可以查看passwd文件 查看用户附加组可以查看group文件</p>
+<p>添加用户<br>语法 useradd 选项 用户名<br>选项<br>-g 表示指定用户的用户主组<br>-G 表示指定用户的用户附加组<br>-u 用户的id（用户的标识符）<br>-c 添加注释</p>
+<p>修改用户<br>语法 usermod 选项 用户名<br>-g 表示指定用户的用户主组<br>-G 表示指定用户的用户附加组<br>-u 用户的id（用户的标识符）<br>-l 修改用户名 usermod -l 新用户名 旧用户名</p>
+<p>设置密码<br>语法 passwd 用户名</p>
+<p>删除用户<br>语法 userdel 选项 用户名<br>选项<br>-r 删除用户的同时 删除其家目录<br>用户登录状态删不了解决办法 先删除该用户进程 然后再执行删除</p>
+<p>切换用户<br>su 用户名 不指定用户名默认切换到root</p>
+<p>用户组添加<br>语法 groupadd 选项 用户组名<br>选项<br>-g 设置自定义ID数字，不指定默认从500之后递增</p>
+<p>用户组编辑<br>语法 groupmod 选项 用户组名称<br>选项<br>-g 设置自定义用户组ID数字<br>-n 设置新的用户组名称</p>
+<p>用户组删除<br>语法 groupdel 用户组名称<br>如果删除一个组，但是这个组是某个用户的主组，则不容许删除。一定要删除，则先从组内移除所有用户</p>
+<p>网络设置<br>配置文件位置 /etc/sysconfig/network-scripts/</p>
+<p>重启网卡<br>service network restart</p>
+<p>有的版本中可能没有service命令来快速操作服务，但是有一个共性目录 /etc/init.d 中放着很多服务的快捷方式<br>重启网卡还可以实用/etc/init.d/network restart</p>
+<p>创建快捷方式（软连接）<br>语法 in -s 原始文件路径 快捷方式的路径</p>
+<p>重启单个网卡<br>语法 ifdown 网卡名 停止某个网卡<br>ifup 网卡名 开启某个网卡<br>例 ifdown eth0</p>
+<p>SSH配置文件路径 /etc/ssh/ssh_config<br>服务启动/停止/重启<br>service sshd start/stop/restart<br>/etc/init.d/sshd start/stop/restart</p>
+<p>chkconfig 相当于电脑管家工具，提供开机启动项管理服务 启动级别有0123456 一般不设置016<br>0-表示关机级别 1-单用户模式 2-多用户模式，不带NFS 3-多用户模式。完全的多用户模式 4-没有被使用的模式（被保留模式） 5-图形化界面模式 6-表示重启级别</p>
+<p>chkconfig –list 开机启动服务查询<br>删除开机启动服务<br>chkconfig –del 服务名<br>添加开机启动服务<br>chkconfig –add 服务名</p>
+<p>设置服务在某个级别下开机启动/不启动<br>语法 chkconfig –level 连在一起的启动级别 服务名 on/off</p>
+<p>ntp服务 主要是对于计算机的时间同步管理操作<br>手动同步 ntpdate 时间服务器的域名或者IP地址</p>
+<p>设置时间同步服务<br>启动ntpd服务<br>service ntpd start 或者 /etc/init.d/ntpd start<br>开机自启动 chkconfig –level 35 ntpd on</p>
+<p>rpm 软件管理<br>查询<br>rpm -qa|grep 关键字<br>选择<br>-q 查询<br>-a 全部<br>rpm -Uvh 完整名称 更新<br>rpm -qf 文件路径 查询指定文件属于哪个包<br>卸载<br>rpm -e 软件名称<br>提示依赖关系卸载不了，又不想去解决这个问题的时候可以<br>rpm -e 软件包名 –nodeps</p>
+<p>安装软件<br>1-去软件官网下载<br>2-在镜像文件中读取</p>
+<p>查看块状设备信息命令<br>lsblk</p>
+<p>name 名称<br>size 设备大小<br>type 类型<br>MountPoint 挂载点</p>
+<p>光盘的挂载和解挂<br>解挂命令umount<br>语法 umount 当前设备挂载点（路径）<br>挂载命令mount<br>语法 mount 设备的原始地址 要挂载的路径<br>设备原始地址：统一都在/dev下，然后可以通过大小确定具体name值，拼凑在一起组成原始地址</p>
+<p>安装软件<br>rpm -ivh 软件包完整名称<br>选项<br>-i 安装<br>-v 显示进度条<br>-h 以#形式行啊是进度条</p>
+<p>计划任务<br>语法 crontab 选项<br>选项<br>-l 列出用户计划任务列表<br>-e 编辑计划任务列表<br>-u 指定用户名，不指定，默认当前用户<br>-r 删除指定用户的计划任务列表</p>
+<p>编辑计划任务<br>计划任务语法格式，一行一个计划 分 时 日 月 周 需要执行的命令<br>比如 0 0 * * * reboot 表示每天0点0分执行重启操作<br>取值范围<br>分：0<del>59<br>时：0</del>32<br>日：1<del>31<br>月：1</del>12<br>周：0~7 0和7表示星期天<br>四个符号<br>*：表示取值范围中的每一个数字<br>-：连续区间表达式，比如1-7<br>/：表示每多少个 ，每十分钟一次 */10<br>,：表示多个取值，比如在1点，2点，6点执行， 1,2,6</p>
+<p>设置某些用户不允许设置计划任务(黑名单)<br>配置文件位于 /etc/cron.deny 里面写用户名，一行一个</p>
+<p>还有一个配置文件（白名单）<br>/etc/cron.allow 里面写用户名，一行一个</p>
+<p>白名单优先级高于黑名单</p>
+<p>chown 修改文档的所属用户<br>语法 chown -R 用户名 文档路径</p>
+<p>文档的所属用户和所属组同时修改<br>语法 chown -R 用户名:组名 文档路径</p>
+<p>chgrp 修改文档的所属组<br>语法 chgrp -R 组名 文档路径</p>
+<p>让普通用户可以有权限执行reboot等，需要root用户才能执行的命令<br>可以用sudo 命令来进行权限设置 sudo的配置文件 /etc/sudoers 配置sudo需要使用visudo命令，打开后使用方法和vim一致<br>配置权限<br>root ALL(ALL) ALL<br>root 表示用户名<br>ALL 表示允许登录的主机（地址白名单）<br>（ALL）表示以谁的身份执行，ALL表示root身份<br>ALL 表示当前用户可以执行的命令，多个命令可以使用“,”分割</p>
+<p>添加规则命令的时候不建议写直接形式命令，而是写命令的完整路径<br>查看命令路径可以用which命令查看<br>语法 which 命令指令名称<br>配置好了以后，普通用户要执行命令需要用sudo来执行<br>语法 sudo 需要执行的指令<br>比如授权test用户实行添加用户，修改用户密码的权限，不允许修改root密码<br>test ALL(ALL) /usr/sbin/useradd,/usr/bin/passwd [A-Za-z]*, !/usr/bin/passwd root<br>先允许test修改所有用户的密码 后面再禁止修改root的密码</p>
+<p>普通用户查看自己的特殊权限使用 sudo -l 命令</p>
+<p>seradd 用户名 添加用户<br>su - 用户名 切换到用户<br>exit 退出用户<br>groupadd admin 添加admin组 groupdel admin 删除admin组</p>
+<p>以用户的角度<br>usermod -G admin 用户名 修改用户的附加组到admin<br>以组的角度<br>gpasswd -M 用户1,用户2,用户3 把这三个用户一起加入到admin组<br>gpasswd -a 用户名 把用户追加入到admin组</p>
+<p>shell 代码规范<br>#!/bin/bash<br>文件命名规范<br>文件名.sh<br>例如 创建test.sh 实现一个shell脚本程序，输出hello word<br>touch test.sh 创建一个文件<br>vim test.sh 打开文件进行编辑以下内容</p>
+<p>#!/bin/bash<br>echo “holle word!”<br>保存退出<br>给文件添加执行权限 chmod +x test.sh<br>执行 /root/test.sh</p>
+<p>变量 先定义再使用<br>定义形式 class_name=”hello word” 变量后面的等号左右不能有空格<br>使用形式 echo $class_name<br>使用变量改写上面的例子内容<br>#!/bin/bash<br>hc=”hello word!”<br>echo $hc</p>
+<p>关于单双引号 双引号能够识别变量，单引号不能识别变量，只会原样输出。双引号能够实现转义，单引号不能转义<br>注意：当在脚本中需要执行一些指令并且将执行的结果赋予给变量的时候需要使用反引号”`”(Esc键下面)</p>
+<p>只读变量<br>语法 readonly 变量名<br>例如<br>#!/bin/bash<br>hc=”holle word!”<br>readonly hc</p>
+<p>接收用户输入<br>语法 read -p 提示信息 变量名<br>例如 执行之后提示请输入要创建文件的路径，然后自动为用户创建文件，提示文件创建成功，并列出文件<br>#!/bin/bash<br>read -p ‘请输入要创建文件的路径：’ hc<br>tonch $hc<br>echo ‘文件创建成功’<br>ls-l $hc</p>
+<p>条件表达式<br>语法1<br>if 条件<br>then<br>命令1<br>命令2<br>……</p>
+<p>fi</p>
+<p>单行写法 ： if [ 条件 ]; then 命令; fi</p>
+<p>语法2<br>if 条件<br>then<br>命令1<br>命令2<br>……<br>else 否则<br>命令<br>fi</p>
+<p>语法3<br>if 条件<br>then<br>命令<br>elif 条件 如果不符合第一个条件符合这个条件<br>then<br>命令1<br>else<br>命令<br>fi</p>
+<p>expr 计算工具，用它能完成表达式的求值操作 + - * / %取余 =赋值 ==相等 !=不相等<br>例如两个数相加<br>#!/bin/bash<br>hc=<code>expr 2 + 2</code> 这里要使用反引号<br>echo “两个数之和为:$hc”</p>
+<p>关系运算符<br>-eq 检测两个数是否相等 相等返回true<br>-ne 检测两个数是否相等 不相等返回true<br>-gt 检查左边的数是否大于右边 是 返回true<br>-lt 检测左边的数是否小于右边 是 返回true<br>-ge 检查左边的数是否大于等于右边 是 返回true<br>-le 检查左边的数是否小于等于右边 是 返回true</p>
+<p>yum等傻瓜式安装<br>yun list 列出所有软件<br>yum search 搜索指定关键词的包<br>yum [-y] install 包名 安装指定的包 -y表示不用确认<br>yum [-y] update 包名 更新指定的包 不指定则更新全部<br>yum [-y] remove 包名 卸载指定的包</p>
+<p>scp [参数] [原路径] [目标路径]</p>
+<h2 id="18-2-命令参数："><a href="#18-2-命令参数：" class="headerlink" title="18.2. 命令参数："></a>18.2. 命令参数：</h2><ul>
+<li>-1 强制scp命令使用协议ssh1</li>
+<li>-2 强制scp命令使用协议ssh2</li>
+<li>-4 强制scp命令只使用IPv4寻址</li>
+<li>-6 强制scp命令只使用IPv6寻址</li>
+<li>-B 使用批处理模式（传输过程中不询问传输口令或短语）</li>
+<li>-C 允许压缩。（将-C标志传递给ssh，从而打开压缩功能）</li>
+<li>-p 留原文件的修改时间，访问时间和访问权限。</li>
+<li>-q 不显示传输进度条。</li>
+<li>-r 递归复制整个目录。</li>
+<li>-v 详细方式显示输出。scp和ssh(1)会显示出整个过程的调试信息。这些信息用于调试连接，验证和配置问题。</li>
+<li>-c cipher 以cipher将数据传输进行加密，这个选项将直接传递给ssh。</li>
+<li>-F ssh_config 指定一个替代的ssh配置文件，此参数直接传递给ssh。</li>
+<li>-i identity_file 从指定文件中读取传输时使用的密钥文件，此参数直接传递给ssh。</li>
+<li>-l limit 限定用户所能使用的带宽，以Kbit/s为单位。</li>
+<li>-o ssh_option 如果习惯于使用ssh_config(5)中的参数传递方式，</li>
+<li>-P port 注意是大写的P, port是指定数据传输用到的端口号</li>
+<li>-S program 指定加密传输时所使用的程序。此程序必须能够理解ssh(1)的选项。</li>
+</ul>
+<p>执行下面的命令设置时区</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;em&gt;#设置硬件时钟调整为与本地时钟一致&lt;/em&gt;</span><br><span class="line">timedatectl set-local-rtc <span class="number">1</span></span><br><span class="line">&lt;em&gt;#设置时区为上海&lt;/em&gt;</span><br><span class="line">timedatectl set-timezone Asia/Shanghai</span><br></pre></td></tr></table></figure>
+  </div>
+</article>
+
+    <div class="blog-post-comments">
+        <div id="disqus_thread">
+            <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        </div>
+    </div>
+
+
+
+    </div>
+    
+      <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a target="_blank" rel="noopener" href="https://www.oocc.xyz/">Home</a></li>
+         
+          <li><a href="/blog/archives/">Writing</a></li>
+         
+          <li><a target="_blank" rel="noopener" href="https://music.oocc.xyz/">Music</a></li>
+         
+          <li><a target="_blank" rel="noopener" href="https://tu.oocc.xyz/">Images</a></li>
+         
+          <li><a href="/blog/about/">About</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#18-2-%E5%91%BD%E4%BB%A4%E5%8F%82%E6%95%B0%EF%BC%9A"><span class="toc-number">1.</span> <span class="toc-text">18.2. 命令参数：</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://example.com/blog/centos.html"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://example.com/blog/centos.html&text=centos"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://example.com/blog/centos.html&title=centos"><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/blog/centos.html&is_video=false&description=centos"><i class="fa fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=centos&body=Check out this article: http://example.com/blog/centos.html"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://example.com/blog/centos.html&title=centos"><i class="fa fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://example.com/blog/centos.html&title=centos"><i class="fa fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://example.com/blog/centos.html&title=centos"><i class="fa fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://example.com/blog/centos.html&title=centos"><i class="fa fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://example.com/blog/centos.html&name=centos&description="><i class="fa fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+      <ul>
+        <li id="toc"><a class="icon" href="#" onclick='$("#toc-footer").toggle();return false;'><i class="fa fa-list fa-lg" aria-hidden="true"></i> TOC</a></li>
+        <li id="share"><a class="icon" href="#" onclick='$("#share-footer").toggle();return false;'><i class="fa fa-share-alt fa-lg" aria-hidden="true"></i> Share</a></li>
+        <li id="top" style="display:none"><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a></li>
+        <li id="menu"><a class="icon" href="#" onclick='$("#nav-footer").toggle();return false;'><i class="fa fa-bars fa-lg" aria-hidden="true"></i> Menu</a></li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+    
+    <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2021 chang
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a target="_blank" rel="noopener" href="https://www.oocc.xyz/">Home</a></li>
+         
+          <li><a href="/blog/archives/">Writing</a></li>
+         
+          <li><a target="_blank" rel="noopener" href="https://music.oocc.xyz/">Music</a></li>
+         
+          <li><a target="_blank" rel="noopener" href="https://tu.oocc.xyz/">Images</a></li>
+         
+          <li><a href="/blog/about/">About</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/lihua.js"></script>
+<!-- 雪花特效 -->
+<script type="text/javascript" src="\js\snow.js"></script>
+</body>
+</html>
+<!-- styles -->
+
+<link rel="stylesheet" href="/blog/lib/font-awesome/css/font-awesome.min.css">
+
+
+<link rel="stylesheet" href="/blog/lib/meslo-LG/styles.css">
+
+
+<link rel="stylesheet" href="/blog/lib/justified-gallery/justifiedGallery.min.css">
+
+
+
+<!-- jquery -->
+
+<script src="/blog/lib/jquery/jquery.min.js"></script>
+
+
+<script src="/blog/lib/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+
+<script src="/blog/js/main.js"></script>
+
+<!-- Google Analytics -->
+
+    <script type="text/javascript">
+        (function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-49627206-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+<!-- Disqus Comments -->
+
+    <script type="text/javascript">
+        var disqus_shortname = 'forsigner';
+
+        (function(){
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        }());
+    </script>
+
+

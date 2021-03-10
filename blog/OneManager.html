@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="在VPS上搭建新建站点，删除根目录所有文件。从github下载最新的源码解压到网站根目录  设置伪静态，复制粘贴如下代码： 1rewrite ^(.*) &#x2F;index.php?&#x2F;$1 last;  根目录下 config.php设置权限为666  在Heroku上搭建  注册并登录 Heroku   heroku.com 到github项目地址 右上角fork unstar 一份到自己GitHu">
+<meta property="og:type" content="article">
+<meta property="og:title" content="OneManager">
+<meta property="og:url" content="http://example.com/blog/OneManager.html">
+<meta property="og:site_name" content="Monkey">
+<meta property="og:description" content="在VPS上搭建新建站点，删除根目录所有文件。从github下载最新的源码解压到网站根目录  设置伪静态，复制粘贴如下代码： 1rewrite ^(.*) &#x2F;index.php?&#x2F;$1 last;  根目录下 config.php设置权限为666  在Heroku上搭建  注册并登录 Heroku   heroku.com 到github项目地址 右上角fork unstar 一份到自己GitHu">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-11-30T02:04:36.000Z">
+<meta property="article:modified_time" content="2021-03-09T14:48:13.336Z">
+<meta property="article:author" content="chang">
+<meta property="article:tag" content="linux, centos, wordpress">
+<meta name="twitter:card" content="summary">
+<link rel="publisher" href="x16620040224@gmail.com">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/blog/images/chang.png">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/blog/images/chang.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/chang.png">
+          
+        
+    
+    <!-- title -->
+    <title>OneManager</title>
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/blog/css/style.css">
+
+    <!-- rss -->
+    
+    
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a target="_blank" rel="noopener" href="https://www.oocc.xyz/">Home</a></li>
+         
+          <li><a href="/blog/archives/">Writing</a></li>
+         
+          <li><a target="_blank" rel="noopener" href="https://music.oocc.xyz/">Music</a></li>
+         
+          <li><a target="_blank" rel="noopener" href="https://tu.oocc.xyz/">Images</a></li>
+         
+          <li><a href="/blog/about/">About</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/blog/OneDrive%E5%88%A9%E7%94%A8aria2%E7%A6%BB%E7%BA%BF%E4%B8%8B%E8%BD%BD.html"><i class="fa fa-chevron-left" aria-hidden="true" onmouseover='$("#i-prev").toggle();' onmouseout='$("#i-prev").toggle();'></i></a></li>
+        
+        
+        <li><a class="icon" href="/blog/%E7%BD%91%E9%A1%B5%E9%9B%AA%E8%8A%B1%E7%89%B9%E6%95%88.html"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover='$("#i-next").toggle();' onmouseout='$("#i-next").toggle();'></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up" aria-hidden="true" onmouseover='$("#i-top").toggle();' onmouseout='$("#i-top").toggle();'></i></a></li>
+        <li><a class="icon" href="#"><i class="fa fa-share-alt" aria-hidden="true" onmouseover='$("#i-share").toggle();' onmouseout='$("#i-share").toggle();' onclick='$("#share").toggle();return false;'></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://example.com/blog/OneManager.html"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://example.com/blog/OneManager.html&text=OneManager"><i class="fa fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://example.com/blog/OneManager.html&title=OneManager"><i class="fa fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/blog/OneManager.html&is_video=false&description=OneManager"><i class="fa fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=OneManager&body=Check out this article: http://example.com/blog/OneManager.html"><i class="fa fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://example.com/blog/OneManager.html&title=OneManager"><i class="fa fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://example.com/blog/OneManager.html&title=OneManager"><i class="fa fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://example.com/blog/OneManager.html&title=OneManager"><i class="fa fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://example.com/blog/OneManager.html&title=OneManager"><i class="fa fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://example.com/blog/OneManager.html&name=OneManager&description="><i class="fa fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A5%E4%B8%8B%E6%98%AF%E8%AE%BE%E7%BD%AE%E8%AF%A6%E7%BB%86%E5%86%85%E5%AE%B9"><span class="toc-number">1.</span> <span class="toc-text">以下是设置详细内容</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index width mx-auto px2 my4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        OneManager
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Monkey</span>
+      </span>
+      
+    <div class="postdate">
+        <time datetime="2020-11-30T02:04:36.000Z" itemprop="datePublished">2020-11-30</time>
+    </div>
+
+
+      
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <ul>
+<li>在VPS上搭建<br>新建站点，删除根目录所有文件。从<a target="_blank" rel="noopener" href="https://github.com/qkqpttgf/OneManager-php/releases">github</a>下载最新的源码解压到网站根目录</li>
+</ul>
+<p>设置伪静态，复制粘贴如下代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rewrite ^(.*) /index.php?/$<span class="number">1</span> last;</span><br></pre></td></tr></table></figure>
+
+<p>根目录下 config.php设置权限为666</p>
+<ul>
+<li>在Heroku上搭建</li>
+</ul>
+<p>注册并登录 Heroku   <a href="https://link.zhihu.com/?target=http://heroku.com/">heroku.com</a></p>
+<p>到github<a target="_blank" rel="noopener" href="https://github.com/qkqpttgf/OneManager-php">项目地址</a> 右上角fork unstar 一份到自己GitHub上面</p>
+<p>点击 “<strong>Deploy to HeroKu</strong>” 按钮，跳转到 <strong>HeroKu</strong> 创建 App 页面。</p>
+<p>设置应用名称，及选择地区，等待部署完成后进入管理应用程序</p>
+<p>点击开启应用程式会打开你程序的网址</p>
+<ul>
+<li>之后就是安装了</li>
+</ul>
+<p>访问网站进行配置<br>语言选择简体中文，在设置管理员密码的界面，点击 确认重写（伪静态）功能启用，然后设置一个管理员密码，点击确定。左上角会出现管理的字样，鼠标移动过去，点击设置，进入后台</p>
+<p>passfile这个建议设置下，这样才能加密某些文件夹，其他一些设置选项，按照需求来，设置完毕之后，点击设置两个字保存。点击添加onedrive盘</p>
+<p>标签和显示名称自己根据自己的实际情况填写，主要是针对多盘用户，用作区分使用。如果你的盘是国际版访问 <a target="_blank" rel="noopener" href="https://portal.azure.com,世纪互联版访问https//portal.azure.cn">https://portal.azure.com，世纪互联版访问https://portal.azure.cn</a></p>
+<p>我的是国际版登录之后，找到Azure Active Directory并进入，然后点击左侧的 应用注册 然后选择 新注册，应用名称随便。受支持的账户类型选择下面最长的那一项，其中重定向URL地址为 <a target="_blank" rel="noopener" href="https://scfonedrive.github.io/">https://scfonedrive.github.io/</a></p>
+<p>注册完之后，复制保存客户端ID，然后点击左侧的 证书和密码</p>
+<p>新增客户端密码，说明随便写，截止期限，选择 从不，然后点击添加，把生成的值保存下来，这个只显示一次，以后就看不到了</p>
+<p>然后点击左侧的 API权限，添加权限，点击 Microsoft Graph，然后点击里面的 委托的权限，找到里面的Files类别里的 Files.ReadWrite.All，勾选之后点击添加权限，然后刷新</p>
+<p>最后将刚才记录的应用程序ID和秘钥值，粘贴到onemanager程序里，然后确定即可，第一次可能添加失败，没关系，删除重新添一次就可以了</p>
+<p>现在就可以在线播放视频音乐了。也可以用VLC播放串流</p>
+<h3 id="以下是设置详细内容"><a href="#以下是设置详细内容" class="headerlink" title="以下是设置详细内容"></a>以下是设置详细内容</h3><p>adminloginpage</p>
+<p>自定义登录地址，设置后就会隐藏登录按钮(有些主题本来就没有登录按钮)，登录时需要手动在网盘地址后加上?你设置的值进行登录。<br>比如设置为abc，那么你只能通过<a target="_blank" rel="noopener" href="http://xxx.com/xxx?abc%E5%9C%B0%E5%9D%80%E6%9D%A5%E7%99%BB%E5%BD%95">http://xxx.com/xxx?abc地址来登录</a> 。所以一旦设置就要记住你设置的值，不然连你自己也没法知道登录地址那就麻烦了。<br>这个设置是为了防止别人通过默认的登录界面尝试登录你的网盘，设置本项后只要猜不到登录界面，即使别人知道登录密码也没用，多一道防护墙，让网盘更安全。</p>
+<p>autoJumpFirstDisk</p>
+<p>设置点击网盘标题时跳转到绑定的第一个盘还是当前绑定的网盘根目录。</p>
+<p>background</p>
+<p>自定义背景图片，填入一个图片的url地址，因为图片加载通常需要更多时间，为了速度考虑不建议放入大体积图片。</p>
+<p>backgroundm</p>
+<p>手机端显示的背景图片地址。</p>
+<p>customCss</p>
+<p>设置自定义css的地方，这里设置的css会作用于网盘所有页面。<br>比如我想隐藏语言选项框：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;.changelanguage&#123;display:none&#125;&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+
+<p>customScript</p>
+<p>设置自定义js，会作用于所有页面。<br>比如设置http重定向到https：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=&quot;text/javascript&quot;&gt; var targetProtocol = &quot;https:&quot;; if (window.location.protocol != targetProtocol) window.location.href = targetProtocol + window.location.href.substring(window.location.protocol.length); &lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>customTheme</p>
+<p>通过url的方式引用html主题，比如你可以通过设置下面的地址来使用我的主题。</p>
+<p><a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/kizx/onemoe-theme/onemoe.html">https://cdn.jsdelivr.net/gh/kizx/onemoe-theme/onemoe.html</a></p>
+<p>disableChangeTheme</p>
+<p>设置为1后游客浏览时将不显示右下角的主题切换功能。</p>
+<p>disableShowThumb</p>
+<p>设置为1后将不显示缩略图的按钮和功能，对于云函数用户来说，建议设为1来关闭该功能，因为该功能可能点一下就是一分钱。</p>
+<p>hideFunctionalityFile</p>
+<p>设置为1后，游客浏览网盘时就会看不到read.md，head.md，head.ofm，foo.omf这些文件，这些文件是干嘛的后面会说。</p>
+<p>passfile</p>
+<p>设置密码文件名，比如这里设置为password.txt，那么在某一个目录下新建一个password.txt文件，其中写入密码，这样任何人在浏览这个网盘目录时都需要输入相应密码后才能访问。</p>
+<p>sitename</p>
+<p>设置网站名称。</p>
+<p>theme</p>
+<p>切换主题。</p>
+<p>timezone</p>
+<p>设置时区，国内可设置为8。</p>
+<p>以下是多盘设置</p>
+<p>diskname</p>
+<p>多盘在网盘界面显示的名称。</p>
+<p>domain_path</p>
+<p>当绑定多个域名时，可以使不同域名打开时访问不同目录。当然如果你只有一个域名也可以用，通过这种方式可以使当前域名访问一个指定子目录，和后面的public_path起到一样的作用。<br>下面是两个域名的设置方法，中间用|隔开，如果有多个域名只设置一个域名时，未设置的域名好像也会只访问该目录，要访问根目录dirname设置为/。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">domain1.com:/dir1name|domain2.com:/dir2name</span><br></pre></td></tr></table></figure>
+
+<p>downloadencrypt</p>
+<p>设置为1时启用该功能，这样在设置了密码的目录下的文件虽然无法在网页端浏览，但可以通过具体的文件链接进行下载。</p>
+<p>guestup_path</p>
+<p>设置图床路径或者叫游客上传路径，设置后游客只能看到上传按钮看不到目录下的文件。</p>
+<p>public_path</p>
+<p>设置该盘的显示的根目录，默认为/，换个说法就是可以显示指定的文件夹，默认显示全部。<br>比如我们只想将网盘下的public文件夹内容作为网盘，可以设置为/public/。<br>有了这个功能，即使只有一个onedrive账号，我们也可以通过重复绑定同一个账号来生成多盘，然后每个盘的public_path设置为不同的路径，这样可以将一个盘的功能分开。<br>还有一种特殊情况是我既想让游客上传文件，又想让游客看见上传后的文件目录，目前就只能通过这种方法将该目录设置到两个盘，一个盘作上传，一个盘作目录展示。</p>
+<p>进阶设置</p>
+<p>设置网站ico图标</p>
+<p>将favicon.ico图片放在网盘根目录下，如果你设置了多盘的的话，则需要在每个盘的根目录下都放置一个favicon.ico文件，新版的html主题只需要在绑定的第一个盘下面设置就行了。<br>当然你也可以在customCss或customScript中进行全局设置：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;link rel=<span class="string">&quot;icon&quot;</span> href=<span class="string">&quot;https://cloud.tencent.com/favicon.ico&quot;</span> type=<span class="string">&quot;image/x-icon&quot;</span>&gt; </span><br></pre></td></tr></table></figure>
+
+<p>这里我使用了腾讯云的网站图标，你应该改为自己的favicon.ico图片地址。</p>
+<p>刷新自动切换背景图片</p>
+<p>这个是通过设置特殊的图片api来实现的，这些api每次刷新都会返回一张不同的图片，将后台background设置为这些api的url即可。<br>网上类似的api有很多，以下是群友收集的免费图片api：</p>
+<p><a target="_blank" rel="noopener" href="https://api.ixiaowai.cn/api/api.php">https://api.ixiaowai.cn/api/api.php</a> (二次元动漫) <a target="_blank" rel="noopener" href="http://www.dmoe.cc/random.php%EF%BC%88%E4%BA%8C%E6%AC%A1%E5%85%83%E9%9A%8F%E6%9C%BA%E5%9B%BE%EF%BC%89">http://www.dmoe.cc/random.php（二次元随机图）</a> <a target="_blank" rel="noopener" href="https://api.ixiaowai.cn/mcapi/mcapi.php">https://api.ixiaowai.cn/mcapi/mcapi.php</a> （menhera酱） <a target="_blank" rel="noopener" href="https://api.ixiaowai.cn/gqapi/gqapi.php">https://api.ixiaowai.cn/gqapi/gqapi.php</a> （风景） <a target="_blank" rel="noopener" href="https://acg.yanwz.cn/wallpaper/api.php%EF%BC%88%E4%BA%8C%E6%AC%A1%E5%85%83%E9%9A%8F%E6%9C%BA%E5%9B%BE%EF%BC%89">https://acg.yanwz.cn/wallpaper/api.php（二次元随机图）</a></p>
+<p>利用index.html设置自定义页面</p>
+<p>如果一个目录下有名为index.html的文件，则直接显示该文件，可以利用这个功能设置一个自定义页面或者用于隐藏一个特定页面，相当于部署了一个静态页面。</p>
+<p>设置顶部和底部说明文字</p>
+<p>在需要展示顶部说明的目录下新建一个head.md文件，在文件里写入说明内容即可，这是一个markdown文件，可以使用markdown语言进行书写。<br>底部说明说明文字对应的是readme.md文件，规则与顶部文字一样。</p>
+<p>利用head.omf设置一言</p>
+<p>head.omf作用和head.md一样，区别是他不支持markdonw语言，但是支持html语言，可以写入html、css、js内容。<br>在想展示一言的目录新建head.omf文件，然后写入以下内容：</p>
+<p id="hitokoto">:D 获取中...</p> <script> fetch('https://v1.hitokoto.cn') .then(response => response.json()) .then(data => { const hitokoto = document.getElementById('hitokoto') hitokoto.innerText = data.hitokoto }) .catch(console.error) </script>
+
+<p>以上是使用了<a target="_blank" rel="noopener" href="https://developer.hitokoto.cn/">https://developer.hitokoto.cn/</a> 的一言接口，你也可以尝试更换其他接口或者自建接口。</p>
+<p>利用foot.omf设置Valine评论</p>
+<p>使用Valine需要先注册LeanCloud并实名认证，然后新建应用获取AppID和AppKey。<br>注：建议使用国际版<br>具体过程参考：<a target="_blank" rel="noopener" href="https://valine.js.org/quickstart.html">https://valine.js.org/quickstart.html</a><br>然后新建foot.omf，写入以下内容（注意填入替换自己的AppID和AppKey）：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=&#x27;//unpkg.com/valine/dist/Valine.min.js&#x27;&gt;&lt;/script&gt; &lt;div id=&quot;vcomments&quot;&gt;&lt;/div&gt; &lt;script&gt; new Valine(&#123; el: &#x27;#vcomments&#x27;, appId: &#x27;你获取的AppID&#x27;, appKey: &#x27;你获取的AppKey&#x27; &#125;) &lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>ps: 上面的js用的是unpkg的cdn，国内速度完全不行，建议改用jsdelivr的cdn</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=&#x27;//cdn.jsdelivr.net/npm/valine/dist/Valine.min.js&#x27;&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>如果对样式不满意，建议直接在omf文件写css美化。</p>
+<p>设置动态背景</p>
+<p>这里的动态背景指我们经常在一些网页见到的那种下雪、粒子线条、彩条等动态背景，一般是通过js实现的，可以自己在网上找找现成的教程，js我不会，这里只展示一种我找到的动态彩条背景。<br>我将下面的代码写在了foot.omf中，可以访问<a target="_blank" rel="noopener" href="https://pan.2bboy.com/home/test/">https://pan.2bboy.com/home/test/</a> 查看其效果。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script size=&quot;90&quot; alpha=&quot;0.5&quot; zIndex=&quot;0&quot; src=&quot;https://pan.2bboy.com/ppx/test/ribbon.js&quot; type=&quot;text/javascript&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>其中最重要的是 <a target="_blank" rel="noopener" href="https://pan.2bboy.com/ppx/test/ribbon.js">https://pan.2bboy.com/ppx/test/ribbon.js</a> 这个js文件，我将他放在网盘目录下，你应该下载该文件放在自己的云空间里，然后替换引用的地址。<br>如果将代码放在omf文件里则只能在当前目录有效果，设置在后台的customScript中就可以全局生效了。</p>
+<p>美化自定义登录页面</p>
+<p>修改common.php相应地方，添加style和br</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$html .= <span class="string">&#x27; &lt;style&gt;body&#123;background-image:linear-gradient(60deg,#343b44 0%,#485563 100%);background-attachment:fixed;color:#343b44&#125;body&gt;div&#123;position:absolute;text-align:center;background-color:rgba(221,221,221,.5);border-radius:20px;width:75vw;max-width:500px;height:350px;margin:auto;top:25%;bottom:50%;left:0;right:0&#125;body&gt;div:hover&#123;box-shadow:3px 3px 6px 3px rgba(0,0,0,.3)&#125;h4&#123;font-size:40px&#125;input&#123;font-size:20px;margin:2%auto;border:#343b44 2px solid;border-radius:10px;padding:10px;height:50px;text-align:center&#125;input:last-of-type&#123;color:#343b44;height:50px;width:80px;font-weight:800&#125;input:hover:last-of-type&#123;cursor:pointer;color:#ddd;background-color:#485563&#125;&lt;/style&gt; &lt;body&gt; &lt;div&gt; &lt;center&gt;&lt;h4&gt;&#x27;</span>.getconstStr(<span class="string">&#x27;InputPassword&#x27;</span>).<span class="string">&#x27;&lt;/h4&gt; &lt;form action=&quot;&quot; method=&quot;post&quot;&gt; &lt;div&gt; &lt;input name=&quot;password1&quot; type=&quot;password&quot;/&gt; &lt;/br&gt; &lt;input type=&quot;submit&quot; value=&quot;&#x27;</span>.getconstStr(<span class="string">&#x27;Login&#x27;</span>).<span class="string">&#x27;&quot;&gt; &lt;/div&gt; &lt;/form&gt; &lt;/center&gt; &lt;/div&gt; &#x27;</span>;</span><br></pre></td></tr></table></figure>
+
+<p>￼</p>
+<p>提示</p>
+<p>游客上传文件时只能单个上传，不能批量上传。</p>
+<p>由于scf的缓存系统，在scf上进行某项改动后有时候不会立马生效，或者刷新后时而生效时而不生效，只要多等一会儿，等旧缓存自己失效就好了。</p>
+<p>php格式的主题为旧版主题，许多功能不支持，html格式的主题为新版主题，不同主题的作者更新频率和支持功能都可能不同，功能测试请以最新版本的默认主题为准。</p>
+
+  </div>
+</article>
+
+    <div class="blog-post-comments">
+        <div id="disqus_thread">
+            <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        </div>
+    </div>
+
+
+
+    </div>
+    
+      <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a target="_blank" rel="noopener" href="https://www.oocc.xyz/">Home</a></li>
+         
+          <li><a href="/blog/archives/">Writing</a></li>
+         
+          <li><a target="_blank" rel="noopener" href="https://music.oocc.xyz/">Music</a></li>
+         
+          <li><a target="_blank" rel="noopener" href="https://tu.oocc.xyz/">Images</a></li>
+         
+          <li><a href="/blog/about/">About</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A5%E4%B8%8B%E6%98%AF%E8%AE%BE%E7%BD%AE%E8%AF%A6%E7%BB%86%E5%86%85%E5%AE%B9"><span class="toc-number">1.</span> <span class="toc-text">以下是设置详细内容</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://example.com/blog/OneManager.html"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://example.com/blog/OneManager.html&text=OneManager"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://example.com/blog/OneManager.html&title=OneManager"><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/blog/OneManager.html&is_video=false&description=OneManager"><i class="fa fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=OneManager&body=Check out this article: http://example.com/blog/OneManager.html"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://example.com/blog/OneManager.html&title=OneManager"><i class="fa fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://example.com/blog/OneManager.html&title=OneManager"><i class="fa fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://example.com/blog/OneManager.html&title=OneManager"><i class="fa fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://example.com/blog/OneManager.html&title=OneManager"><i class="fa fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://example.com/blog/OneManager.html&name=OneManager&description="><i class="fa fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+      <ul>
+        <li id="toc"><a class="icon" href="#" onclick='$("#toc-footer").toggle();return false;'><i class="fa fa-list fa-lg" aria-hidden="true"></i> TOC</a></li>
+        <li id="share"><a class="icon" href="#" onclick='$("#share-footer").toggle();return false;'><i class="fa fa-share-alt fa-lg" aria-hidden="true"></i> Share</a></li>
+        <li id="top" style="display:none"><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a></li>
+        <li id="menu"><a class="icon" href="#" onclick='$("#nav-footer").toggle();return false;'><i class="fa fa-bars fa-lg" aria-hidden="true"></i> Menu</a></li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+    
+    <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2021 chang
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a target="_blank" rel="noopener" href="https://www.oocc.xyz/">Home</a></li>
+         
+          <li><a href="/blog/archives/">Writing</a></li>
+         
+          <li><a target="_blank" rel="noopener" href="https://music.oocc.xyz/">Music</a></li>
+         
+          <li><a target="_blank" rel="noopener" href="https://tu.oocc.xyz/">Images</a></li>
+         
+          <li><a href="/blog/about/">About</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/lihua.js"></script>
+<!-- 雪花特效 -->
+<script type="text/javascript" src="\js\snow.js"></script>
+</body>
+</html>
+<!-- styles -->
+
+<link rel="stylesheet" href="/blog/lib/font-awesome/css/font-awesome.min.css">
+
+
+<link rel="stylesheet" href="/blog/lib/meslo-LG/styles.css">
+
+
+<link rel="stylesheet" href="/blog/lib/justified-gallery/justifiedGallery.min.css">
+
+
+
+<!-- jquery -->
+
+<script src="/blog/lib/jquery/jquery.min.js"></script>
+
+
+<script src="/blog/lib/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+
+<script src="/blog/js/main.js"></script>
+
+<!-- Google Analytics -->
+
+    <script type="text/javascript">
+        (function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-49627206-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+<!-- Disqus Comments -->
+
+    <script type="text/javascript">
+        var disqus_shortname = 'forsigner';
+
+        (function(){
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        }());
+    </script>
+
+

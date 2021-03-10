@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="wordpress设置烟花爆炸效果把sbbz.js文件，上传到主题js目录里   下载地址 将下面这段代码复制粘贴到主题footer.php文件标签前 12&lt;canvas class&#x3D;&quot;fireworks&quot; style&#x3D;&quot;position:fixed;left:0;top:0;z-index:99999999;pointer-events:none;&quot;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="网站鼠标三种点击效果">
+<meta property="og:url" content="http://example.com/blog/%E7%BD%91%E7%AB%99%E9%BC%A0%E6%A0%87%E4%B8%89%E7%A7%8D%E7%82%B9%E5%87%BB%E6%95%88%E6%9E%9C.html">
+<meta property="og:site_name" content="Monkey">
+<meta property="og:description" content="wordpress设置烟花爆炸效果把sbbz.js文件，上传到主题js目录里   下载地址 将下面这段代码复制粘贴到主题footer.php文件标签前 12&lt;canvas class&#x3D;&quot;fireworks&quot; style&#x3D;&quot;position:fixed;left:0;top:0;z-index:99999999;pointer-events:none;&quot;">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-01-02T02:11:15.000Z">
+<meta property="article:modified_time" content="2021-03-09T14:56:25.214Z">
+<meta property="article:author" content="chang">
+<meta property="article:tag" content="linux, centos, wordpress">
+<meta name="twitter:card" content="summary">
+<link rel="publisher" href="x16620040224@gmail.com">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/blog/images/chang.png">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/blog/images/chang.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/chang.png">
+          
+        
+    
+    <!-- title -->
+    <title>网站鼠标三种点击效果</title>
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/blog/css/style.css">
+
+    <!-- rss -->
+    
+    
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a target="_blank" rel="noopener" href="https://www.oocc.xyz/">Home</a></li>
+         
+          <li><a href="/blog/archives/">Writing</a></li>
+         
+          <li><a target="_blank" rel="noopener" href="https://music.oocc.xyz/">Music</a></li>
+         
+          <li><a target="_blank" rel="noopener" href="https://tu.oocc.xyz/">Images</a></li>
+         
+          <li><a href="/blog/about/">About</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/blog/centos.html"><i class="fa fa-chevron-left" aria-hidden="true" onmouseover='$("#i-prev").toggle();' onmouseout='$("#i-prev").toggle();'></i></a></li>
+        
+        
+        <li><a class="icon" href="/blog/centos%E8%A3%85%E5%BA%94%E7%94%A8.html"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover='$("#i-next").toggle();' onmouseout='$("#i-next").toggle();'></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up" aria-hidden="true" onmouseover='$("#i-top").toggle();' onmouseout='$("#i-top").toggle();'></i></a></li>
+        <li><a class="icon" href="#"><i class="fa fa-share-alt" aria-hidden="true" onmouseover='$("#i-share").toggle();' onmouseout='$("#i-share").toggle();' onclick='$("#share").toggle();return false;'></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://example.com/blog/%E7%BD%91%E7%AB%99%E9%BC%A0%E6%A0%87%E4%B8%89%E7%A7%8D%E7%82%B9%E5%87%BB%E6%95%88%E6%9E%9C.html"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://example.com/blog/%E7%BD%91%E7%AB%99%E9%BC%A0%E6%A0%87%E4%B8%89%E7%A7%8D%E7%82%B9%E5%87%BB%E6%95%88%E6%9E%9C.html&text=网站鼠标三种点击效果"><i class="fa fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://example.com/blog/%E7%BD%91%E7%AB%99%E9%BC%A0%E6%A0%87%E4%B8%89%E7%A7%8D%E7%82%B9%E5%87%BB%E6%95%88%E6%9E%9C.html&title=网站鼠标三种点击效果"><i class="fa fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/blog/%E7%BD%91%E7%AB%99%E9%BC%A0%E6%A0%87%E4%B8%89%E7%A7%8D%E7%82%B9%E5%87%BB%E6%95%88%E6%9E%9C.html&is_video=false&description=网站鼠标三种点击效果"><i class="fa fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=网站鼠标三种点击效果&body=Check out this article: http://example.com/blog/%E7%BD%91%E7%AB%99%E9%BC%A0%E6%A0%87%E4%B8%89%E7%A7%8D%E7%82%B9%E5%87%BB%E6%95%88%E6%9E%9C.html"><i class="fa fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://example.com/blog/%E7%BD%91%E7%AB%99%E9%BC%A0%E6%A0%87%E4%B8%89%E7%A7%8D%E7%82%B9%E5%87%BB%E6%95%88%E6%9E%9C.html&title=网站鼠标三种点击效果"><i class="fa fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://example.com/blog/%E7%BD%91%E7%AB%99%E9%BC%A0%E6%A0%87%E4%B8%89%E7%A7%8D%E7%82%B9%E5%87%BB%E6%95%88%E6%9E%9C.html&title=网站鼠标三种点击效果"><i class="fa fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://example.com/blog/%E7%BD%91%E7%AB%99%E9%BC%A0%E6%A0%87%E4%B8%89%E7%A7%8D%E7%82%B9%E5%87%BB%E6%95%88%E6%9E%9C.html&title=网站鼠标三种点击效果"><i class="fa fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://example.com/blog/%E7%BD%91%E7%AB%99%E9%BC%A0%E6%A0%87%E4%B8%89%E7%A7%8D%E7%82%B9%E5%87%BB%E6%95%88%E6%9E%9C.html&title=网站鼠标三种点击效果"><i class="fa fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://example.com/blog/%E7%BD%91%E7%AB%99%E9%BC%A0%E6%A0%87%E4%B8%89%E7%A7%8D%E7%82%B9%E5%87%BB%E6%95%88%E6%9E%9C.html&name=网站鼠标三种点击效果&description="><i class="fa fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#wordpress%E8%AE%BE%E7%BD%AE"><span class="toc-number">1.</span> <span class="toc-text">wordpress设置</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%83%9F%E8%8A%B1%E7%88%86%E7%82%B8%E6%95%88%E6%9E%9C"><span class="toc-number">1.1.</span> <span class="toc-text">烟花爆炸效果</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%88%B1%E5%BF%83%E6%95%88%E6%9E%9C"><span class="toc-number">1.2.</span> <span class="toc-text">爱心效果</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%96%87%E5%AD%97%E6%95%88%E6%9E%9C"><span class="toc-number">1.3.</span> <span class="toc-text">文字效果</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#hexo%E8%AE%BE%E7%BD%AE%E6%96%B9%E6%B3%95"><span class="toc-number">2.</span> <span class="toc-text">hexo设置方法</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%88%B1%E5%BF%83%E6%95%88%E6%9E%9C-1"><span class="toc-number">2.1.</span> <span class="toc-text">爱心效果</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%AD%97%E4%BD%93%E6%95%88%E6%9E%9C"><span class="toc-number">2.2.</span> <span class="toc-text">字体效果</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%9C%A8-themes-%E4%B8%BB%E9%A2%98-source-js-%E4%B8%8B%E6%96%B0%E5%BB%BA%E6%96%87%E4%BB%B6-click-show-text-js%EF%BC%8C%E5%9C%A8-click-show-text-js-%E6%96%87%E4%BB%B6%E4%B8%AD%E6%B7%BB%E5%8A%A0%E4%BB%A5%E4%B8%8B%E4%BB%A3%E7%A0%81%EF%BC%9A"><span class="toc-number">2.3.</span> <span class="toc-text">在 &#x2F;themes&#x2F;主题&#x2F;source&#x2F;js 下新建文件 click_show_text.js，在 click_show_text.js 文件中添加以下代码：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%83%9F%E8%8A%B1%E7%88%86%E7%82%B8%E6%95%88%E6%9E%9C-1"><span class="toc-number">2.4.</span> <span class="toc-text">烟花爆炸效果</span></a></li></ol></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index width mx-auto px2 my4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        网站鼠标三种点击效果
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Monkey</span>
+      </span>
+      
+    <div class="postdate">
+        <time datetime="2021-01-02T02:11:15.000Z" itemprop="datePublished">2021-01-02</time>
+    </div>
+
+
+      
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h4 id="wordpress设置"><a href="#wordpress设置" class="headerlink" title="wordpress设置"></a>wordpress设置</h4><h5 id="烟花爆炸效果"><a href="#烟花爆炸效果" class="headerlink" title="烟花爆炸效果"></a>烟花爆炸效果</h5><p>把sbbz.js文件，上传到主题js目录里   <a target="_blank" rel="noopener" href="https://hechang.herokuapp.com/Tool/word%20press/wordpress%E9%BC%A0%E6%A0%87%E4%B8%89%E7%A7%8D%E6%95%88%E6%9E%9C/%E7%82%B9%E5%87%BB%E7%88%86%E7%82%B8js.zip">下载地址</a></p>
+<p>将下面这段代码复制粘贴到主题footer.php文件</body>标签前</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;canvas class=&quot;fireworks&quot; style=&quot;position:fixed;left:0;top:0;z-index:99999999;pointer-events:none;&quot;&gt;&lt;/canvas&gt;</span><br><span class="line">&lt;script type=&quot;text/javascript&quot; src=&quot;https://www.oocc.xyz/wp-content/themes/sbbz.js&quot;&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>代码中的路径改为你上传目录的绝对路径</p>
+<h5 id="爱心效果"><a href="#爱心效果" class="headerlink" title="爱心效果"></a>爱心效果</h5><p>把love.js文件，上传到主题js目录里  <a target="_blank" rel="noopener" href="https://hechang.herokuapp.com/%E7%9B%B8%E7%89%87/%E5%9B%BE%E5%BA%8A/love.js">下载地址</a></p>
+<p>将下面这段代码复制粘贴到主题footer.php文件</body>标签前</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script &quot;text/javascript&quot; src=&quot;https://www.oocc.xyz/wp-content/themes/love.js&quot;&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<h5 id="文字效果"><a href="#文字效果" class="headerlink" title="文字效果"></a>文字效果</h5><p>在footer.php 文件中 <?php wp_footer(); ?> 的前面加上下面这段代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type&#x3D;&quot;text&#x2F;javascript&quot;&gt;</span><br><span class="line">&#x2F;*富强民主文明和谐*&#x2F;</span><br><span class="line">var a_idx &#x3D; 0;</span><br><span class="line">jQuery(document).ready(function($) &#123;</span><br><span class="line">$(&quot;body&quot;).click(function(e) &#123;</span><br><span class="line">var a &#x3D; new Array(&quot;富强&quot;, &quot;民主&quot;, &quot;文明&quot;, &quot;和谐&quot;, &quot;自由&quot;, &quot;平等&quot;, &quot;公正&quot; ,&quot;法治&quot;, &quot;爱国&quot;, &quot;敬业&quot;, &quot;诚信&quot;, &quot;友善&quot;, &quot;手麻了&quot;, &quot;歇会儿&quot;);</span><br><span class="line">var $i &#x3D; $(&quot;&lt;span&#x2F;&gt;&quot;).text(a[a_idx]);</span><br><span class="line">a_idx &#x3D; (a_idx + 1) % a.length;</span><br><span class="line">var x &#x3D; e.pageX,</span><br><span class="line">y &#x3D; e.pageY;</span><br><span class="line">$i.css(&#123;</span><br><span class="line">&quot;z-index&quot;: 9999,</span><br><span class="line">&quot;top&quot;: y - 20,</span><br><span class="line">&quot;left&quot;: x,</span><br><span class="line">&quot;position&quot;: &quot;absolute&quot;,</span><br><span class="line">&quot;font-weight&quot;: &quot;bold&quot;,</span><br><span class="line">&quot;color&quot;: &quot;#ff6651&quot;</span><br><span class="line">&#125;);</span><br><span class="line">$(&quot;body&quot;).append($i);</span><br><span class="line">$i.animate(&#123;</span><br><span class="line">&quot;top&quot;: y - 180,</span><br><span class="line">&quot;opacity&quot;: 0</span><br><span class="line">&#125;,</span><br><span class="line">1500,</span><br><span class="line">function() &#123;</span><br><span class="line">$i.remove();</span><br><span class="line">&#125;);</span><br><span class="line">&#125;);</span><br><span class="line">&#125;);</span><br><span class="line">&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=<span class="string">&quot;text/javascript&quot;</span>&gt;</span><br><span class="line"><span class="comment">/* 鼠标特效 */</span></span><br><span class="line"><span class="keyword">var</span> a_idx = <span class="number">0</span>;</span><br><span class="line">jQuery(document).ready(function ($) &#123;</span><br><span class="line">$(<span class="string">&quot;body&quot;</span>).click(function (e) &#123;</span><br><span class="line"><span class="keyword">var</span> a = [</span><br><span class="line"><span class="string">&quot;老婆&quot;</span>, <span class="string">&quot;爱你&quot;</span>, <span class="string">&quot;么么哒&quot;</span></span><br><span class="line">];</span><br><span class="line"><span class="keyword">var</span> b = [</span><br><span class="line"><span class="string">&quot;#FFF68F&quot;</span>, <span class="string">&quot;#FFBBFF&quot;</span>, <span class="string">&quot;#FF0000&quot;</span>, <span class="string">&quot;#FF00FF&quot;</span>, <span class="string">&quot;#F08080&quot;</span>,</span><br><span class="line"><span class="string">&quot;#008000&quot;</span>, <span class="string">&quot;#7FFFAA&quot;</span>, <span class="string">&quot;#0000CD&quot;</span>, <span class="string">&quot;#0000FF&quot;</span>, <span class="string">&quot;#080808&quot;</span></span><br><span class="line">];</span><br><span class="line"><span class="keyword">var</span> a_index = Math.floor((Math.random() * a.length));</span><br><span class="line"><span class="keyword">var</span> b_index = Math.floor((Math.random() * b.length));</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> color = b[b_index];</span><br><span class="line"><span class="keyword">var</span> $i = $(<span class="string">&quot;&lt;span/&gt;&quot;</span>).text(a[a_index]);</span><br><span class="line"><span class="comment">/* a_idx = (a_idx + 1) % a.length; */</span></span><br><span class="line"><span class="keyword">var</span> x = e.pageX,</span><br><span class="line">y = e.pageY;</span><br><span class="line"></span><br><span class="line">$i.css(&#123;</span><br><span class="line"><span class="string">&quot;z-index&quot;</span>: <span class="number">999999999999999999999999999999999999999999999999999999999999999999999</span>,</span><br><span class="line"><span class="string">&quot;top&quot;</span>: y - <span class="number">20</span>,</span><br><span class="line"><span class="string">&quot;left&quot;</span>: x,</span><br><span class="line"><span class="string">&quot;position&quot;</span>: <span class="string">&quot;absolute&quot;</span>,</span><br><span class="line"><span class="string">&quot;font-weight&quot;</span>: <span class="string">&quot;bold&quot;</span>,</span><br><span class="line"><span class="string">&quot;color&quot;</span>: color,</span><br><span class="line">&#125;);</span><br><span class="line">$(<span class="string">&quot;body&quot;</span>).append($i);</span><br><span class="line">$i.animate(&#123;</span><br><span class="line"><span class="string">&quot;top&quot;</span>: y - <span class="number">180</span>,</span><br><span class="line"><span class="string">&quot;opacity&quot;</span>: <span class="number">0</span></span><br><span class="line">&#125;, <span class="number">1500</span>, function () &#123;</span><br><span class="line">$i.remove();</span><br><span class="line">&#125;);</span><br><span class="line">&#125;);</span><br><span class="line">&#125;);</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="hexo设置方法"><a href="#hexo设置方法" class="headerlink" title="hexo设置方法"></a>hexo设置方法</h4><h5 id="爱心效果-1"><a href="#爱心效果-1" class="headerlink" title="爱心效果"></a>爱心效果</h5><p>在 /themes/主题/source/js 下新建文件 love.js，在 love.js 文件中添加以下代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">!function(e,t,a)&#123;<span class="function">function <span class="title">n</span><span class="params">()</span></span>&#123;c(<span class="string">&quot;.heart&#123;width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);&#125;.heart:after,.heart:before&#123;content: &#x27;&#x27;;width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 500%;-moz-border-radius: 50%;position: fixed;&#125;.heart:after&#123;top: -5px;&#125;.heart:before&#123;left: -5px;&#125;&quot;</span>),o(),r()&#125;<span class="function">function <span class="title">r</span><span class="params">()</span></span>&#123;<span class="keyword">for</span>(<span class="keyword">var</span> e=<span class="number">0</span>;e&lt;d.length;e++)d[e].alpha&lt;=<span class="number">0</span>?(t.body.removeChild(d[e].el),d.splice(e,<span class="number">1</span>)):(d[e].y--,d[e].scale+=<span class="number">.004</span>,d[e].alpha-=<span class="number">.013</span>,d[e].el.style.cssText=<span class="string">&quot;left:&quot;</span>+d[e].x+<span class="string">&quot;px;top:&quot;</span>+d[e].y+<span class="string">&quot;px;opacity:&quot;</span>+d[e].alpha+<span class="string">&quot;;transform:scale(&quot;</span>+d[e].scale+<span class="string">&quot;,&quot;</span>+d[e].scale+<span class="string">&quot;) rotate(45deg);background:&quot;</span>+d[e].color+<span class="string">&quot;;z-index:99999&quot;</span>);requestAnimationFrame(r)&#125;<span class="function">function <span class="title">o</span><span class="params">()</span></span>&#123;<span class="keyword">var</span> t=<span class="string">&quot;function&quot;</span>==typeof e.onclick&amp;&amp;e.onclick;e.onclick=function(e)&#123;t&amp;&amp;t(),i(e)&#125;&#125;<span class="function">function <span class="title">i</span><span class="params">(e)</span></span>&#123;<span class="keyword">var</span> a=t.createElement(<span class="string">&quot;div&quot;</span>);a.className=<span class="string">&quot;heart&quot;</span>,d.push(&#123;el:a,x:e.clientX-<span class="number">5</span>,y:e.clientY-<span class="number">5</span>,scale:<span class="number">1</span>,alpha:<span class="number">1</span>,color:s()&#125;),t.body.appendChild(a)&#125;<span class="function">function <span class="title">c</span><span class="params">(e)</span></span>&#123;<span class="keyword">var</span> a=t.createElement(<span class="string">&quot;style&quot;</span>);a.type=<span class="string">&quot;text/css&quot;</span>;<span class="keyword">try</span>&#123;a.appendChild(t.createTextNode(e))&#125;<span class="keyword">catch</span>(t)&#123;a.styleSheet.cssText=e&#125;t.getElementsByTagName(<span class="string">&quot;head&quot;</span>)[<span class="number">0</span>].appendChild(a)&#125;<span class="function">function <span class="title">s</span><span class="params">()</span></span>&#123;<span class="keyword">return</span><span class="string">&quot;rgb(&quot;</span>+~~(<span class="number">255</span>*Math.random())+<span class="string">&quot;,&quot;</span>+~~(<span class="number">255</span>*Math.random())+<span class="string">&quot;,&quot;</span>+~~(<span class="number">255</span>*Math.random())+<span class="string">&quot;)&quot;</span>&#125;<span class="keyword">var</span> d=[];e.requestAnimationFrame=function()&#123;<span class="keyword">return</span> e.requestAnimationFrame||e.webkitRequestAnimationFrame||e.mozRequestAnimationFrame||e.oRequestAnimationFrame||e.msRequestAnimationFrame||function(e)&#123;setTimeout(e,<span class="number">1e3</span>/<span class="number">60</span>)&#125;&#125;(),n()&#125;(window,document);</span><br></pre></td></tr></table></figure>
+
+<p>在 \themes\主题\layout\layout.ejs 文件末尾添加以下代码：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 页面点击小红心 --&gt;</span><br><span class="line">&lt;script type=&quot;text/javascript&quot; src=&quot;/js/love.js&quot;&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="字体效果"><a href="#字体效果" class="headerlink" title="字体效果"></a>字体效果</h5><h5 id="在-themes-主题-source-js-下新建文件-click-show-text-js，在-click-show-text-js-文件中添加以下代码："><a href="#在-themes-主题-source-js-下新建文件-click-show-text-js，在-click-show-text-js-文件中添加以下代码：" class="headerlink" title="在 /themes/主题/source/js 下新建文件 click_show_text.js，在 click_show_text.js 文件中添加以下代码："></a>在 /themes/主题/source/js 下新建文件 click_show_text.js，在 click_show_text.js 文件中添加以下代码：</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a_idx = <span class="number">0</span>;</span><br><span class="line">jQuery(document).ready(function($) &#123;</span><br><span class="line">    $(<span class="string">&quot;body&quot;</span>).click(function(e) &#123;</span><br><span class="line">        <span class="keyword">var</span> a = <span class="keyword">new</span> Array</span><br><span class="line">        (<span class="string">&quot;富强&quot;</span>, <span class="string">&quot;民主&quot;</span>, <span class="string">&quot;文明&quot;</span>, <span class="string">&quot;和谐&quot;</span>, <span class="string">&quot;自由&quot;</span>, <span class="string">&quot;平等&quot;</span>, <span class="string">&quot;公正&quot;</span>, <span class="string">&quot;法治&quot;</span>, <span class="string">&quot;爱国&quot;</span>, <span class="string">&quot;敬业&quot;</span>, <span class="string">&quot;诚信&quot;</span>, <span class="string">&quot;友善&quot;</span>);</span><br><span class="line">        <span class="keyword">var</span> $i = $(<span class="string">&quot;&lt;span/&gt;&quot;</span>).text(a[a_idx]);</span><br><span class="line">        a_idx = (a_idx + <span class="number">1</span>) % a.length;</span><br><span class="line">        <span class="keyword">var</span> x = e.pageX,</span><br><span class="line">        y = e.pageY;</span><br><span class="line">        $i.css(&#123;</span><br><span class="line">            <span class="string">&quot;z-index&quot;</span>: <span class="number">5</span>,</span><br><span class="line">            <span class="string">&quot;top&quot;</span>: y - <span class="number">20</span>,</span><br><span class="line">            <span class="string">&quot;left&quot;</span>: x,</span><br><span class="line">            <span class="string">&quot;position&quot;</span>: <span class="string">&quot;absolute&quot;</span>,</span><br><span class="line">            <span class="string">&quot;font-weight&quot;</span>: <span class="string">&quot;bold&quot;</span>,</span><br><span class="line">            <span class="string">&quot;color&quot;</span>: <span class="string">&quot;#FF0000&quot;</span></span><br><span class="line">        &#125;);</span><br><span class="line">        $(<span class="string">&quot;body&quot;</span>).append($i);</span><br><span class="line">        $i.animate(&#123;</span><br><span class="line">            <span class="string">&quot;top&quot;</span>: y - <span class="number">180</span>,</span><br><span class="line">            <span class="string">&quot;opacity&quot;</span>: <span class="number">0</span></span><br><span class="line">        &#125;,</span><br><span class="line">            <span class="number">3000</span>,</span><br><span class="line">            function() &#123;</span><br><span class="line">                $i.remove();</span><br><span class="line">            &#125;);</span><br><span class="line">    &#125;);</span><br><span class="line">    setTimeout(<span class="string">&#x27;delay()&#x27;</span>, <span class="number">2000</span>);</span><br><span class="line">&#125;);</span><br><span class="line"> </span><br><span class="line"><span class="function">function <span class="title">delay</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    $(<span class="string">&quot;.buryit&quot;</span>).removeAttr(<span class="string">&quot;onclick&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>然后在 \themes\主题\layout\layout.ejs 文件末尾添加以下代码：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--单击显示文字--&gt;</span><br><span class="line">&lt;script type=&quot;text/javascript&quot; src=&quot;/js/click_show_text.js&quot;&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<h5 id="烟花爆炸效果-1"><a href="#烟花爆炸效果-1" class="headerlink" title="烟花爆炸效果"></a>烟花爆炸效果</h5><p>在 \themes\主题\source\js 目录下新建一个 fireworks.js 的文件，里面写入以下代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;use strict&quot;</span>;<span class="function">function <span class="title">updateCoords</span><span class="params">(e)</span></span>&#123;pointerX=(e.clientX||e.touches[<span class="number">0</span>].clientX)-canvasEl.getBoundingClientRect().left,pointerY=e.clientY||e.touches[<span class="number">0</span>].clientY-canvasEl.getBoundingClientRect().top&#125;<span class="function">function <span class="title">setParticuleDirection</span><span class="params">(e)</span></span>&#123;<span class="keyword">var</span> t=anime.random(<span class="number">0</span>,<span class="number">360</span>)*Math.PI/<span class="number">180</span>,a=anime.random(<span class="number">50</span>,<span class="number">180</span>),n=[-<span class="number">1</span>,<span class="number">1</span>][anime.random(<span class="number">0</span>,<span class="number">1</span>)]*a;<span class="keyword">return</span>&#123;x:e.x+n*Math.cos(t),y:e.y+n*Math.sin(t)&#125;&#125;<span class="function">function <span class="title">createParticule</span><span class="params">(e,t)</span></span>&#123;<span class="keyword">var</span> a=&#123;&#125;;<span class="keyword">return</span> a.x=e,a.y=t,a.color=colors[anime.random(<span class="number">0</span>,colors.length-<span class="number">1</span>)],a.radius=anime.random(<span class="number">16</span>,<span class="number">32</span>),a.endPos=setParticuleDirection(a),a.draw=function()&#123;ctx.beginPath(),ctx.arc(a.x,a.y,a.radius,<span class="number">0</span>,<span class="number">2</span>*Math.PI,!<span class="number">0</span>),ctx.fillStyle=a.color,ctx.fill()&#125;,a&#125;<span class="function">function <span class="title">createCircle</span><span class="params">(e,t)</span></span>&#123;<span class="keyword">var</span> a=&#123;&#125;;<span class="keyword">return</span> a.x=e,a.y=t,a.color=<span class="string">&quot;#F00&quot;</span>,a.radius=<span class="number">0.1</span>,a.alpha=<span class="number">0.5</span>,a.lineWidth=<span class="number">6</span>,a.draw=function()&#123;ctx.globalAlpha=a.alpha,ctx.beginPath(),ctx.arc(a.x,a.y,a.radius,<span class="number">0</span>,<span class="number">2</span>*Math.PI,!<span class="number">0</span>),ctx.lineWidth=a.lineWidth,ctx.strokeStyle=a.color,ctx.stroke(),ctx.globalAlpha=<span class="number">1</span>&#125;,a&#125;<span class="function">function <span class="title">renderParticule</span><span class="params">(e)</span></span>&#123;<span class="keyword">for</span>(<span class="keyword">var</span> t=<span class="number">0</span>;t&lt;e.animatables.length;t++)&#123;e.animatables[t].target.draw()&#125;&#125;<span class="function">function <span class="title">animateParticules</span><span class="params">(e,t)</span></span>&#123;<span class="keyword">for</span>(<span class="keyword">var</span> a=createCircle(e,t),n=[],i=<span class="number">0</span>;i&lt;numberOfParticules;i++)&#123;n.push(createParticule(e,t))&#125;anime.timeline().add(&#123;targets:n,x:function(e)&#123;<span class="keyword">return</span> e.endPos.x&#125;,y:function(e)&#123;<span class="keyword">return</span> e.endPos.y&#125;,radius:<span class="number">0.1</span>,duration:anime.random(<span class="number">1200</span>,<span class="number">1800</span>),easing:<span class="string">&quot;easeOutExpo&quot;</span>,update:renderParticule&#125;).add(&#123;targets:a,radius:anime.random(<span class="number">80</span>,<span class="number">160</span>),lineWidth:<span class="number">0</span>,alpha:&#123;value:<span class="number">0</span>,easing:<span class="string">&quot;linear&quot;</span>,duration:anime.random(<span class="number">600</span>,<span class="number">800</span>)&#125;,duration:anime.random(<span class="number">1200</span>,<span class="number">1800</span>),easing:<span class="string">&quot;easeOutExpo&quot;</span>,update:renderParticule,offset:<span class="number">0</span>&#125;)&#125;<span class="function">function <span class="title">debounce</span><span class="params">(e,t)</span></span>&#123;<span class="keyword">var</span> a;<span class="keyword">return</span> function()&#123;<span class="keyword">var</span> n=<span class="keyword">this</span>,i=arguments;clearTimeout(a),a=setTimeout(function()&#123;e.apply(n,i)&#125;,t)&#125;&#125;<span class="keyword">var</span> canvasEl=document.querySelector(<span class="string">&quot;.fireworks&quot;</span>);<span class="keyword">if</span>(canvasEl)&#123;<span class="keyword">var</span> ctx=canvasEl.getContext(<span class="string">&quot;2d&quot;</span>),numberOfParticules=<span class="number">30</span>,pointerX=<span class="number">0</span>,pointerY=<span class="number">0</span>,tap=<span class="string">&quot;mousedown&quot;</span>,colors=[<span class="string">&quot;#FF1461&quot;</span>,<span class="string">&quot;#18FF92&quot;</span>,<span class="string">&quot;#5A87FF&quot;</span>,<span class="string">&quot;#FBF38C&quot;</span>],setCanvasSize=debounce(function()&#123;canvasEl.width=<span class="number">2</span>*window.innerWidth,canvasEl.height=<span class="number">2</span>*window.innerHeight,canvasEl.style.width=window.innerWidth+<span class="string">&quot;px&quot;</span>,canvasEl.style.height=window.innerHeight+<span class="string">&quot;px&quot;</span>,canvasEl.getContext(<span class="string">&quot;2d&quot;</span>).scale(<span class="number">2</span>,<span class="number">2</span>)&#125;,<span class="number">500</span>),render=anime(&#123;duration:<span class="number">1</span>/<span class="number">0</span>,update:function()&#123;ctx.clearRect(<span class="number">0</span>,<span class="number">0</span>,canvasEl.width,canvasEl.height)&#125;&#125;);document.addEventListener(tap,function(e)&#123;<span class="string">&quot;sidebar&quot;</span>!==e.target.id&amp;&amp;<span class="string">&quot;toggle-sidebar&quot;</span>!==e.target.id&amp;&amp;<span class="string">&quot;A&quot;</span>!==e.target.nodeName&amp;&amp;<span class="string">&quot;IMG&quot;</span>!==e.target.nodeName&amp;&amp;(render.play(),updateCoords(e),animateParticules(pointerX,pointerY))&#125;,!<span class="number">1</span>),setCanvasSize(),window.addEventListener(<span class="string">&quot;resize&quot;</span>,setCanvasSize,!<span class="number">1</span>)&#125;<span class="string">&quot;use strict&quot;</span>;<span class="function">function <span class="title">updateCoords</span><span class="params">(e)</span></span>&#123;pointerX=(e.clientX||e.touches[<span class="number">0</span>].clientX)-canvasEl.getBoundingClientRect().left,pointerY=e.clientY||e.touches[<span class="number">0</span>].clientY-canvasEl.getBoundingClientRect().top&#125;<span class="function">function <span class="title">setParticuleDirection</span><span class="params">(e)</span></span>&#123;<span class="keyword">var</span> t=anime.random(<span class="number">0</span>,<span class="number">360</span>)*Math.PI/<span class="number">180</span>,a=anime.random(<span class="number">50</span>,<span class="number">180</span>),n=[-<span class="number">1</span>,<span class="number">1</span>][anime.random(<span class="number">0</span>,<span class="number">1</span>)]*a;<span class="keyword">return</span>&#123;x:e.x+n*Math.cos(t),y:e.y+n*Math.sin(t)&#125;&#125;<span class="function">function <span class="title">createParticule</span><span class="params">(e,t)</span></span>&#123;<span class="keyword">var</span> a=&#123;&#125;;<span class="keyword">return</span> a.x=e,a.y=t,a.color=colors[anime.random(<span class="number">0</span>,colors.length-<span class="number">1</span>)],a.radius=anime.random(<span class="number">16</span>,<span class="number">32</span>),a.endPos=setParticuleDirection(a),a.draw=function()&#123;ctx.beginPath(),ctx.arc(a.x,a.y,a.radius,<span class="number">0</span>,<span class="number">2</span>*Math.PI,!<span class="number">0</span>),ctx.fillStyle=a.color,ctx.fill()&#125;,a&#125;<span class="function">function <span class="title">createCircle</span><span class="params">(e,t)</span></span>&#123;<span class="keyword">var</span> a=&#123;&#125;;<span class="keyword">return</span> a.x=e,a.y=t,a.color=<span class="string">&quot;#F00&quot;</span>,a.radius=<span class="number">0.1</span>,a.alpha=<span class="number">0.5</span>,a.lineWidth=<span class="number">6</span>,a.draw=function()&#123;ctx.globalAlpha=a.alpha,ctx.beginPath(),ctx.arc(a.x,a.y,a.radius,<span class="number">0</span>,<span class="number">2</span>*Math.PI,!<span class="number">0</span>),ctx.lineWidth=a.lineWidth,ctx.strokeStyle=a.color,ctx.stroke(),ctx.globalAlpha=<span class="number">1</span>&#125;,a&#125;<span class="function">function <span class="title">renderParticule</span><span class="params">(e)</span></span>&#123;<span class="keyword">for</span>(<span class="keyword">var</span> t=<span class="number">0</span>;t&lt;e.animatables.length;t++)&#123;e.animatables[t].target.draw()&#125;&#125;<span class="function">function <span class="title">animateParticules</span><span class="params">(e,t)</span></span>&#123;<span class="keyword">for</span>(<span class="keyword">var</span> a=createCircle(e,t),n=[],i=<span class="number">0</span>;i&lt;numberOfParticules;i++)&#123;n.push(createParticule(e,t))&#125;anime.timeline().add(&#123;targets:n,x:function(e)&#123;<span class="keyword">return</span> e.endPos.x&#125;,y:function(e)&#123;<span class="keyword">return</span> e.endPos.y&#125;,radius:<span class="number">0.1</span>,duration:anime.random(<span class="number">1200</span>,<span class="number">1800</span>),easing:<span class="string">&quot;easeOutExpo&quot;</span>,update:renderParticule&#125;).add(&#123;targets:a,radius:anime.random(<span class="number">80</span>,<span class="number">160</span>),lineWidth:<span class="number">0</span>,alpha:&#123;value:<span class="number">0</span>,easing:<span class="string">&quot;linear&quot;</span>,duration:anime.random(<span class="number">600</span>,<span class="number">800</span>)&#125;,duration:anime.random(<span class="number">1200</span>,<span class="number">1800</span>),easing:<span class="string">&quot;easeOutExpo&quot;</span>,update:renderParticule,offset:<span class="number">0</span>&#125;)&#125;<span class="function">function <span class="title">debounce</span><span class="params">(e,t)</span></span>&#123;<span class="keyword">var</span> a;<span class="keyword">return</span> function()&#123;<span class="keyword">var</span> n=<span class="keyword">this</span>,i=arguments;clearTimeout(a),a=setTimeout(function()&#123;e.apply(n,i)&#125;,t)&#125;&#125;<span class="keyword">var</span> canvasEl=document.querySelector(<span class="string">&quot;.fireworks&quot;</span>);<span class="keyword">if</span>(canvasEl)&#123;<span class="keyword">var</span> ctx=canvasEl.getContext(<span class="string">&quot;2d&quot;</span>),numberOfParticules=<span class="number">30</span>,pointerX=<span class="number">0</span>,pointerY=<span class="number">0</span>,tap=<span class="string">&quot;mousedown&quot;</span>,colors=[<span class="string">&quot;#FF1461&quot;</span>,<span class="string">&quot;#18FF92&quot;</span>,<span class="string">&quot;#5A87FF&quot;</span>,<span class="string">&quot;#FBF38C&quot;</span>],setCanvasSize=debounce(function()&#123;canvasEl.width=<span class="number">2</span>*window.innerWidth,canvasEl.height=<span class="number">2</span>*window.innerHeight,canvasEl.style.width=window.innerWidth+<span class="string">&quot;px&quot;</span>,canvasEl.style.height=window.innerHeight+<span class="string">&quot;px&quot;</span>,canvasEl.getContext(<span class="string">&quot;2d&quot;</span>).scale(<span class="number">2</span>,<span class="number">2</span>)&#125;,<span class="number">500</span>),render=anime(&#123;duration:<span class="number">1</span>/<span class="number">0</span>,update:function()&#123;ctx.clearRect(<span class="number">0</span>,<span class="number">0</span>,canvasEl.width,canvasEl.height)&#125;&#125;);document.addEventListener(tap,function(e)&#123;<span class="string">&quot;sidebar&quot;</span>!==e.target.id&amp;&amp;<span class="string">&quot;toggle-sidebar&quot;</span>!==e.target.id&amp;&amp;<span class="string">&quot;A&quot;</span>!==e.target.nodeName&amp;&amp;<span class="string">&quot;IMG&quot;</span>!==e.target.nodeName&amp;&amp;(render.play(),updateCoords(e),animateParticules(pointerX,pointerY))&#125;,!<span class="number">1</span>),setCanvasSize(),window.addEventListener(<span class="string">&quot;resize&quot;</span>,setCanvasSize,!<span class="number">1</span>)&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>然后在 \themes\主题\layout\layout.ejs 文件中写入以下代码：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;canvas class=&quot;fireworks&quot; style=&quot;position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;&quot; &gt;&lt;/canvas&gt; </span><br><span class="line">&lt;script type=&quot;text/javascript&quot; src=&quot;//cdn.bootcss.com/animejs/2.2.0/anime.min.js&quot;&gt;&lt;/script&gt; </span><br><span class="line">&lt;script type=&quot;text/javascript&quot; src=&quot;/js/fireworks.js&quot;&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+
+  </div>
+</article>
+
+    <div class="blog-post-comments">
+        <div id="disqus_thread">
+            <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        </div>
+    </div>
+
+
+
+    </div>
+    
+      <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a target="_blank" rel="noopener" href="https://www.oocc.xyz/">Home</a></li>
+         
+          <li><a href="/blog/archives/">Writing</a></li>
+         
+          <li><a target="_blank" rel="noopener" href="https://music.oocc.xyz/">Music</a></li>
+         
+          <li><a target="_blank" rel="noopener" href="https://tu.oocc.xyz/">Images</a></li>
+         
+          <li><a href="/blog/about/">About</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#wordpress%E8%AE%BE%E7%BD%AE"><span class="toc-number">1.</span> <span class="toc-text">wordpress设置</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%83%9F%E8%8A%B1%E7%88%86%E7%82%B8%E6%95%88%E6%9E%9C"><span class="toc-number">1.1.</span> <span class="toc-text">烟花爆炸效果</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%88%B1%E5%BF%83%E6%95%88%E6%9E%9C"><span class="toc-number">1.2.</span> <span class="toc-text">爱心效果</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%96%87%E5%AD%97%E6%95%88%E6%9E%9C"><span class="toc-number">1.3.</span> <span class="toc-text">文字效果</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#hexo%E8%AE%BE%E7%BD%AE%E6%96%B9%E6%B3%95"><span class="toc-number">2.</span> <span class="toc-text">hexo设置方法</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%88%B1%E5%BF%83%E6%95%88%E6%9E%9C-1"><span class="toc-number">2.1.</span> <span class="toc-text">爱心效果</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%AD%97%E4%BD%93%E6%95%88%E6%9E%9C"><span class="toc-number">2.2.</span> <span class="toc-text">字体效果</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%9C%A8-themes-%E4%B8%BB%E9%A2%98-source-js-%E4%B8%8B%E6%96%B0%E5%BB%BA%E6%96%87%E4%BB%B6-click-show-text-js%EF%BC%8C%E5%9C%A8-click-show-text-js-%E6%96%87%E4%BB%B6%E4%B8%AD%E6%B7%BB%E5%8A%A0%E4%BB%A5%E4%B8%8B%E4%BB%A3%E7%A0%81%EF%BC%9A"><span class="toc-number">2.3.</span> <span class="toc-text">在 &#x2F;themes&#x2F;主题&#x2F;source&#x2F;js 下新建文件 click_show_text.js，在 click_show_text.js 文件中添加以下代码：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%83%9F%E8%8A%B1%E7%88%86%E7%82%B8%E6%95%88%E6%9E%9C-1"><span class="toc-number">2.4.</span> <span class="toc-text">烟花爆炸效果</span></a></li></ol></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://example.com/blog/%E7%BD%91%E7%AB%99%E9%BC%A0%E6%A0%87%E4%B8%89%E7%A7%8D%E7%82%B9%E5%87%BB%E6%95%88%E6%9E%9C.html"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://example.com/blog/%E7%BD%91%E7%AB%99%E9%BC%A0%E6%A0%87%E4%B8%89%E7%A7%8D%E7%82%B9%E5%87%BB%E6%95%88%E6%9E%9C.html&text=网站鼠标三种点击效果"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://example.com/blog/%E7%BD%91%E7%AB%99%E9%BC%A0%E6%A0%87%E4%B8%89%E7%A7%8D%E7%82%B9%E5%87%BB%E6%95%88%E6%9E%9C.html&title=网站鼠标三种点击效果"><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/blog/%E7%BD%91%E7%AB%99%E9%BC%A0%E6%A0%87%E4%B8%89%E7%A7%8D%E7%82%B9%E5%87%BB%E6%95%88%E6%9E%9C.html&is_video=false&description=网站鼠标三种点击效果"><i class="fa fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=网站鼠标三种点击效果&body=Check out this article: http://example.com/blog/%E7%BD%91%E7%AB%99%E9%BC%A0%E6%A0%87%E4%B8%89%E7%A7%8D%E7%82%B9%E5%87%BB%E6%95%88%E6%9E%9C.html"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://example.com/blog/%E7%BD%91%E7%AB%99%E9%BC%A0%E6%A0%87%E4%B8%89%E7%A7%8D%E7%82%B9%E5%87%BB%E6%95%88%E6%9E%9C.html&title=网站鼠标三种点击效果"><i class="fa fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://example.com/blog/%E7%BD%91%E7%AB%99%E9%BC%A0%E6%A0%87%E4%B8%89%E7%A7%8D%E7%82%B9%E5%87%BB%E6%95%88%E6%9E%9C.html&title=网站鼠标三种点击效果"><i class="fa fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://example.com/blog/%E7%BD%91%E7%AB%99%E9%BC%A0%E6%A0%87%E4%B8%89%E7%A7%8D%E7%82%B9%E5%87%BB%E6%95%88%E6%9E%9C.html&title=网站鼠标三种点击效果"><i class="fa fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://example.com/blog/%E7%BD%91%E7%AB%99%E9%BC%A0%E6%A0%87%E4%B8%89%E7%A7%8D%E7%82%B9%E5%87%BB%E6%95%88%E6%9E%9C.html&title=网站鼠标三种点击效果"><i class="fa fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://example.com/blog/%E7%BD%91%E7%AB%99%E9%BC%A0%E6%A0%87%E4%B8%89%E7%A7%8D%E7%82%B9%E5%87%BB%E6%95%88%E6%9E%9C.html&name=网站鼠标三种点击效果&description="><i class="fa fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+      <ul>
+        <li id="toc"><a class="icon" href="#" onclick='$("#toc-footer").toggle();return false;'><i class="fa fa-list fa-lg" aria-hidden="true"></i> TOC</a></li>
+        <li id="share"><a class="icon" href="#" onclick='$("#share-footer").toggle();return false;'><i class="fa fa-share-alt fa-lg" aria-hidden="true"></i> Share</a></li>
+        <li id="top" style="display:none"><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a></li>
+        <li id="menu"><a class="icon" href="#" onclick='$("#nav-footer").toggle();return false;'><i class="fa fa-bars fa-lg" aria-hidden="true"></i> Menu</a></li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+    
+    <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2021 chang
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a target="_blank" rel="noopener" href="https://www.oocc.xyz/">Home</a></li>
+         
+          <li><a href="/blog/archives/">Writing</a></li>
+         
+          <li><a target="_blank" rel="noopener" href="https://music.oocc.xyz/">Music</a></li>
+         
+          <li><a target="_blank" rel="noopener" href="https://tu.oocc.xyz/">Images</a></li>
+         
+          <li><a href="/blog/about/">About</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/lihua.js"></script>
+<!-- 雪花特效 -->
+<script type="text/javascript" src="\js\snow.js"></script>
+</body>
+</html>
+<!-- styles -->
+
+<link rel="stylesheet" href="/blog/lib/font-awesome/css/font-awesome.min.css">
+
+
+<link rel="stylesheet" href="/blog/lib/meslo-LG/styles.css">
+
+
+<link rel="stylesheet" href="/blog/lib/justified-gallery/justifiedGallery.min.css">
+
+
+
+<!-- jquery -->
+
+<script src="/blog/lib/jquery/jquery.min.js"></script>
+
+
+<script src="/blog/lib/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+
+<script src="/blog/js/main.js"></script>
+
+<!-- Google Analytics -->
+
+    <script type="text/javascript">
+        (function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-49627206-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+<!-- Disqus Comments -->
+
+    <script type="text/javascript">
+        var disqus_shortname = 'forsigner';
+
+        (function(){
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        }());
+    </script>
+
+

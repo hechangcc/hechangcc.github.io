@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="安装QQ 第一步下载, 下载地址 安装 1rpm -ivh linuxqq_2.0.0-b2-1084_x86_64.rpm    安装VLC 123sudo yum install https:&#x2F;&#x2F;dl.fedoraproject.org&#x2F;pub&#x2F;epel&#x2F;epel-release-latest-8.noarch.rpmsudo yum install https:&#x2F;&#x2F;download1.rpm">
+<meta property="og:type" content="article">
+<meta property="og:title" content="centos装应用">
+<meta property="og:url" content="http://example.com/blog/centos%E8%A3%85%E5%BA%94%E7%94%A8.html">
+<meta property="og:site_name" content="Monkey">
+<meta property="og:description" content="安装QQ 第一步下载, 下载地址 安装 1rpm -ivh linuxqq_2.0.0-b2-1084_x86_64.rpm    安装VLC 123sudo yum install https:&#x2F;&#x2F;dl.fedoraproject.org&#x2F;pub&#x2F;epel&#x2F;epel-release-latest-8.noarch.rpmsudo yum install https:&#x2F;&#x2F;download1.rpm">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://i0.wp.com/upload-images.jianshu.io/upload_images/24496612-aaa4b63220b1b07b.png">
+<meta property="og:image" content="https://i0.wp.com/upload-images.jianshu.io/upload_images/24496612-4722fe53dfdd2e6e.png">
+<meta property="og:image" content="https://i0.wp.com/upload-images.jianshu.io/upload_images/24496612-9fc313e90e058101.png">
+<meta property="og:image" content="https://i0.wp.com/upload-images.jianshu.io/upload_images/24496612-b9ce480dcdbdd145.png">
+<meta property="og:image" content="https://i0.wp.com/upload-images.jianshu.io/upload_images/24496612-9ba770dd5b9adb26.png">
+<meta property="og:image" content="https://i0.wp.com/upload-images.jianshu.io/upload_images/24496612-047d7a65a5dabe1c.png">
+<meta property="og:image" content="https://i0.wp.com/upload-images.jianshu.io/upload_images/24496612-2612736abe58df62.png">
+<meta property="og:image" content="https://i0.wp.com/upload-images.jianshu.io/upload_images/24496612-ef0e5e44f4cf834e.png">
+<meta property="og:image" content="https://i0.wp.com/upload-images.jianshu.io/upload_images/24496612-b5aefbbc5ea683b5.png">
+<meta property="og:image" content="https://i0.wp.com/upload-images.jianshu.io/upload_images/24496612-d2ea3c2f6bae2f9a.png">
+<meta property="article:published_time" content="2021-01-01T02:19:31.000Z">
+<meta property="article:modified_time" content="2021-01-09T01:40:28.000Z">
+<meta property="article:author" content="chang">
+<meta property="article:tag" content="linux, centos, wordpress">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i0.wp.com/upload-images.jianshu.io/upload_images/24496612-aaa4b63220b1b07b.png">
+<link rel="publisher" href="x16620040224@gmail.com">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/blog/images/chang.png">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/blog/images/chang.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/chang.png">
+          
+        
+    
+    <!-- title -->
+    <title>centos装应用</title>
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/blog/css/style.css">
+
+    <!-- rss -->
+    
+    
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a target="_blank" rel="noopener" href="https://www.oocc.xyz/">Home</a></li>
+         
+          <li><a href="/blog/archives/">Writing</a></li>
+         
+          <li><a target="_blank" rel="noopener" href="https://music.oocc.xyz/">Music</a></li>
+         
+          <li><a target="_blank" rel="noopener" href="https://tu.oocc.xyz/">Images</a></li>
+         
+          <li><a href="/blog/about/">About</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/blog/%E7%BD%91%E7%AB%99%E9%BC%A0%E6%A0%87%E4%B8%89%E7%A7%8D%E7%82%B9%E5%87%BB%E6%95%88%E6%9E%9C.html"><i class="fa fa-chevron-left" aria-hidden="true" onmouseover='$("#i-prev").toggle();' onmouseout='$("#i-prev").toggle();'></i></a></li>
+        
+        
+        <li><a class="icon" href="/blog/h5ai%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86.html"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover='$("#i-next").toggle();' onmouseout='$("#i-next").toggle();'></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up" aria-hidden="true" onmouseover='$("#i-top").toggle();' onmouseout='$("#i-top").toggle();'></i></a></li>
+        <li><a class="icon" href="#"><i class="fa fa-share-alt" aria-hidden="true" onmouseover='$("#i-share").toggle();' onmouseout='$("#i-share").toggle();' onclick='$("#share").toggle();return false;'></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://example.com/blog/centos%E8%A3%85%E5%BA%94%E7%94%A8.html"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://example.com/blog/centos%E8%A3%85%E5%BA%94%E7%94%A8.html&text=centos装应用"><i class="fa fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://example.com/blog/centos%E8%A3%85%E5%BA%94%E7%94%A8.html&title=centos装应用"><i class="fa fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/blog/centos%E8%A3%85%E5%BA%94%E7%94%A8.html&is_video=false&description=centos装应用"><i class="fa fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=centos装应用&body=Check out this article: http://example.com/blog/centos%E8%A3%85%E5%BA%94%E7%94%A8.html"><i class="fa fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://example.com/blog/centos%E8%A3%85%E5%BA%94%E7%94%A8.html&title=centos装应用"><i class="fa fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://example.com/blog/centos%E8%A3%85%E5%BA%94%E7%94%A8.html&title=centos装应用"><i class="fa fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://example.com/blog/centos%E8%A3%85%E5%BA%94%E7%94%A8.html&title=centos装应用"><i class="fa fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://example.com/blog/centos%E8%A3%85%E5%BA%94%E7%94%A8.html&title=centos装应用"><i class="fa fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://example.com/blog/centos%E8%A3%85%E5%BA%94%E7%94%A8.html&name=centos装应用&description="><i class="fa fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1%EF%BC%9A%E4%B8%8B%E8%BD%BD%E5%AE%A2%E6%88%B7%E7%AB%AF%EF%BC%8C%E4%B8%8B%E9%9D%A2%E4%BB%A5%E6%9C%80%E7%AE%80%E5%8D%95%E7%9A%84AppImage%E4%B8%BA%E4%BE%8B%EF%BC%9A"><span class="toc-number">1.</span> <span class="toc-text">1：下载客户端，下面以最简单的AppImage为例：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2%EF%BC%9A%E4%B8%8B%E8%BD%BD%E6%A0%B8%E5%BF%83%E6%96%87%E4%BB%B6%EF%BC%8C%E4%B8%8B%E8%BD%BD%E9%93%BE%E6%8E%A5%EF%BC%9A"><span class="toc-number">2.</span> <span class="toc-text">2：下载核心文件，下载链接：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-cd%E8%BF%9B%E5%85%A5%E5%88%B0%E5%88%9A%E6%89%8D%E4%B8%8B%E8%BD%BD%E7%9A%84%E4%B8%A4%E4%B8%AA%E6%96%87%E4%BB%B6%E6%89%80%E5%9C%A8%E7%9A%84%E7%9B%AE%E5%BD%95%EF%BC%8C%E8%A7%A3%E5%8E%8Bv2ray-linux-64-zip"><span class="toc-number">3.</span> <span class="toc-text">3:cd进入到刚才下载的两个文件所在的目录，解压v2ray-linux-64.zip</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4%EF%BC%9A%E6%89%A7%E8%A1%8C%E4%BB%A5%E4%B8%8B%E5%91%BD%E4%BB%A4%EF%BC%9A"><span class="toc-number">4.</span> <span class="toc-text">4：执行以下命令：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E4%BB%8D%E7%84%B6%E5%9C%A8%E5%88%9A%E6%89%8D%E7%9A%84%E7%9B%AE%E5%BD%95%E4%B8%8B%E8%BE%93%E5%85%A5%E4%BB%A5%E4%B8%8B%E5%91%BD%E4%BB%A4%EF%BC%9A%E5%B0%B1%E5%8F%AF%E6%AD%A3%E5%B8%B8%E6%89%93%E5%BC%80%E6%AD%A4%E8%BD%AF%E4%BB%B6%EF%BC%81"><span class="toc-number">5.</span> <span class="toc-text">5:仍然在刚才的目录下输入以下命令：就可正常打开此软件！</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6%EF%BC%9A%E5%85%B3%E9%97%AD%E8%BD%AF%E4%BB%B6%EF%BC%8C%E5%B0%86%E8%BD%AF%E4%BB%B6%E7%A7%BB%E5%8A%A8%E5%88%B0opt%E7%9B%AE%E5%BD%95%E4%B8%8B"><span class="toc-number">6.</span> <span class="toc-text">6：关闭软件，将软件移动到opt目录下</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7%EF%BC%9A%E5%88%9B%E5%BB%BA%E8%BD%AF%E9%93%BE%E6%8E%A5%EF%BC%8C%E4%BD%BF%E5%85%B6%E5%8F%AF%E4%BB%A5%E5%9C%A8%E4%BB%BB%E4%BD%95%E5%9C%B0%E6%96%B9%E8%BE%93%E5%85%A5%E5%91%BD%E4%BB%A4%E5%8D%B3%E5%8F%AF%E6%89%93%E5%BC%80%E8%BD%AF%E4%BB%B6%EF%BC%81%EF%BC%81"><span class="toc-number">7.</span> <span class="toc-text">7：创建软链接，使其可以在任何地方输入命令即可打开软件！！</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8%EF%BC%9A%E8%B0%83%E8%AF%95%E8%BD%AF%E4%BB%B6%E3%80%82"><span class="toc-number">8.</span> <span class="toc-text">8：调试软件。</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B9%8B%E5%90%8E%E5%9C%A8%E7%A8%8B%E5%BA%8F%E4%B8%BB%E7%95%8C%E9%9D%A2%E6%B7%BB%E5%8A%A0%E8%AE%A2%E9%98%85%E9%93%BE%E6%8E%A5%E5%8D%B3%E5%8F%AF%EF%BC%81"><span class="toc-number"></span> <span class="toc-text">之后在程序主界面添加订阅链接即可！</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9C%A8CentOS-8%E4%B8%8A%E5%AE%89%E8%A3%85VirtualBox"><span class="toc-number"></span> <span class="toc-text">在CentOS 8上安装VirtualBox</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85VirtualBox-Extension-Pack"><span class="toc-number"></span> <span class="toc-text">安装VirtualBox Extension Pack</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%AF%E5%8A%A8VirtualBox"><span class="toc-number"></span> <span class="toc-text">启动VirtualBox</span></a>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index width mx-auto px2 my4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        centos装应用
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Monkey</span>
+      </span>
+      
+    <div class="postdate">
+        <time datetime="2021-01-01T02:19:31.000Z" itemprop="datePublished">2021-01-01</time>
+    </div>
+
+
+      
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <p><strong>安装QQ</strong></p>
+<p>第一步下载, <a target="_blank" rel="noopener" href="https://im.qq.com/linuxqq/download.html">下载地址</a></p>
+<p>安装</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rpm -ivh linuxqq_2<span class="number">.0</span><span class="number">.0</span>-b2-1084_x86_64.rpm</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>安装VLC</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo yum install https:<span class="comment">//dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm</span></span><br><span class="line">sudo yum install https:<span class="comment">//download1.rpmfusion.org/free/el/rpmfusion-free-release-8.noarch.rpm</span></span><br><span class="line">sudo yum install vlc</span><br></pre></td></tr></table></figure>
+
+<p>打开报错<strong>is not supposed to be run as root. Sorry.<br>If you need to use real-time priorities and/or privileged TCP ports<br>you can use vlc-wrapper (make sure it is Set-UID root and<br>cannot be run by non-trusted users first)</strong></p>
+<p>则：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed -i <span class="string">&#x27;s/geteuid/getppid/&#x27;</span> /usr/bin/vlc</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>安装Qv2ray</strong></p>
+<h3 id="1：下载客户端，下面以最简单的AppImage为例："><a href="#1：下载客户端，下面以最简单的AppImage为例：" class="headerlink" title="1：下载客户端，下面以最简单的AppImage为例："></a>1：下载客户端，下面以最简单的AppImage为例：</h3><p>打开链接：? <a target="_blank" rel="noopener" href="https://github.com/Qv2ray/Qv2ray/releases/tag/v2.6.3">https://github.com/Qv2ray/Qv2ray/releases/tag/v2.6.3</a></p>
+<p><img src="https://i0.wp.com/upload-images.jianshu.io/upload_images/24496612-aaa4b63220b1b07b.png" alt="img"></p>
+<h3 id="2：下载核心文件，下载链接："><a href="#2：下载核心文件，下载链接：" class="headerlink" title="2：下载核心文件，下载链接："></a>2：下载核心文件，下载链接：</h3><p><a target="_blank" rel="noopener" href="https://github.com/v2ray/v2ray-core/releases/">https://github.com/v2ray/v2ray-core/releases/</a></p>
+<p><img src="https://i0.wp.com/upload-images.jianshu.io/upload_images/24496612-4722fe53dfdd2e6e.png" alt="img"></p>
+<p>这样我们就下载了两个文件在Downloads路径下了 如下图！</p>
+<p><img src="https://i0.wp.com/upload-images.jianshu.io/upload_images/24496612-9fc313e90e058101.png" alt="img"></p>
+<h3 id="3-cd进入到刚才下载的两个文件所在的目录，解压v2ray-linux-64-zip"><a href="#3-cd进入到刚才下载的两个文件所在的目录，解压v2ray-linux-64-zip" class="headerlink" title="3:cd进入到刚才下载的两个文件所在的目录，解压v2ray-linux-64.zip"></a>3:cd进入到刚才下载的两个文件所在的目录，解压v2ray-linux-64.zip</h3><p>$ unzip -n v2ray-linux-64.zip -d v2ray</p>
+<h3 id="4：执行以下命令："><a href="#4：执行以下命令：" class="headerlink" title="4：执行以下命令："></a><strong>4：执行以下命令：</strong></h3><p>$ sudo chmod +x ./Qv2ray.v2.6.3.linux-x64.AppImage</p>
+<p>这个命令需要输入管理员密码，</p>
+<p>如果出现下图报错，</p>
+<p><img src="https://i0.wp.com/upload-images.jianshu.io/upload_images/24496612-b9ce480dcdbdd145.png" alt="img"></p>
+<p>在管理员用户下进行如下操作</p>
+<p>$ visudo</p>
+<p>然后找到如下图这行，大概在第98行！</p>
+<p><img src="https://i0.wp.com/upload-images.jianshu.io/upload_images/24496612-9ba770dd5b9adb26.png" alt="img"></p>
+<p>然后在在下面添加一行，root下面对应的是你所用的用户名.改完之后如下图！（按 i 进入编辑模式，修改完之后? :wq 保存退出！esc然后冒号然后小写wq，完成之后exit退出管理员，cd进入到刚才下载两个文件的目录,再运行刚才的命令即可！！）</p>
+<p><img src="https://i0.wp.com/upload-images.jianshu.io/upload_images/24496612-047d7a65a5dabe1c.png" alt="img"></p>
+<h3 id="5-仍然在刚才的目录下输入以下命令：就可正常打开此软件！"><a href="#5-仍然在刚才的目录下输入以下命令：就可正常打开此软件！" class="headerlink" title="5:仍然在刚才的目录下输入以下命令：就可正常打开此软件！"></a>5:仍然在刚才的目录下输入以下命令：就可正常打开此软件！</h3><p>$ ./Qv2ray.v2.6.3.linux-x64.AppImage</p>
+<h3 id="6：关闭软件，将软件移动到opt目录下"><a href="#6：关闭软件，将软件移动到opt目录下" class="headerlink" title="6：关闭软件，将软件移动到opt目录下"></a><strong>6：关闭软件，将软件移动到opt目录下</strong></h3><p>$ mkdir Qv2ray</p>
+<p>$ mv Qv2ray.v2.6.3.linux-x64.AppImage Qv2ray</p>
+<p>$ cd Qv2ray/</p>
+<p>$ mv Qv2ray.v2.6.3.linux-x64.AppImage Qv2ray</p>
+<p>$ cd ..</p>
+<p>$ mv v2ray Qv2ray/</p>
+<p>$ sudo mv Qv2ray/ /opt/</p>
+<h3 id="7：创建软链接，使其可以在任何地方输入命令即可打开软件！！"><a href="#7：创建软链接，使其可以在任何地方输入命令即可打开软件！！" class="headerlink" title="7：创建软链接，使其可以在任何地方输入命令即可打开软件！！"></a>7：创建软链接，使其可以在任何地方输入命令即可打开软件！！</h3><p>$ sudo ln -s /opt/Qv2ray/Qv2ray /usr/bin/Qv2ray</p>
+<p>然后即可在任意目录下输入 Qv2ray 打开软件！！</p>
+<h3 id="8：调试软件。"><a href="#8：调试软件。" class="headerlink" title="8：调试软件。"></a><strong>8：调试软件。</strong></h3><p>打开后如下图：</p>
+<p><img src="https://i0.wp.com/upload-images.jianshu.io/upload_images/24496612-2612736abe58df62.png" alt="img"></p>
+<p>我们将它改为中文！点上图 图片左上角Preferences,</p>
+<p><img src="https://i0.wp.com/upload-images.jianshu.io/upload_images/24496612-ef0e5e44f4cf834e.png" alt="img"></p>
+<p>按照下图路径配置</p>
+<p><img src="https://i0.wp.com/upload-images.jianshu.io/upload_images/24496612-b5aefbbc5ea683b5.png" alt="img"></p>
+<p>勾选设置系统代理</p>
+<p><img src="https://i0.wp.com/upload-images.jianshu.io/upload_images/24496612-d2ea3c2f6bae2f9a.png" alt="img"></p>
+<h1 id="之后在程序主界面添加订阅链接即可！"><a href="#之后在程序主界面添加订阅链接即可！" class="headerlink" title="之后在程序主界面添加订阅链接即可！"></a>之后在程序主界面添加订阅链接即可！</h1><p><strong>安装VirtualBox</strong></p>
+<h2 id="在CentOS-8上安装VirtualBox"><a href="#在CentOS-8上安装VirtualBox" class="headerlink" title="在CentOS 8上安装VirtualBox"></a>在CentOS 8上安装VirtualBox</h2><p>以root或具有sudo特权的用户执行以下步骤，以在CentOS 8上安装VirtualBox：</p>
+<ol>
+<li>启用Oracle的VirtualBox存储库：<code>sudo dnf config-manager --add-repo=https://download.virtualbox.org/virtualbox/rpm/el/virtualbox.repo</code></li>
+<li>在撰写本文时，VirtualBox的最新稳定版本为6.0.x。运行以下命令以安装<code>VirtualBox-6.0</code>软件包：<code>sudo yum install VirtualBox-6.0</code>在安装过程中，系统将提示您导入存储库GPG密钥。输入<code>y</code>并点击<code>Enter</code>。</li>
+</ol>
+<p>而已。至此，VirtualBox已安装在您的CentOS 8系统上。</p>
+<h2 id="安装VirtualBox-Extension-Pack"><a href="#安装VirtualBox-Extension-Pack" class="headerlink" title="安装VirtualBox Extension Pack"></a>安装VirtualBox Extension Pack</h2><p>VirtualBox Extension Pack为来宾计算机提供了一些有用的功能，例如虚拟USB 2.0和3.0设备，对RDP的支持，图像加密等等。</p>
+<p>用于<a target="_blank" rel="noopener" href="https://linux265.com/news/3823.html"><code>wget</code></a>从<a target="_blank" rel="noopener" href="https://www.virtualbox.org/wiki/Downloads">VirtualBox下载页面</a>下载扩展包：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https:<span class="comment">//download.virtualbox.org/virtualbox/6.0.14/Oracle_VM_VirtualBox_Extension_Pack-6.0.14.vbox-extpack</span></span><br></pre></td></tr></table></figure>
+
+<p>下载文件后，使用以下命令将其导入：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo VBoxManage extpack install Oracle_VM_VirtualBox_Extension_Pack-<span class="number">6.0</span><span class="number">.14</span>.vbox-extpack</span><br></pre></td></tr></table></figure>
+
+<p>系统将向您提供Oracle许可证，并提示您接受条款和条件。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">Do you agree to these license terms and <span class="title">conditions</span> <span class="params">(y/n)</span>?</span></span><br></pre></td></tr></table></figure>
+
+<p>输入<code>y</code>并点击<code>Enter</code>。安装完成后，您将看到以下输出：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">0</span>%..<span class="number">.10</span>%..<span class="number">.20</span>%..<span class="number">.30</span>%..<span class="number">.40</span>%..<span class="number">.50</span>%..<span class="number">.60</span>%..<span class="number">.70</span>%..<span class="number">.80</span>%..<span class="number">.90</span>%..<span class="number">.100</span>%</span><br><span class="line">Successfully installed <span class="string">&quot;Oracle VM VirtualBox Extension Pack&quot;</span>.</span><br></pre></td></tr></table></figure>
+
+<h2 id="启动VirtualBox"><a href="#启动VirtualBox" class="headerlink" title="启动VirtualBox"></a>启动VirtualBox</h2><p>现在VirtualBox已安装在您的CentOS计算机上，您可以从命令行通过键入<code>VirtualBox</code>或单击VirtualBox图标（<code>Activities -&gt; Oracle VM VirtualBox</code>）来启动它。</p>
+<p><strong>装chrome</strong></p>
+<p>现在直接官网下载安装就可以了</p>
+<p>\1. 下载安装包</p>
+<p>用浏览器下载包：<a target="_blank" rel="noopener" href="https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm">https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm</a></p>
+<p>\2. 安装</p>
+<p>[root@wilber ~]# cd /root/下载/ //进入包下载的目录</p>
+<p>[root@wilber ~]# rpm -ivh google-chrome-stable_current_x86_64.rpm</p>
+<p>注：若报错缺少依赖包，则yum install -y 安装好对应的依赖包再安装google-chrome</p>
+<p>\3. 添加google-chrome快捷方式到桌面<br>将 /usr/share/application/ 目录下的 Google Chrome 图标复制到桌面，如图：</p>
+<p>( 或在终端用命令复制 # cp /usr/share/applications/google-chrome.desktop /root/桌面/ )</p>
+<p>复制到桌面后是一个文件 “google-chrome.desktop”，如图：</p>
+<p>直接双击运行，弹出的对话框选 “Trust and Launch” 即可启动，文件变为Google Chrome的图标：</p>
+<p>解决google-chrome无法启动的问题<br>问题表现：</p>
+<p>双击Google Chrome图标无反应，无法打开浏览器。</p>
+<p>在命令行打开报错：</p>
+<p>[root@wilber ~]# /usr/bin/google-chrome<br>[5024:5024:0113/164154.164753:ERROR:zygote_host_impl_linux.cc(89)] Running as root without –no-sandbox is not supported. See <a target="_blank" rel="noopener" href="https://crbug.com/638180">https://crbug.com/638180</a>.</p>
+<p>解决方法：</p>
+<p>[root@wilber ~]# /usr/bin/google-chrome –no-sandbox //添加–no-sandbox后即可启动浏览器</p>
+<p>桌面图标右击–&gt;属性–&gt;启动命令后添加“–no-sandbox”</p>
+<p>即：/usr/bin/google-chrome-stable %U –no-sandbox</p>
+<p>[root@wilber ~]# vim /usr/share/applications/google-chrome.desktop</p>
+<p>修改：Exec=/usr/bin/google-chrome-stable %U</p>
+<p>为：Exec=/usr/bin/google-chrome-stable %U –no-sandbox</p>
+<p>OK!</p>
+<p>谷歌浏览器：您使用的是不受支持的命令行标记：–extensions-on-chrome-urls</p>
+<p>地址栏输入chrome://flags ,禁用Extensions on chrome:// URLs网址下的扩展程序，选择Disabled</p>
+<p>关闭盖子不睡眠<br>vim /etc/systemd/logind.conf</p>
+<p>HandlePowerKey　　　　 按下电源键后会触发的行为<br>HandleSleepKey　　 　　 按下挂起键后会触发的行为<br>HandleHibernateKey 　　按下休眠键后会触发的行为<br>HandleLidSwitch　　 　　关闭笔记本盖子后会触发的行为</p>
+<p>只需要把HandleLidSwitch选项设置为 HandleLidSwitch=lock</p>
+<p>设置完成保存后运行 systemctl restart systemd-logind 命令才生效</p>
+<p>最小化窗口</p>
+<p>输入并执行如下命令安装gnome-tweaks</p>
+<p>sudo yum install gnome-tweaks -y</p>
+<p>安装完成，在终端中输入：gnome-tweaks，打开【优化】对话框</p>
+<p>使用scp命令</p>
+<p>scp /home/work/source.txt <a href="mailto:&#119;&#x6f;&#114;&#x6b;&#64;&#x31;&#x39;&#50;&#46;&#x31;&#x36;&#56;&#46;&#x30;&#x2e;&#x31;&#x30;">&#119;&#x6f;&#114;&#x6b;&#64;&#x31;&#x39;&#50;&#46;&#x31;&#x36;&#56;&#46;&#x30;&#x2e;&#x31;&#x30;</a>:/home/work/ #把本地的source.txt文件拷贝到192.168.0.10机器上的/home/work目录下</p>
+<p>scp <a href="mailto:&#x77;&#111;&#x72;&#x6b;&#64;&#49;&#x39;&#x32;&#x2e;&#49;&#54;&#56;&#46;&#x30;&#46;&#x31;&#48;">&#x77;&#111;&#x72;&#x6b;&#64;&#49;&#x39;&#x32;&#x2e;&#49;&#54;&#56;&#46;&#x30;&#46;&#x31;&#48;</a>:/home/work/source.txt /home/work/ #把192.168.0.10机器上的source.txt文件拷贝到本地的/home/work目录下</p>
+<p>scp <a href="mailto:&#x77;&#111;&#x72;&#x6b;&#64;&#x31;&#57;&#50;&#x2e;&#49;&#54;&#x38;&#46;&#48;&#46;&#49;&#48;">&#x77;&#111;&#x72;&#x6b;&#64;&#x31;&#57;&#50;&#x2e;&#49;&#54;&#x38;&#46;&#48;&#46;&#49;&#48;</a>:/home/work/source.txt <a href="mailto:&#119;&#x6f;&#114;&#x6b;&#x40;&#49;&#x39;&#x32;&#46;&#x31;&#x36;&#56;&#x2e;&#x30;&#x2e;&#x31;&#49;">&#119;&#x6f;&#114;&#x6b;&#x40;&#49;&#x39;&#x32;&#46;&#x31;&#x36;&#56;&#x2e;&#x30;&#x2e;&#x31;&#49;</a>:/home/work/ #把192.168.0.10机器上的source.txt文件拷贝到192.168.0.11机器的/home/work目录下</p>
+<p>scp -r /home/work/sourcedir <a href="mailto:&#119;&#111;&#114;&#x6b;&#x40;&#x31;&#x39;&#50;&#x2e;&#49;&#x36;&#x38;&#x2e;&#48;&#x2e;&#x31;&#48;">&#119;&#111;&#114;&#x6b;&#x40;&#x31;&#x39;&#50;&#x2e;&#49;&#x36;&#x38;&#x2e;&#48;&#x2e;&#x31;&#48;</a>:/home/work/ #拷贝文件夹，加-r参数</p>
+<p>方式一:</p>
+<p>[root@localhost ~]# vim /root/.ssh/known_hosts<br>#把有問題的192.168.2.151 KEY刪掉<br>方式二:</p>
+<p>[root@localhost ~]# rm -rf /root/.ssh/known_hosts<br>#把整個known_hosts都刪除<br>#或是把known_hosts 移到別的地方<br>方式三:</p>
+<p>[root@localhost ~]# ssh-keygen -R 192.168.2.151<br>#將此有問題的移除，下次登入就可正常。</p>
+
+  </div>
+</article>
+
+    <div class="blog-post-comments">
+        <div id="disqus_thread">
+            <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        </div>
+    </div>
+
+
+
+    </div>
+    
+      <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a target="_blank" rel="noopener" href="https://www.oocc.xyz/">Home</a></li>
+         
+          <li><a href="/blog/archives/">Writing</a></li>
+         
+          <li><a target="_blank" rel="noopener" href="https://music.oocc.xyz/">Music</a></li>
+         
+          <li><a target="_blank" rel="noopener" href="https://tu.oocc.xyz/">Images</a></li>
+         
+          <li><a href="/blog/about/">About</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1%EF%BC%9A%E4%B8%8B%E8%BD%BD%E5%AE%A2%E6%88%B7%E7%AB%AF%EF%BC%8C%E4%B8%8B%E9%9D%A2%E4%BB%A5%E6%9C%80%E7%AE%80%E5%8D%95%E7%9A%84AppImage%E4%B8%BA%E4%BE%8B%EF%BC%9A"><span class="toc-number">1.</span> <span class="toc-text">1：下载客户端，下面以最简单的AppImage为例：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2%EF%BC%9A%E4%B8%8B%E8%BD%BD%E6%A0%B8%E5%BF%83%E6%96%87%E4%BB%B6%EF%BC%8C%E4%B8%8B%E8%BD%BD%E9%93%BE%E6%8E%A5%EF%BC%9A"><span class="toc-number">2.</span> <span class="toc-text">2：下载核心文件，下载链接：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-cd%E8%BF%9B%E5%85%A5%E5%88%B0%E5%88%9A%E6%89%8D%E4%B8%8B%E8%BD%BD%E7%9A%84%E4%B8%A4%E4%B8%AA%E6%96%87%E4%BB%B6%E6%89%80%E5%9C%A8%E7%9A%84%E7%9B%AE%E5%BD%95%EF%BC%8C%E8%A7%A3%E5%8E%8Bv2ray-linux-64-zip"><span class="toc-number">3.</span> <span class="toc-text">3:cd进入到刚才下载的两个文件所在的目录，解压v2ray-linux-64.zip</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4%EF%BC%9A%E6%89%A7%E8%A1%8C%E4%BB%A5%E4%B8%8B%E5%91%BD%E4%BB%A4%EF%BC%9A"><span class="toc-number">4.</span> <span class="toc-text">4：执行以下命令：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E4%BB%8D%E7%84%B6%E5%9C%A8%E5%88%9A%E6%89%8D%E7%9A%84%E7%9B%AE%E5%BD%95%E4%B8%8B%E8%BE%93%E5%85%A5%E4%BB%A5%E4%B8%8B%E5%91%BD%E4%BB%A4%EF%BC%9A%E5%B0%B1%E5%8F%AF%E6%AD%A3%E5%B8%B8%E6%89%93%E5%BC%80%E6%AD%A4%E8%BD%AF%E4%BB%B6%EF%BC%81"><span class="toc-number">5.</span> <span class="toc-text">5:仍然在刚才的目录下输入以下命令：就可正常打开此软件！</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6%EF%BC%9A%E5%85%B3%E9%97%AD%E8%BD%AF%E4%BB%B6%EF%BC%8C%E5%B0%86%E8%BD%AF%E4%BB%B6%E7%A7%BB%E5%8A%A8%E5%88%B0opt%E7%9B%AE%E5%BD%95%E4%B8%8B"><span class="toc-number">6.</span> <span class="toc-text">6：关闭软件，将软件移动到opt目录下</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7%EF%BC%9A%E5%88%9B%E5%BB%BA%E8%BD%AF%E9%93%BE%E6%8E%A5%EF%BC%8C%E4%BD%BF%E5%85%B6%E5%8F%AF%E4%BB%A5%E5%9C%A8%E4%BB%BB%E4%BD%95%E5%9C%B0%E6%96%B9%E8%BE%93%E5%85%A5%E5%91%BD%E4%BB%A4%E5%8D%B3%E5%8F%AF%E6%89%93%E5%BC%80%E8%BD%AF%E4%BB%B6%EF%BC%81%EF%BC%81"><span class="toc-number">7.</span> <span class="toc-text">7：创建软链接，使其可以在任何地方输入命令即可打开软件！！</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8%EF%BC%9A%E8%B0%83%E8%AF%95%E8%BD%AF%E4%BB%B6%E3%80%82"><span class="toc-number">8.</span> <span class="toc-text">8：调试软件。</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B9%8B%E5%90%8E%E5%9C%A8%E7%A8%8B%E5%BA%8F%E4%B8%BB%E7%95%8C%E9%9D%A2%E6%B7%BB%E5%8A%A0%E8%AE%A2%E9%98%85%E9%93%BE%E6%8E%A5%E5%8D%B3%E5%8F%AF%EF%BC%81"><span class="toc-number"></span> <span class="toc-text">之后在程序主界面添加订阅链接即可！</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9C%A8CentOS-8%E4%B8%8A%E5%AE%89%E8%A3%85VirtualBox"><span class="toc-number"></span> <span class="toc-text">在CentOS 8上安装VirtualBox</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85VirtualBox-Extension-Pack"><span class="toc-number"></span> <span class="toc-text">安装VirtualBox Extension Pack</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%AF%E5%8A%A8VirtualBox"><span class="toc-number"></span> <span class="toc-text">启动VirtualBox</span></a>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://example.com/blog/centos%E8%A3%85%E5%BA%94%E7%94%A8.html"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://example.com/blog/centos%E8%A3%85%E5%BA%94%E7%94%A8.html&text=centos装应用"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://example.com/blog/centos%E8%A3%85%E5%BA%94%E7%94%A8.html&title=centos装应用"><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/blog/centos%E8%A3%85%E5%BA%94%E7%94%A8.html&is_video=false&description=centos装应用"><i class="fa fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=centos装应用&body=Check out this article: http://example.com/blog/centos%E8%A3%85%E5%BA%94%E7%94%A8.html"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://example.com/blog/centos%E8%A3%85%E5%BA%94%E7%94%A8.html&title=centos装应用"><i class="fa fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://example.com/blog/centos%E8%A3%85%E5%BA%94%E7%94%A8.html&title=centos装应用"><i class="fa fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://example.com/blog/centos%E8%A3%85%E5%BA%94%E7%94%A8.html&title=centos装应用"><i class="fa fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://example.com/blog/centos%E8%A3%85%E5%BA%94%E7%94%A8.html&title=centos装应用"><i class="fa fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://example.com/blog/centos%E8%A3%85%E5%BA%94%E7%94%A8.html&name=centos装应用&description="><i class="fa fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+      <ul>
+        <li id="toc"><a class="icon" href="#" onclick='$("#toc-footer").toggle();return false;'><i class="fa fa-list fa-lg" aria-hidden="true"></i> TOC</a></li>
+        <li id="share"><a class="icon" href="#" onclick='$("#share-footer").toggle();return false;'><i class="fa fa-share-alt fa-lg" aria-hidden="true"></i> Share</a></li>
+        <li id="top" style="display:none"><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a></li>
+        <li id="menu"><a class="icon" href="#" onclick='$("#nav-footer").toggle();return false;'><i class="fa fa-bars fa-lg" aria-hidden="true"></i> Menu</a></li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+    
+    <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2021 chang
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a target="_blank" rel="noopener" href="https://www.oocc.xyz/">Home</a></li>
+         
+          <li><a href="/blog/archives/">Writing</a></li>
+         
+          <li><a target="_blank" rel="noopener" href="https://music.oocc.xyz/">Music</a></li>
+         
+          <li><a target="_blank" rel="noopener" href="https://tu.oocc.xyz/">Images</a></li>
+         
+          <li><a href="/blog/about/">About</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/lihua.js"></script>
+<!-- 雪花特效 -->
+<script type="text/javascript" src="\js\snow.js"></script>
+</body>
+</html>
+<!-- styles -->
+
+<link rel="stylesheet" href="/blog/lib/font-awesome/css/font-awesome.min.css">
+
+
+<link rel="stylesheet" href="/blog/lib/meslo-LG/styles.css">
+
+
+<link rel="stylesheet" href="/blog/lib/justified-gallery/justifiedGallery.min.css">
+
+
+
+<!-- jquery -->
+
+<script src="/blog/lib/jquery/jquery.min.js"></script>
+
+
+<script src="/blog/lib/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+
+<script src="/blog/js/main.js"></script>
+
+<!-- Google Analytics -->
+
+    <script type="text/javascript">
+        (function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-49627206-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+<!-- Disqus Comments -->
+
+    <script type="text/javascript">
+        var disqus_shortname = 'forsigner';
+
+        (function(){
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        }());
+    </script>
+
+

@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="一·客户端授权在本地Windows电脑上下载rclone，下载地址。解压，在文件夹内运行cmd，输入以下命令： 1rclone authorize &quot;onedrive&quot;   会弹出窗口认证，然后复制保存一下内容 123Paste the following into your remote machine ---&gt;&amp;#123;&quot;access_token&amp;quot">
+<meta property="og:type" content="article">
+<meta property="og:title" content="VPS挂载OneDrive">
+<meta property="og:url" content="http://example.com/blog/VPS%E6%8C%82%E8%BD%BDOneDrive.html">
+<meta property="og:site_name" content="Monkey">
+<meta property="og:description" content="一·客户端授权在本地Windows电脑上下载rclone，下载地址。解压，在文件夹内运行cmd，输入以下命令： 1rclone authorize &quot;onedrive&quot;   会弹出窗口认证，然后复制保存一下内容 123Paste the following into your remote machine ---&gt;&amp;#123;&quot;access_token&amp;quot">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-11-20T01:40:28.000Z">
+<meta property="article:modified_time" content="2021-03-09T14:49:23.982Z">
+<meta property="article:author" content="chang">
+<meta property="article:tag" content="linux, centos, wordpress">
+<meta name="twitter:card" content="summary">
+<link rel="publisher" href="x16620040224@gmail.com">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/blog/images/chang.png">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/blog/images/chang.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/chang.png">
+          
+        
+    
+    <!-- title -->
+    <title>VPS挂载OneDrive</title>
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/blog/css/style.css">
+
+    <!-- rss -->
+    
+    
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a target="_blank" rel="noopener" href="https://www.oocc.xyz/">Home</a></li>
+         
+          <li><a href="/blog/archives/">Writing</a></li>
+         
+          <li><a target="_blank" rel="noopener" href="https://music.oocc.xyz/">Music</a></li>
+         
+          <li><a target="_blank" rel="noopener" href="https://tu.oocc.xyz/">Images</a></li>
+         
+          <li><a href="/blog/about/">About</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/blog/%E8%87%AA%E5%BB%BA%E5%9B%BE%E5%BA%8A%E6%9C%8D%E5%8A%A1.html"><i class="fa fa-chevron-left" aria-hidden="true" onmouseover='$("#i-prev").toggle();' onmouseout='$("#i-prev").toggle();'></i></a></li>
+        
+        
+        <li><a class="icon" href="/blog/MKOnlineMusicPlayerWeb%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8.html"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover='$("#i-next").toggle();' onmouseout='$("#i-next").toggle();'></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up" aria-hidden="true" onmouseover='$("#i-top").toggle();' onmouseout='$("#i-top").toggle();'></i></a></li>
+        <li><a class="icon" href="#"><i class="fa fa-share-alt" aria-hidden="true" onmouseover='$("#i-share").toggle();' onmouseout='$("#i-share").toggle();' onclick='$("#share").toggle();return false;'></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://example.com/blog/VPS%E6%8C%82%E8%BD%BDOneDrive.html"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://example.com/blog/VPS%E6%8C%82%E8%BD%BDOneDrive.html&text=VPS挂载OneDrive"><i class="fa fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://example.com/blog/VPS%E6%8C%82%E8%BD%BDOneDrive.html&title=VPS挂载OneDrive"><i class="fa fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/blog/VPS%E6%8C%82%E8%BD%BDOneDrive.html&is_video=false&description=VPS挂载OneDrive"><i class="fa fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=VPS挂载OneDrive&body=Check out this article: http://example.com/blog/VPS%E6%8C%82%E8%BD%BDOneDrive.html"><i class="fa fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://example.com/blog/VPS%E6%8C%82%E8%BD%BDOneDrive.html&title=VPS挂载OneDrive"><i class="fa fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://example.com/blog/VPS%E6%8C%82%E8%BD%BDOneDrive.html&title=VPS挂载OneDrive"><i class="fa fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://example.com/blog/VPS%E6%8C%82%E8%BD%BDOneDrive.html&title=VPS挂载OneDrive"><i class="fa fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://example.com/blog/VPS%E6%8C%82%E8%BD%BDOneDrive.html&title=VPS挂载OneDrive"><i class="fa fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://example.com/blog/VPS%E6%8C%82%E8%BD%BDOneDrive.html&name=VPS挂载OneDrive&description="><i class="fa fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%80%C2%B7%E5%AE%A2%E6%88%B7%E7%AB%AF%E6%8E%88%E6%9D%83"><span class="toc-number">1.</span> <span class="toc-text">一·客户端授权</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%AE%89%E8%A3%85%E8%A7%A3%E5%8E%8B%E7%BC%A9%E8%BD%AF%E4%BB%B6"><span class="toc-number">2.</span> <span class="toc-text">二、服务器安装解压缩软件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E5%AE%89%E8%A3%85Rclone"><span class="toc-number">3.</span> <span class="toc-text">三、安装Rclone</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E9%85%8D%E7%BD%AERclone"><span class="toc-number">4.</span> <span class="toc-text">四、配置Rclone</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BA%94%E3%80%81%E6%8C%82%E8%BD%BD%E7%A1%AC%E7%9B%98"><span class="toc-number">5.</span> <span class="toc-text">五、挂载硬盘</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%AD%E3%80%81%E5%BC%80%E6%9C%BA%E8%87%AA%E5%8A%A8%E6%8C%82%E8%BD%BD"><span class="toc-number">6.</span> <span class="toc-text">六、开机自动挂载</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index width mx-auto px2 my4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        VPS挂载OneDrive
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Monkey</span>
+      </span>
+      
+    <div class="postdate">
+        <time datetime="2020-11-20T01:40:28.000Z" itemprop="datePublished">2020-11-20</time>
+    </div>
+
+
+      
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h4 id="一·客户端授权"><a href="#一·客户端授权" class="headerlink" title="一·客户端授权"></a>一·客户端授权</h4><p>在本地Windows电脑上下载rclone，<a target="_blank" rel="noopener" href="https://rclone.org/downloads/">下载地址</a>。解压，在文件夹内运行cmd，输入以下命令：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rclone authorize <span class="string">&quot;onedrive&quot;</span></span><br></pre></td></tr></table></figure>
+
+
+<p>会弹出窗口认证，然后复制保存一下内容</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Paste the following into your remote machine ---&gt;</span><br><span class="line">&#123;&quot;access_token&quot;:&quot;xxxx&quot;&#125;  #复制&#123;xx&#125;整个内容(包括花括号)，后面需要用到</span><br><span class="line">&lt;---End paste</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="二、服务器安装解压缩软件"><a href="#二、服务器安装解压缩软件" class="headerlink" title="二、服务器安装解压缩软件"></a>二、服务器安装解压缩软件</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y install unzip</span><br></pre></td></tr></table></figure>
+
+<h4 id="三、安装Rclone"><a href="#三、安装Rclone" class="headerlink" title="三、安装Rclone"></a>三、安装Rclone</h4><p><a target="_blank" rel="noopener" href="https://rclone.org/downloads/">官方网站</a>： 安装代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl https:<span class="comment">//rclone.org/install.sh | sudo bash </span></span><br></pre></td></tr></table></figure>
+
+<h4 id="四、配置Rclone"><a href="#四、配置Rclone" class="headerlink" title="四、配置Rclone"></a>四、配置Rclone</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br></pre></td><td class="code"><pre><span class="line">运行命令rclone config</span><br><span class="line"></span><br><span class="line">No remotes found - make a <span class="keyword">new</span> one</span><br><span class="line">n) New remote</span><br><span class="line">s) Set configuration password</span><br><span class="line">q) Quit config</span><br><span class="line">n/s/q&gt; n</span><br><span class="line">选择n，自定义名称</span><br><span class="line"></span><br><span class="line">输入名称，回车</span><br><span class="line"></span><br><span class="line">name&gt; OneDrive</span><br><span class="line"></span><br><span class="line">选择需要挂载的网盘</span><br><span class="line"></span><br><span class="line">Type of storage to configure.</span><br><span class="line">Enter a string value. <span class="function">Press Enter <span class="keyword">for</span> the <span class="title">default</span> <span class="params">(<span class="string">&quot;&quot;</span>)</span>.</span></span><br><span class="line"><span class="function">Choose a number from below, or type in your own value</span></span><br><span class="line"><span class="function"> 1 / A stackable unification remote, which can appear to merge the contents of several remotes</span></span><br><span class="line"><span class="function">   \ &quot;union&quot;</span></span><br><span class="line"><span class="function"> 2 / Alias <span class="keyword">for</span> an existing remote</span></span><br><span class="line"><span class="function">   \ &quot;alias&quot;</span></span><br><span class="line"><span class="function"> 3 / Amazon Drive</span></span><br><span class="line"><span class="function">   \ &quot;amazon cloud drive&quot;</span></span><br><span class="line"><span class="function"> 4 / Amazon S3 Compliant Storage <span class="title">Provider</span> <span class="params">(AWS, Alibaba, Ceph, Digital Ocean, Dreamhost, IBM COS, Minio, etc)</span></span></span><br><span class="line"><span class="function">   \ &quot;s3&quot;</span></span><br><span class="line"><span class="function"> 5 / Backblaze B2</span></span><br><span class="line"><span class="function">   \ &quot;b2&quot;</span></span><br><span class="line"><span class="function"> 6 / Box</span></span><br><span class="line"><span class="function">   \ &quot;box&quot;</span></span><br><span class="line"><span class="function"> 7 / Cache a remote</span></span><br><span class="line"><span class="function">   \ &quot;cache&quot;</span></span><br><span class="line"><span class="function"> 8 / Dropbox</span></span><br><span class="line"><span class="function">   \ &quot;dropbox&quot;</span></span><br><span class="line"><span class="function"> 9 / Encrypt/Decrypt a remote</span></span><br><span class="line"><span class="function">   \ &quot;crypt&quot;</span></span><br><span class="line"><span class="function">10 / FTP Connection</span></span><br><span class="line"><span class="function">   \ &quot;ftp&quot;</span></span><br><span class="line"><span class="function">11 / Google Cloud <span class="title">Storage</span> <span class="params">(<span class="keyword">this</span> is not Google Drive)</span></span></span><br><span class="line"><span class="function">   \ &quot;google cloud storage&quot;</span></span><br><span class="line"><span class="function">12 / Google Drive</span></span><br><span class="line"><span class="function">   \ &quot;drive&quot;</span></span><br><span class="line"><span class="function">13 / Hubic</span></span><br><span class="line"><span class="function">   \ &quot;hubic&quot;</span></span><br><span class="line"><span class="function">14 / JottaCloud</span></span><br><span class="line"><span class="function">   \ &quot;jottacloud&quot;</span></span><br><span class="line"><span class="function">15 / Koofr</span></span><br><span class="line"><span class="function">   \ &quot;koofr&quot;</span></span><br><span class="line"><span class="function">16 / Local Disk</span></span><br><span class="line"><span class="function">   \ &quot;local&quot;</span></span><br><span class="line"><span class="function">17 / Mega</span></span><br><span class="line"><span class="function">   \ &quot;mega&quot;</span></span><br><span class="line"><span class="function">18 / Microsoft Azure Blob Storage</span></span><br><span class="line"><span class="function">   \ &quot;azureblob&quot;</span></span><br><span class="line"><span class="function">19 / Microsoft OneDrive</span></span><br><span class="line"><span class="function">   \ &quot;onedrive&quot;</span></span><br><span class="line"><span class="function">20 / OpenDrive</span></span><br><span class="line"><span class="function">   \ &quot;opendrive&quot;</span></span><br><span class="line"><span class="function">21 / Openstack <span class="title">Swift</span> <span class="params">(Rackspace Cloud Files, Memset Memstore, OVH)</span></span></span><br><span class="line"><span class="function">   \ &quot;swift&quot;</span></span><br><span class="line"><span class="function">22 / Pcloud</span></span><br><span class="line"><span class="function">   \ &quot;pcloud&quot;</span></span><br><span class="line"><span class="function">23 / QingCloud Object Storage</span></span><br><span class="line"><span class="function">   \ &quot;qingstor&quot;</span></span><br><span class="line"><span class="function">24 / SSH/SFTP Connection</span></span><br><span class="line"><span class="function">   \ &quot;sftp&quot;</span></span><br><span class="line"><span class="function">25 / Webdav</span></span><br><span class="line"><span class="function">   \ &quot;webdav&quot;</span></span><br><span class="line"><span class="function">26 / Yandex Disk</span></span><br><span class="line"><span class="function">   \ &quot;yandex&quot;</span></span><br><span class="line"><span class="function">27 / http Connection</span></span><br><span class="line"><span class="function">   \ &quot;http&quot;</span></span><br><span class="line"><span class="function">Storage&gt; 19</span></span><br><span class="line"><span class="function">比如onedrive，所以这里选择19，根据实际来选择，rclone版本不一样选择也不一样。</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">下面client_id&gt;和client_secret&gt; ，这两项直接回车</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">Microsoft App Client Id</span></span><br><span class="line"><span class="function">Leave blank normally.</span></span><br><span class="line"><span class="function">Enter a string value. Press Enter <span class="keyword">for</span> the <span class="title">default</span> <span class="params">(<span class="string">&quot;&quot;</span>)</span>.</span></span><br><span class="line"><span class="function">client_id&gt; </span></span><br><span class="line"><span class="function">Microsoft App Client Secret</span></span><br><span class="line"><span class="function">Leave blank normally.</span></span><br><span class="line"><span class="function">Enter a string value. Press Enter <span class="keyword">for</span> the <span class="title">default</span> <span class="params">(<span class="string">&quot;&quot;</span>)</span>.</span></span><br><span class="line"><span class="function">client_secret&gt;</span></span><br><span class="line"><span class="function">是否配置高级设置，选择n</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">Edit advanced config? <span class="params">(y/n)</span></span></span><br><span class="line"><span class="function">y) Yes</span></span><br><span class="line"><span class="function">n) No</span></span><br><span class="line"><span class="function">y/n&gt; n</span></span><br><span class="line"><span class="function">是否使用自动设置，选择n</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">Use auto config?</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"> * Say Y <span class="keyword">if</span> not sure</span></span><br><span class="line"><span class="function"> * Say N <span class="keyword">if</span> you are working on a remote or headless machine</span></span><br><span class="line"><span class="function">   y) Yes</span></span><br><span class="line"><span class="function">   n) No</span></span><br><span class="line"><span class="function">   y/n&gt; n</span></span><br><span class="line"><span class="function">   这一步就需要用到我们刚才在win获取到的access_token</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">For <span class="keyword">this</span> to work, you will need rclone available on a machine that has a web browser available.</span></span><br><span class="line"><span class="function">Execute the following on your machine:</span></span><br><span class="line"><span class="function">	rclone authorize &quot;onedrive&quot;</span></span><br><span class="line"><span class="function">Then paste the result below:</span></span><br><span class="line"><span class="function">result&gt;在此输入token</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">选择1，onedrive个人版或是商业版</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">Choose a number from below, or type in an existing value</span></span><br><span class="line"><span class="function"> 1 / OneDrive Personal or Business</span></span><br><span class="line"><span class="function">   \ &quot;onedrive&quot;</span></span><br><span class="line"><span class="function"> 2 / Root Sharepoint site</span></span><br><span class="line"><span class="function">   \ &quot;sharepoint&quot;</span></span><br><span class="line"><span class="function"> 3 / Type in driveID</span></span><br><span class="line"><span class="function">   \ &quot;driveid&quot;</span></span><br><span class="line"><span class="function"> 4 / Type in SiteID</span></span><br><span class="line"><span class="function">   \ &quot;siteid&quot;</span></span><br><span class="line"><span class="function"> 5 / Search a Sharepoint site</span></span><br><span class="line"><span class="function">   \ &quot;search&quot;</span></span><br><span class="line"><span class="function">Your choice&gt; 1</span></span><br><span class="line"><span class="function">会提示找到一个驱动器</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">Found 1 drives, please select the one you want to use:</span></span><br><span class="line"><span class="function">0: <span class="title">OneDrive</span> <span class="params">(business)</span> id</span>=b!tjyPr9WccUytxb9q4bgCz1Z8pnMGbxJCmV651K4oHDgyUnggpbbeTYTa</span><br><span class="line">Chose drive to use:&gt; <span class="number">0</span></span><br><span class="line">输入前面序号<span class="number">0</span></span><br><span class="line"></span><br><span class="line">下面选择yes</span><br><span class="line"></span><br><span class="line">Found drive <span class="string">&#x27;root&#x27;</span> of type <span class="string">&#x27;business&#x27;</span>, URL: https:<span class="comment">//dddd290-my.sharepoint.com/personal/info_vipiu_net/Documents</span></span><br><span class="line">Is that okay?</span><br><span class="line">y) Yes</span><br><span class="line">n) No</span><br><span class="line">y/n&gt; y</span><br><span class="line">然后确认</span><br><span class="line"></span><br><span class="line">y) Yes <span class="keyword">this</span> is OK</span><br><span class="line">e) Edit <span class="keyword">this</span> remote</span><br><span class="line">d) Delete <span class="keyword">this</span> remote</span><br><span class="line">y/e/d&gt; y</span><br><span class="line">然后退出配置</span><br><span class="line"></span><br><span class="line">e) Edit existing remote</span><br><span class="line">n) New remote</span><br><span class="line">d) Delete remote</span><br><span class="line">r) Rename remote</span><br><span class="line">c) Copy remote</span><br><span class="line">s) Set configuration password</span><br><span class="line">q) Quit config</span><br><span class="line">e/n/d/r/c/s/q&gt;</span><br><span class="line">选q保存退出</span><br></pre></td></tr></table></figure>
+
+<h4 id="五、挂载硬盘"><a href="#五、挂载硬盘" class="headerlink" title="五、挂载硬盘"></a>五、挂载硬盘</h4><p> 1、创建一个文件夹挂载盘</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir /home/OneDrive</span><br></pre></td></tr></table></figure>
+
+<p>2、安装fuse文件系统</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y install fuse</span><br></pre></td></tr></table></figure>
+
+<p>3、挂载</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">rclone mount OneDrive: /home/OneDrive \</span><br><span class="line"> --umask <span class="number">0000</span> \</span><br><span class="line"> --<span class="keyword">default</span>-permissions \</span><br><span class="line"> --allow-non-empty \</span><br><span class="line"> --allow-other \</span><br><span class="line"> --buffer-size 32M \</span><br><span class="line"> --dir-cache-time 12h \</span><br><span class="line"> --vfs-read-chunk-size 64M \</span><br><span class="line"> --vfs-read-chunk-size-limit 1G &amp;</span><br></pre></td></tr></table></figure>
+
+
+<p>注意：第一个OneDrive为你自己配置Rclon时候起的名字，后面空格或者网盘里文件名称，空格则标示所有盘。/后面为刚才创建挂载的新建的文件夹路径</p>
+<p>4、查看网盘是否挂载成功</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df -h</span><br></pre></td></tr></table></figure>
+
+<h4 id="六、开机自动挂载"><a href="#六、开机自动挂载" class="headerlink" title="六、开机自动挂载"></a>六、开机自动挂载</h4><p>1、新建一个rclone.service文件</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /usr/lib/systemd/system/rclone.service</span><br></pre></td></tr></table></figure>
+
+
+<p>2、写入代码，按照配置进行更改</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[Unit]</span><br><span class="line">Description=rclone</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">User=root</span><br><span class="line">ExecStart=/usr/bin/rclone mount OneDrive: /home/OneDrive/ --allow-other --umask <span class="number">0000</span> --<span class="keyword">default</span>-permissions --buffer-size 32M --dir-cache-time 12h --vfs-read-chunk-size 64M --vfs-read-chunk-size-limit 1G --allow-non-empty --vfs-cache-mode writes</span><br><span class="line">Restart=on-abort</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></table></figure>
+
+<p>i键修改，EXC退出编辑，输入:wq 保存退出 </p>
+<p>3、保存后 重载daemon,让新的服务文件生效</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl daemon-reload</span><br></pre></td></tr></table></figure>
+
+<p>4、通过systemctl来启动clone</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl start rclone</span><br></pre></td></tr></table></figure>
+
+<p>5、开机启动</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl enable rclone</span><br></pre></td></tr></table></figure>
+
+<p>6、重启服务器查看是否自动挂载</p>
+<p>重启： reboot 查看Rclone ：systemctl status rclone 查看硬盘挂载：df -h</p>
+
+  </div>
+</article>
+
+    <div class="blog-post-comments">
+        <div id="disqus_thread">
+            <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        </div>
+    </div>
+
+
+
+    </div>
+    
+      <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a target="_blank" rel="noopener" href="https://www.oocc.xyz/">Home</a></li>
+         
+          <li><a href="/blog/archives/">Writing</a></li>
+         
+          <li><a target="_blank" rel="noopener" href="https://music.oocc.xyz/">Music</a></li>
+         
+          <li><a target="_blank" rel="noopener" href="https://tu.oocc.xyz/">Images</a></li>
+         
+          <li><a href="/blog/about/">About</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%80%C2%B7%E5%AE%A2%E6%88%B7%E7%AB%AF%E6%8E%88%E6%9D%83"><span class="toc-number">1.</span> <span class="toc-text">一·客户端授权</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%AE%89%E8%A3%85%E8%A7%A3%E5%8E%8B%E7%BC%A9%E8%BD%AF%E4%BB%B6"><span class="toc-number">2.</span> <span class="toc-text">二、服务器安装解压缩软件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E5%AE%89%E8%A3%85Rclone"><span class="toc-number">3.</span> <span class="toc-text">三、安装Rclone</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E9%85%8D%E7%BD%AERclone"><span class="toc-number">4.</span> <span class="toc-text">四、配置Rclone</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BA%94%E3%80%81%E6%8C%82%E8%BD%BD%E7%A1%AC%E7%9B%98"><span class="toc-number">5.</span> <span class="toc-text">五、挂载硬盘</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%AD%E3%80%81%E5%BC%80%E6%9C%BA%E8%87%AA%E5%8A%A8%E6%8C%82%E8%BD%BD"><span class="toc-number">6.</span> <span class="toc-text">六、开机自动挂载</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://example.com/blog/VPS%E6%8C%82%E8%BD%BDOneDrive.html"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://example.com/blog/VPS%E6%8C%82%E8%BD%BDOneDrive.html&text=VPS挂载OneDrive"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://example.com/blog/VPS%E6%8C%82%E8%BD%BDOneDrive.html&title=VPS挂载OneDrive"><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/blog/VPS%E6%8C%82%E8%BD%BDOneDrive.html&is_video=false&description=VPS挂载OneDrive"><i class="fa fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=VPS挂载OneDrive&body=Check out this article: http://example.com/blog/VPS%E6%8C%82%E8%BD%BDOneDrive.html"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://example.com/blog/VPS%E6%8C%82%E8%BD%BDOneDrive.html&title=VPS挂载OneDrive"><i class="fa fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://example.com/blog/VPS%E6%8C%82%E8%BD%BDOneDrive.html&title=VPS挂载OneDrive"><i class="fa fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://example.com/blog/VPS%E6%8C%82%E8%BD%BDOneDrive.html&title=VPS挂载OneDrive"><i class="fa fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://example.com/blog/VPS%E6%8C%82%E8%BD%BDOneDrive.html&title=VPS挂载OneDrive"><i class="fa fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://example.com/blog/VPS%E6%8C%82%E8%BD%BDOneDrive.html&name=VPS挂载OneDrive&description="><i class="fa fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+      <ul>
+        <li id="toc"><a class="icon" href="#" onclick='$("#toc-footer").toggle();return false;'><i class="fa fa-list fa-lg" aria-hidden="true"></i> TOC</a></li>
+        <li id="share"><a class="icon" href="#" onclick='$("#share-footer").toggle();return false;'><i class="fa fa-share-alt fa-lg" aria-hidden="true"></i> Share</a></li>
+        <li id="top" style="display:none"><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a></li>
+        <li id="menu"><a class="icon" href="#" onclick='$("#nav-footer").toggle();return false;'><i class="fa fa-bars fa-lg" aria-hidden="true"></i> Menu</a></li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+    
+    <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2021 chang
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a target="_blank" rel="noopener" href="https://www.oocc.xyz/">Home</a></li>
+         
+          <li><a href="/blog/archives/">Writing</a></li>
+         
+          <li><a target="_blank" rel="noopener" href="https://music.oocc.xyz/">Music</a></li>
+         
+          <li><a target="_blank" rel="noopener" href="https://tu.oocc.xyz/">Images</a></li>
+         
+          <li><a href="/blog/about/">About</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/lihua.js"></script>
+<!-- 雪花特效 -->
+<script type="text/javascript" src="\js\snow.js"></script>
+</body>
+</html>
+<!-- styles -->
+
+<link rel="stylesheet" href="/blog/lib/font-awesome/css/font-awesome.min.css">
+
+
+<link rel="stylesheet" href="/blog/lib/meslo-LG/styles.css">
+
+
+<link rel="stylesheet" href="/blog/lib/justified-gallery/justifiedGallery.min.css">
+
+
+
+<!-- jquery -->
+
+<script src="/blog/lib/jquery/jquery.min.js"></script>
+
+
+<script src="/blog/lib/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+
+<script src="/blog/js/main.js"></script>
+
+<!-- Google Analytics -->
+
+    <script type="text/javascript">
+        (function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-49627206-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+<!-- Disqus Comments -->
+
+    <script type="text/javascript">
+        var disqus_shortname = 'forsigner';
+
+        (function(){
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        }());
+    </script>
+
+
