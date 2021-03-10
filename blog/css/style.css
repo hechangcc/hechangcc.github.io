@@ -1387,3 +1387,10 @@ body {
 a:hover {
   cursor: url("/images/02.cur"), pointer;
 }
+body {
+  background: url("/images/man.gif");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+/*background-size: cover;*/
+  background-position: 0% 100%;
+}

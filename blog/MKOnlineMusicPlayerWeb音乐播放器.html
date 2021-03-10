@@ -9,7 +9,7 @@
     <meta name="description" content="新建站点,删除根目录下所有文件。上传解压MKOnlineMusicPlayer源码到根目录  下载地址 访问网站就可以愉快的听音乐了 注意事项 运行环境php5.4+, curl_exec, file_get_contents, json_decode, openssl_encrypt 本程序需要上传至网站空间(服务器)使用，不支持在本地打开 歌单页封面显示不出来。请打开api.php，将第十行的">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MKOnlineMusicPlayerWeb音乐播放器">
-<meta property="og:url" content="http://example.com/blog/MKOnlineMusicPlayerWeb%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8.html">
+<meta property="og:url" content="http://example.com/MKOnlineMusicPlayerWeb%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8.html">
 <meta property="og:site_name" content="Monkey">
 <meta property="og:description" content="新建站点,删除根目录下所有文件。上传解压MKOnlineMusicPlayer源码到根目录  下载地址 访问网站就可以愉快的听音乐了 注意事项 运行环境php5.4+, curl_exec, file_get_contents, json_decode, openssl_encrypt 本程序需要上传至网站空间(服务器)使用，不支持在本地打开 歌单页封面显示不出来。请打开api.php，将第十行的">
 <meta property="og:locale" content="en_US">
@@ -23,17 +23,17 @@
     
         
           
-              <link rel="shortcut icon" href="/blog/images/chang.png">
+              <link rel="shortcut icon" href="/images/chang.png">
           
         
         
           
-            <link rel="icon" type="image/png" href="/blog/images/chang.png" sizes="192x192">
+            <link rel="icon" type="image/png" href="/images/chang.png" sizes="192x192">
           
         
         
           
-            <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/chang.png">
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/chang.png">
           
         
     
@@ -41,7 +41,7 @@
     <title>MKOnlineMusicPlayerWeb音乐播放器</title>
     <!-- styles -->
     
-<link rel="stylesheet" href="/blog/css/style.css">
+<link rel="stylesheet" href="/css/style.css">
 
     <!-- rss -->
     
@@ -58,15 +58,15 @@
     <span id="nav">
       <ul>
          
-          <li><a href="/blog/">Home</a></li>
+          <li><a href="/">Home</a></li>
          
-          <li><a href="/blog/archives/">Writing</a></li>
+          <li><a href="/archives/">Writing</a></li>
          
           <li><a target="_blank" rel="noopener" href="https://music.oocc.xyz/">Music</a></li>
          
           <li><a target="_blank" rel="noopener" href="https://tu.oocc.xyz/">Images</a></li>
          
-          <li><a href="/blog/about/">About</a></li>
+          <li><a href="/about/">About</a></li>
         
       </ul>
     </span>
@@ -74,10 +74,10 @@
     <span id="actions">
       <ul>
         
-        <li><a class="icon" href="/blog/VPS%E6%8C%82%E8%BD%BDOneDrive.html"><i class="fa fa-chevron-left" aria-hidden="true" onmouseover='$("#i-prev").toggle();' onmouseout='$("#i-prev").toggle();'></i></a></li>
+        <li><a class="icon" href="/VPS%E6%8C%82%E8%BD%BDOneDrive.html"><i class="fa fa-chevron-left" aria-hidden="true" onmouseover='$("#i-prev").toggle();' onmouseout='$("#i-prev").toggle();'></i></a></li>
         
         
-        <li><a class="icon" href="/blog/frp%E8%BF%9C%E7%A8%8B%E8%AE%BF%E9%97%AE.html"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover='$("#i-next").toggle();' onmouseout='$("#i-next").toggle();'></i></a></li>
+        <li><a class="icon" href="/frp%E8%BF%9C%E7%A8%8B%E8%AE%BF%E9%97%AE.html"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover='$("#i-next").toggle();' onmouseout='$("#i-next").toggle();'></i></a></li>
         
         <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up" aria-hidden="true" onmouseover='$("#i-top").toggle();' onmouseout='$("#i-top").toggle();'></i></a></li>
         <li><a class="icon" href="#"><i class="fa fa-share-alt" aria-hidden="true" onmouseover='$("#i-share").toggle();' onmouseout='$("#i-share").toggle();' onclick='$("#share").toggle();return false;'></i></a></li>
@@ -90,16 +90,16 @@
     <br/>
     <div id="share" style="display: none">
       <ul>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://example.com/blog/MKOnlineMusicPlayerWeb%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8.html"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://example.com/blog/MKOnlineMusicPlayerWeb%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8.html&text=MKOnlineMusicPlayerWeb音乐播放器"><i class="fa fa-twitter " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://example.com/blog/MKOnlineMusicPlayerWeb%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8.html&title=MKOnlineMusicPlayerWeb音乐播放器"><i class="fa fa-linkedin " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/blog/MKOnlineMusicPlayerWeb%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8.html&is_video=false&description=MKOnlineMusicPlayerWeb音乐播放器"><i class="fa fa-pinterest " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=MKOnlineMusicPlayerWeb音乐播放器&body=Check out this article: http://example.com/blog/MKOnlineMusicPlayerWeb%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8.html"><i class="fa fa-envelope " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://example.com/blog/MKOnlineMusicPlayerWeb%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8.html&title=MKOnlineMusicPlayerWeb音乐播放器"><i class="fa fa-get-pocket " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://example.com/blog/MKOnlineMusicPlayerWeb%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8.html&title=MKOnlineMusicPlayerWeb音乐播放器"><i class="fa fa-reddit " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://example.com/blog/MKOnlineMusicPlayerWeb%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8.html&title=MKOnlineMusicPlayerWeb音乐播放器"><i class="fa fa-stumbleupon " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://example.com/blog/MKOnlineMusicPlayerWeb%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8.html&title=MKOnlineMusicPlayerWeb音乐播放器"><i class="fa fa-digg " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://example.com/blog/MKOnlineMusicPlayerWeb%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8.html&name=MKOnlineMusicPlayerWeb音乐播放器&description="><i class="fa fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://example.com/MKOnlineMusicPlayerWeb%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8.html"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://example.com/MKOnlineMusicPlayerWeb%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8.html&text=MKOnlineMusicPlayerWeb音乐播放器"><i class="fa fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://example.com/MKOnlineMusicPlayerWeb%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8.html&title=MKOnlineMusicPlayerWeb音乐播放器"><i class="fa fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/MKOnlineMusicPlayerWeb%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8.html&is_video=false&description=MKOnlineMusicPlayerWeb音乐播放器"><i class="fa fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=MKOnlineMusicPlayerWeb音乐播放器&body=Check out this article: http://example.com/MKOnlineMusicPlayerWeb%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8.html"><i class="fa fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://example.com/MKOnlineMusicPlayerWeb%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8.html&title=MKOnlineMusicPlayerWeb音乐播放器"><i class="fa fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://example.com/MKOnlineMusicPlayerWeb%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8.html&title=MKOnlineMusicPlayerWeb音乐播放器"><i class="fa fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://example.com/MKOnlineMusicPlayerWeb%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8.html&title=MKOnlineMusicPlayerWeb音乐播放器"><i class="fa fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://example.com/MKOnlineMusicPlayerWeb%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8.html&title=MKOnlineMusicPlayerWeb音乐播放器"><i class="fa fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://example.com/MKOnlineMusicPlayerWeb%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8.html&name=MKOnlineMusicPlayerWeb音乐播放器&description="><i class="fa fa-tumblr " aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
@@ -230,15 +230,15 @@
     <div id="nav-footer" style="display: none">
       <ul>
          
-          <li><a href="/blog/">Home</a></li>
+          <li><a href="/">Home</a></li>
          
-          <li><a href="/blog/archives/">Writing</a></li>
+          <li><a href="/archives/">Writing</a></li>
          
           <li><a target="_blank" rel="noopener" href="https://music.oocc.xyz/">Music</a></li>
          
           <li><a target="_blank" rel="noopener" href="https://tu.oocc.xyz/">Images</a></li>
          
-          <li><a href="/blog/about/">About</a></li>
+          <li><a href="/about/">About</a></li>
         
       </ul>
     </div>
@@ -249,16 +249,16 @@
 
     <div id="share-footer" style="display: none">
       <ul>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://example.com/blog/MKOnlineMusicPlayerWeb%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8.html"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://example.com/blog/MKOnlineMusicPlayerWeb%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8.html&text=MKOnlineMusicPlayerWeb音乐播放器"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://example.com/blog/MKOnlineMusicPlayerWeb%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8.html&title=MKOnlineMusicPlayerWeb音乐播放器"><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/blog/MKOnlineMusicPlayerWeb%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8.html&is_video=false&description=MKOnlineMusicPlayerWeb音乐播放器"><i class="fa fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=MKOnlineMusicPlayerWeb音乐播放器&body=Check out this article: http://example.com/blog/MKOnlineMusicPlayerWeb%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8.html"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://example.com/blog/MKOnlineMusicPlayerWeb%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8.html&title=MKOnlineMusicPlayerWeb音乐播放器"><i class="fa fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://example.com/blog/MKOnlineMusicPlayerWeb%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8.html&title=MKOnlineMusicPlayerWeb音乐播放器"><i class="fa fa-reddit fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://example.com/blog/MKOnlineMusicPlayerWeb%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8.html&title=MKOnlineMusicPlayerWeb音乐播放器"><i class="fa fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://example.com/blog/MKOnlineMusicPlayerWeb%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8.html&title=MKOnlineMusicPlayerWeb音乐播放器"><i class="fa fa-digg fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://example.com/blog/MKOnlineMusicPlayerWeb%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8.html&name=MKOnlineMusicPlayerWeb音乐播放器&description="><i class="fa fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://example.com/MKOnlineMusicPlayerWeb%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8.html"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://example.com/MKOnlineMusicPlayerWeb%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8.html&text=MKOnlineMusicPlayerWeb音乐播放器"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://example.com/MKOnlineMusicPlayerWeb%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8.html&title=MKOnlineMusicPlayerWeb音乐播放器"><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/MKOnlineMusicPlayerWeb%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8.html&is_video=false&description=MKOnlineMusicPlayerWeb音乐播放器"><i class="fa fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=MKOnlineMusicPlayerWeb音乐播放器&body=Check out this article: http://example.com/MKOnlineMusicPlayerWeb%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8.html"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://example.com/MKOnlineMusicPlayerWeb%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8.html&title=MKOnlineMusicPlayerWeb音乐播放器"><i class="fa fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://example.com/MKOnlineMusicPlayerWeb%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8.html&title=MKOnlineMusicPlayerWeb音乐播放器"><i class="fa fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://example.com/MKOnlineMusicPlayerWeb%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8.html&title=MKOnlineMusicPlayerWeb音乐播放器"><i class="fa fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://example.com/MKOnlineMusicPlayerWeb%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8.html&title=MKOnlineMusicPlayerWeb音乐播放器"><i class="fa fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://example.com/MKOnlineMusicPlayerWeb%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8.html&name=MKOnlineMusicPlayerWeb音乐播放器&description="><i class="fa fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
@@ -284,15 +284,15 @@
     <nav>
       <ul>
          
-          <li><a href="/blog/">Home</a></li>
+          <li><a href="/">Home</a></li>
          
-          <li><a href="/blog/archives/">Writing</a></li>
+          <li><a href="/archives/">Writing</a></li>
          
           <li><a target="_blank" rel="noopener" href="https://music.oocc.xyz/">Music</a></li>
          
           <li><a target="_blank" rel="noopener" href="https://tu.oocc.xyz/">Images</a></li>
          
-          <li><a href="/blog/about/">About</a></li>
+          <li><a href="/about/">About</a></li>
         
       </ul>
     </nav>
@@ -307,25 +307,25 @@
 </html>
 <!-- styles -->
 
-<link rel="stylesheet" href="/blog/lib/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 
 
-<link rel="stylesheet" href="/blog/lib/meslo-LG/styles.css">
+<link rel="stylesheet" href="/lib/meslo-LG/styles.css">
 
 
-<link rel="stylesheet" href="/blog/lib/justified-gallery/justifiedGallery.min.css">
+<link rel="stylesheet" href="/lib/justified-gallery/justifiedGallery.min.css">
 
 
 
 <!-- jquery -->
 
-<script src="/blog/lib/jquery/jquery.min.js"></script>
+<script src="/lib/jquery/jquery.min.js"></script>
 
 
-<script src="/blog/lib/justified-gallery/jquery.justifiedGallery.min.js"></script>
+<script src="/lib/justified-gallery/jquery.justifiedGallery.min.js"></script>
 
 
-<script src="/blog/js/main.js"></script>
+<script src="/js/main.js"></script>
 
 <!-- Google Analytics -->
 
