@@ -1388,9 +1388,9 @@ a:hover {
   cursor: url("/images/02.cur"), pointer;
 }
 body {
-  background: url("/images/man.gif");
+  background: url("/images/bj.jpg");
   background-repeat: no-repeat;
   background-attachment: fixed;
-/*background-size: cover;*/
-  background-position: 0% 100%;
+  background-size: cover;
+  background-position: 50% 50%;
 }
